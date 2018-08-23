@@ -71,8 +71,47 @@ class Halberd : public Weapon {
 };
 
 //its... a bucket.
-class Bucket : public Weapon {
+class Bucket : public Armor {
 	int armor = 2;
 	int cost = 5;
 	int sell = 3;
+};
+
+//trashcan lid
+class CanLid : public Armor {
+	int armor = 4;
+	int cost = 5;
+	int sell = 3;
+};
+
+//how about chainmale?
+class ChainMale : public Armor {
+	int armor = 8;
+	int cost = 10;
+	int sell = 5;
+};
+
+//lets add a med kit
+class MedKit : public Consumable {
+	int HP = 60;
+	string effect = "Restore";
+};
+
+//more healing items
+class Apple : public Consumable {
+	int HP = 10;
+	string effect = "Restore";
+};
+
+//bananananana
+class Banana : public Consumable {
+	int HP = 15;
+	string effect = "Restore";
+};
+
+//lets make another armor set
+class PlateMail : public Armor {
+	int armor = 20;
+	int cost = 30;
+	int sell = 15;
 };
