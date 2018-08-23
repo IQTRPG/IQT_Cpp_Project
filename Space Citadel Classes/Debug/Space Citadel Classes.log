@@ -1,0 +1,5 @@
+﻿  MainGame.cpp
+c:\users\dotlaptop\source\repos\space citadel classes\space citadel classes\items.h(38): warning C4552: '-': operator has no effect; expected operator with side-effect
+c:\users\dotlaptop\source\repos\space citadel classes\space citadel classes\items.h(42): warning C4552: '+': operator has no effect; expected operator with side-effect
+c:\users\dotlaptop\source\repos\space citadel classes\space citadel classes\maingame.cpp(44): warning C4018: '<': signed/unsigned mismatch
+  Space Citadel Classes.vcxproj -> C:\Users\DOTlaptop\source\repos\Space Citadel Classes\Debug\Space Citadel Classes.exe
