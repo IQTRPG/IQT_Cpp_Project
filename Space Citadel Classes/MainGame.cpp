@@ -9,6 +9,7 @@
 #include "item_sub.h"
 #include "Enemies.h"
 #include "enemy_sub.h"
+#include "Class_Generation.h"
 using namespace std;
 
 void typeIt(string it, int x, bool y);
@@ -22,7 +23,7 @@ int main()
 	//begin the story
 	string it = "The year is 4018. The human race has crossed into the final frontier, and discovered that space wasn't very lonely.";
 	typeIt(it, 75, 1);
-	it = "Indeed, it was populated with all manner of beings. One such was the famous Cap'n Slap. A renowned space pirate, he had quit his less - than noble career in favor of a better one - being a game host. You are…… who are you again ?";
+	it = "Indeed, it was populated with all manner of beings. One such was the famous Cap'n Slap. A renowned space pirate, he had quit his less - than noble career in favor of a better one - being a game host. You are... who are you again?";
 	typeIt(it, 75, 1);
 	cout << "_SELECT NAME_" << endl;
 	cout << "1.) Greasy McFry" << endl;
@@ -47,10 +48,10 @@ int main()
 		break;
 	}
 
-	cout << "Ah, " << name << ".What is your story ?" << endl;
+	cout << "Ah, " << name << " . What is your story?" << endl;
 	cout << "_SELECT USELESS BACKGROUND_" << endl;
 	cout << "1.) I am a Veteran of the United States Space Force." << endl;
-	cout << "2.) I am a masked Vigilante from Go- I mean Space Detroit." << endl;
+	cout << "2.) I am a masked Vigilante. The protector of Go- I mean Space Detroit." << endl;
 	cout << "3.) I am a random person with some boring backstory." << endl;
 	cin >> selection;
 
@@ -66,16 +67,13 @@ int main()
 		break;
 	}
 	
-	it = "Oh. That’s….. nice? Either way, welcome to Cap’n Slap’s Space Citadel, the most popular game show in 4 quadrants! Cap’n Slap has invited you to this somewhat lovely place to try and earn fame and glory! And maybe not die!";
+	it = "Oh. That's.... nice? Either way, welcome to Cap'n Slap's Space Citadel, the most popular game show in 4 quadrants! Cap'n Slap has invited you to this somewhat lovely place to try and earn fame and glory! And maybe not die!";
 	typeIt(it, 75, 1);
 	cout << "_SELECT CLASS_" << endl;
 	cout << "1.) Inter-Galactic Idiot" << endl;
 	cout << "2.) Space-Ranger" << endl;
 	cout << "3.) CloudTrooper" << endl;
 	cin >> selection;
-
-	//player selection done right
-	Player Selected;
 
 	//now create the actual player with their name
 	switch(selection)
@@ -96,11 +94,6 @@ int main()
 		break;
 	}
 
-	//create the starting items
-	Stick stickyStick;
-	RedPotion HealthUp;
-	Bucket bucket;
-
 	//player creation yo
 	if (selection == 1)
 	{
@@ -108,9 +101,9 @@ int main()
 		Player1.Name = name;
 		
 		//add the starting items
-		Player1.Backpack[1] = stickyStick;
-		Player1.Backpack[2] = HealthUp;
-		Player1.Backpack[3] = bucket;
+		Player1.Backpack[0] = stickyStick;
+		Player1.Backpack[1] = HealthUp;
+		Player1.Backpack[2] = bucket;
 	}
 	else if (selection == 2)
 	{
@@ -118,9 +111,9 @@ int main()
 		Player1.Name = name;
 
 		//add the starting items
-		Player1.Backpack[1] = stickyStick;
-		Player1.Backpack[2] = HealthUp;
-		Player1.Backpack[3] = bucket;
+		Player1.Backpack[0] = stickyStick;
+		Player1.Backpack[1] = HealthUp;
+		Player1.Backpack[2] = bucket;
 	}
 	else if (selection == 3)
 	{
@@ -128,9 +121,9 @@ int main()
 		Player1.Name = name;
 
 		//add the starting items
-		Player1.Backpack[1] = stickyStick;
-		Player1.Backpack[2] = HealthUp;
-		Player1.Backpack[3] = bucket;
+		Player1.Backpack[0] = stickyStick;
+		Player1.Backpack[1] = HealthUp;
+		Player1.Backpack[2] = bucket;
 	}
 	
 	it = "-Cap’n Slap has arrived to bid you greetings! Or farewell! Or both!-";
