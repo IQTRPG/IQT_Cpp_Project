@@ -74,3 +74,29 @@ class BritishRobot : public Enemy {
 	int INT = 10; //intelligence, affects mp and magic damage
 	int LUCK = 4; //luck, affects dodge chance
 };
+
+//gotta add evil spiders
+class Spider : public Enemy {
+	int HP = 20; //health points, will be assigned by class
+	int MP = 10; //magic points, assigned by class and affects how often you can use spells
+	int DEF = 12; //defense, can be changed by armor value
+	int armor = 5; //changes based on armor equipped
+	int AGI = 12; //agility, affected by armor possibly, affects crit chance
+	int STR = 6; //strength, affected by weapons, affects damage
+	int CAR = 0; //charisma, affects shop prices maybe?
+	int INT = 8; //intelligence, affects mp and magic damage
+	int LUCK = 3; //luck, affects dodge chance
+};
+
+//sorry arachnaphobics
+class Arachne : public Spider {
+	int HP = 40; //health points, will be assigned by class
+	int MP = 20; //magic points, assigned by class and affects how often you can use spells
+	int DEF = 24; //defense, can be changed by armor value
+	int armor = 10; //changes based on armor equipped
+	int AGI = 24; //agility, affected by armor possibly, affects crit chance
+	int STR = 12; //strength, affected by weapons, affects damage
+	int CAR = 0; //charisma, affects shop prices maybe?
+	int INT = 16; //intelligence, affects mp and magic damage
+	int LUCK = 6; //luck, affects dodge chance
+};
