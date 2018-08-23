@@ -129,7 +129,7 @@ int makeGrid(int x, int y)
 		{
 			if (map1[i][j] == '#')
 			{
-				color();
+				color_megenta();
 			}
 
 			std::cout << map1[i][j];
