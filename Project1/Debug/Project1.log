@@ -1,5 +1,0 @@
-﻿  Source.cpp
-c:\users\dotlaptop\desktop\git\c-programming\cpp-programming\project1\project1\source.cpp(280): warning C4715: 'printHealth': not all control paths return a value
-c:\users\dotlaptop\desktop\git\c-programming\cpp-programming\project1\project1\source.cpp(313): warning C4715: 'printXp': not all control paths return a value
-c:\users\dotlaptop\desktop\git\c-programming\cpp-programming\project1\project1\source.cpp(377): warning C4715: 'printGold': not all control paths return a value
-  Project1.vcxproj -> C:\Users\DOTlaptop\Desktop\git\C-Programming\Cpp-Programming\Project1\Debug\Project1.exe
