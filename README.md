@@ -2,4 +2,6 @@
 Rpg Adventure Project
 
 Burrights files
+
+git checkout -b burright
 git push --set-upstream https://github.com/IQTRPG/IQT_Cpp_Project.git burright
