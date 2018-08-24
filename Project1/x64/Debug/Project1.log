@@ -1,17 +1,17 @@
 ﻿  Source.cpp
-c:\users\dotlaptop\desktop\group project\project1\source.cpp(272): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-c:\users\dotlaptop\desktop\group project\project1\source.cpp(312): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+c:\users\dotlaptop\desktop\group project\project1\source.cpp(215): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+c:\users\dotlaptop\desktop\group project\project1\source.cpp(255): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+c:\users\dotlaptop\desktop\group project\project1\source.cpp(274): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+c:\users\dotlaptop\desktop\group project\project1\source.cpp(293): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+c:\users\dotlaptop\desktop\group project\project1\source.cpp(313): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
 c:\users\dotlaptop\desktop\group project\project1\source.cpp(331): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-c:\users\dotlaptop\desktop\group project\project1\source.cpp(350): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+c:\users\dotlaptop\desktop\group project\project1\source.cpp(339): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+c:\users\dotlaptop\desktop\group project\project1\source.cpp(347): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+c:\users\dotlaptop\desktop\group project\project1\source.cpp(362): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
 c:\users\dotlaptop\desktop\group project\project1\source.cpp(370): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-c:\users\dotlaptop\desktop\group project\project1\source.cpp(390): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-c:\users\dotlaptop\desktop\group project\project1\source.cpp(398): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-c:\users\dotlaptop\desktop\group project\project1\source.cpp(406): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-c:\users\dotlaptop\desktop\group project\project1\source.cpp(421): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-c:\users\dotlaptop\desktop\group project\project1\source.cpp(429): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-c:\users\dotlaptop\desktop\group project\project1\source.cpp(437): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-c:\users\dotlaptop\desktop\group project\project1\source.cpp(446): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-c:\users\dotlaptop\desktop\group project\project1\source.cpp(280): warning C4715: 'printHealth': not all control paths return a value
-c:\users\dotlaptop\desktop\group project\project1\source.cpp(320): warning C4715: 'printXp': not all control paths return a value
-c:\users\dotlaptop\desktop\group project\project1\source.cpp(381): warning C4715: 'printGold': not all control paths return a value
+c:\users\dotlaptop\desktop\group project\project1\source.cpp(378): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+c:\users\dotlaptop\desktop\group project\project1\source.cpp(387): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+c:\users\dotlaptop\desktop\group project\project1\source.cpp(223): warning C4715: 'printHealth': not all control paths return a value
+c:\users\dotlaptop\desktop\group project\project1\source.cpp(263): warning C4715: 'printXp': not all control paths return a value
+c:\users\dotlaptop\desktop\group project\project1\source.cpp(322): warning C4715: 'printGold': not all control paths return a value
   Project1.vcxproj -> C:\Users\DOTlaptop\Desktop\Group Project\x64\Debug\Project1.exe

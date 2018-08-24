@@ -42,39 +42,7 @@ void changeWeapon(int option);
 
 int main()
 {
-	
 	colorReset();
-
-	//std::cout << " Health [||||||||||||||||||     ]                                                              TASKS?                  " << std::endl;
-	//std::cout << "    XP? [||||||||||||||||||     ]                                                         -Punch alien in face         " << std::endl;
-	//std::cout << "                                       _________________________________________          -Probe ship commander        " << std::endl;
-	//std::cout << "______________________________________/_________________________________________\\______________________________________" << std::endl;
-	//std::cout << "._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._" << std::endl;
-	//std::cout << "._' ._' ._' ._' ._' ._' ._' ._' ._' ._' ._' ._' ._' ._' ._' ._' ._' ._' ._' ._' ._' ._' ._' ._' ._' ._' ._' ._' ._' ._'" << std::endl;
-	//std::cout << "._' ._' ._' ._' ._' ._' ._' ._' ._' ._' ._' ._' ._' ._' ._' ._' ._' ._' ._' ._' ._' ._' ._' ._' ._' ._' ._' ._' ._' ._'" << std::endl;
-	//std::cout << "._' ._' ._' ._' ._' ._' ._' ._' ._' ._' ._' ._' ._' ._' ._' ._' ._' ._' ._' ._' ._' ._' ._' ._' ._' ._' ._' ._' ._' ._'" << std::endl;
-	//std::cout << "._' ._' ._' ._' ._' ._' ._' ._' ._' ._' ._' ._' ._' ._' ._' ._' ._' ._' ._' ._' ._' ._' ._' ._' ._' ._' ._' ._' ._' ._'" << std::endl;
-	//std::cout << "._' ._' ._' ._' ._' ._' ._' ._' ._' ._' ._' ._' ._' ._' ._' ._' ._' ._' ._' ._' ._' ._' ._' ._' ._' ._' ._' ._' ._' ._'" << std::endl;
-	//std::cout << "._' ._' ._' ._' ._' ._' ._' ._' ._' ._' ._' ._' ._' ._' ._' ._' ._' ._' ._' ._' ._' ._' ._' ._' ._' ._' ._' ._' ._' ._'" << std::endl;
-	//std::cout << "._' ._' ._' ._' ._' ._' ._' ._' ._' ._' ._' ._' ._' ._' ._' ._' ._' ._' ._' ._' ._' ._' ._' ._' ._' ._' ._' ._' ._' ._'" << std::endl;
-	//std::cout << "                                                                                                                       " << std::endl;
-	//std::cout << "                                                                                                                       " << std::endl;
-	//std::cout << "                                                                                                                       " << std::endl;
-	//std::cout << "                                                                                                                       " << std::endl;
-	//std::cout << "mmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmn" << std::endl;
-	//std::cout << "mmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmn" << std::endl;
-	//std::cout << "mmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmn" << std::endl;
-	//std::cout << "mmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmn" << std::endl;
-	//std::cout << "mmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmn" << std::endl;
-	//std::cout << "mmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmn" << std::endl;
-	//std::cout << "mmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmn" << std::endl;
-	//std::cout << "mmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmn" << std::endl;
-	//std::cout << "_______________________________________________________________________________________________________________________" << std::endl;
-	//std::cout << "                                      \\_________________________________________/                                      " << std::endl;
-	//std::cout << " 1 - Open inventory    3 - Attack                                                                      Gold 66666     " << std::endl;
-	//std::cout << " 2 - Move              4 - Options                                                                                    " << std::endl;
-	//std::cout << "                                                                                                                      " << std::endl;
-	//std::cout << "Action: ";
 
 	int input = 0;
 
@@ -154,26 +122,7 @@ void map(char left, char center, char right, char LR, char CR, char RR, std::str
 	std::cout << "                                                                                                                      " << std::endl;
 	std::cout << "Action: ";
 	*/
-
-
-	//printHealth(1);
-	//printDialog1(text1);
-	//std::cout << "      TASKS?                  " << std::endl;
-	//printXp(1);
-	//printDialog2(text2);
-	//std::cout << "      -Punch alien in face         " << std::endl;
-	//std::cout << "                                       _________________________________________          -Probe ship commander        " << std::endl;
-	//std::cout << "______________________________________/_________________________________________\\______________________________________" << std::endl;
-
-	//scene(left, center, right, LR, CR, RR);
-
-	//std::cout << "_______________________________________________________________________________________________________________________" << std::endl;
-	//std::cout << " 1 - Open inventory    4 - Attack     \\_________________________________________/                                      " << std::endl;
-	//std::cout << " 2 - Move              5 - Options                                                                                    " << std::endl;
-	//std::cout << " 3 - View inventory    6 - View Map      Gold 1337                                                                    " << std::endl;
-	//std::cout << "                                                                                                                      " << std::endl;
-
-
+                                
 
 	printHealth(1);
 	std::cout << "|";
@@ -196,9 +145,11 @@ void map(char left, char center, char right, char LR, char CR, char RR, std::str
 	colorReset();
 	//////////////////
 	std::cout << "|";
-	std::cout << "        2. Punch Alien in face.    " << std::endl;
+	std::cout << "        ";
+	printTasks(2);
 	printGold(1);
-	std::cout << "             _________________________________________         3. Probe ship commander.      " << std::endl;
+	std::cout << "             _________________________________________         ";
+	printTasks(3);
 	std::cout << "______________________________________/_________________________________________\\______________________________________" << std::endl;
 
 	scene(left, center, right, LR, CR, RR);
@@ -366,8 +317,6 @@ int printGold(int option)
 		//std::cout << text;
 		//std::cout << '|';
 
-
-		
 		return gold;
 	}
 }
