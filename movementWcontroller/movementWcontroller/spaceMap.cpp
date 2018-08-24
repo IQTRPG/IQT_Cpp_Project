@@ -4,12 +4,13 @@
 #include <time.h>
 #include "colorChange.h"
 #include "controllerOut.h"
+#include "scene.h"
 
 
 
 
 char getMove();
-int makeGrid(int x, int y);
+int makeGrid(int x, int y, char lastDir);
 char map1[20][30];
 int checkMove(char map1);
 
@@ -22,30 +23,32 @@ int main()
 	int x = 19, y = 15;
 	int lastx, lasty;
 	int theMove;
-
-
+	char lastDir='^';
+	char backUpLastDir = '^';
 	std::cout << "\n";
 
 	while (true)//currently loops through and gets next move and prints the map will go until they find the astrics can be changed later
 	{
 		if (victory == 0)
 		{
+			backUpLastDir = lastDir;
 			a = getMovementDirection(joyinfoex);
 			Sleep(150);
-			if (a == 'L')lasty = y++;
-			if (a == 'R') lasty = y--;
-			if (a == 'D') lastx = x++;
-			if (a == 'U') lastx = x--;
-			theMove=makeGrid(x,y);
+			if (a == 'L') {lasty = y++; lastDir = '>'; }
+			if (a == 'R') {lasty = y--; lastDir = '<';}
+			if (a == 'D') {lastx = x++; lastDir = 'v'; }
+			if (a == 'U') {lastx = x--; lastDir = '^'; }
+			theMove=makeGrid(x,y,lastDir);
 			if (theMove == 1)
 			{
-				if (a == 'L')lasty = y--;
-				if (a == 'R') lasty = y++;
-				if (a == 'D') lastx = x--;
-				if (a == 'U') lastx = x++;
+				if (a == 'L') { lasty = y--; backUpLastDir; }
+				if (a == 'R') { lasty = y++; backUpLastDir; }
+				if (a == 'D') { lastx = x--; backUpLastDir; }
+				if (a == 'U') { lastx = x++; backUpLastDir; }
 			}
 			else if(theMove==2)
 			{
+				backUpLastDir = lastDir;
 				break;
 			}
 		}
@@ -80,7 +83,7 @@ char getMove()
 }
 
 //this will make the first room map and move the player icon through based on commands
-int makeGrid(int x, int y)
+int makeGrid(int x, int y, char lastDir)
 {
 	int checkValue = 1;
 
@@ -123,7 +126,7 @@ int makeGrid(int x, int y)
 	system("cls");//clears the screen so the next print out will be at the top
 	int centerX = x;
 	int centerY = y;
-	map1[x][y] = '>';//sets the player icon to the new location
+	map1[x][y] = lastDir;//sets the player icon to the new location
 	std::cout << "\n\n\n";
 	for (int i = (centerX - 3); i < (centerX + 3); i++) {
 		std::cout << "\t\t\t";

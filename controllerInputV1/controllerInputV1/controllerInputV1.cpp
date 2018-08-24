@@ -20,7 +20,7 @@ int main()
 	JOYINFOEX joyinfoex;
 	MMRESULT joygetposex_result = joyGetPosEx(JOYSTICKID1, &joyinfoex);
 	Sleep(700);
-	std::cout << joyinfoex.dwButtons;
+	std::cout << joyinfoex.dwXpos;
 	Sleep(700);
 	while (true)
 	{
@@ -67,7 +67,14 @@ char getButtonPress(JOYINFOEX &joyinfoex)
 	{
 		return 'K';
 	}
-
+	else if (joyinfoex.dwButtons == 256)
+	{
+		return 'E';
+	}
+	else if (joyinfoex.dwButtons == 512)
+	{
+		return 'S';
+	}
 	return 0;
 }
 

@@ -117,6 +117,8 @@
   <ItemGroup>
     <ClInclude Include="colorChange.h" />
     <ClInclude Include="controllerOut.h" />
+    <ClInclude Include="display.h" />
+    <ClInclude Include="scene.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="spaceMap.cpp" />

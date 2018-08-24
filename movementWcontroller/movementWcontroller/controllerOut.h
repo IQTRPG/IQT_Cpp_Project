@@ -9,6 +9,7 @@
 
 char getButtonPress(JOYINFOEX &joyinfoex)
 {
+	char a = 0;
 	MMRESULT joygetposex_result = joyGetPosEx(JOYSTICKID1, &joyinfoex);
 	if (joyinfoex.dwButtons == 1)
 	{
@@ -34,9 +35,19 @@ char getButtonPress(JOYINFOEX &joyinfoex)
 	{
 		return 'K';
 	}
+	else if (joyinfoex.dwButtons == 256)
+	{
+		return 'E';//select button
+	}
+	else if (joyinfoex.dwButtons == 512)
+	{
+		return 'S';//start button
+	}
 
 	return 0;
 }
+
+
 
 char getMovementDirection(JOYINFOEX &joyinfoex)
 {
@@ -57,5 +68,53 @@ char getMovementDirection(JOYINFOEX &joyinfoex)
 	{
 		return 'U';
 	}
-	return 0;
+	/////////////////////////////////////////////////////////////
+	//defualt controls
+	char b = 0;
+	char a = 0;
+	std::string input;
+	MMRESULT unplugged1 = joyGetPosEx(JOYSTICKID1, &joyinfoex) == JOYERR_UNPLUGGED;
+	if (unplugged1==TRUE)
+	{
+		while (true)
+		{
+			//Reverify that the age is of the appropriate type
+			std::getline(std::cin, input);
+			std::stringstream myStream(input);
+			if (myStream >> a)
+			{
+				break;
+			}
+			//std::cout << "Invalid number, please try again" << std::endl;
+		}
+		//a = getchar();
+		tolower(a);
+		if (a == 'a')
+		{
+			return 'R';
+		}
+		else if (a == 'd')
+		{
+			return 'L';
+		}
+		else if (a == 'w')
+		{
+			return 'U';
+		}
+		else if (a == 's')
+		{
+			return 'D';
+		}
+		return 0;
+	}
+
+	return 0;	
 }
+
+
+
+/*
+
+
+
+*/

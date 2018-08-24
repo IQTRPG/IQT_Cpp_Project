@@ -1,0 +1,5 @@
+﻿  tests.cpp
+c:\users\dotlaptop\desktop\iqtrpg\tests\tests\tests.cpp(35): warning C4244: 'initializing': conversion from 'double' to 'char', possible loss of data
+c:\users\dotlaptop\desktop\iqtrpg\tests\tests\tests.cpp(11): warning C4244: 'initializing': conversion from 'double' to 'char', possible loss of data
+  c:\users\dotlaptop\desktop\iqtrpg\tests\tests\tests.cpp(30): note: see reference to function template instantiation 'void func<5,5>(double (&)[5][5])' being compiled
+  tests.vcxproj -> C:\Users\DOTlaptop\Desktop\IQTRPG\tests\Debug\tests.exe

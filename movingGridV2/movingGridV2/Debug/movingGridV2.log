@@ -1,0 +1,5 @@
+﻿  spaceMap.cpp
+c:\users\dotlaptop\desktop\iqtrpg\movinggridv2\movinggridv2\display.h(254): warning C4715: 'printHealth': not all control paths return a value
+c:\users\dotlaptop\desktop\iqtrpg\movinggridv2\movinggridv2\display.h(294): warning C4715: 'printXp': not all control paths return a value
+c:\users\dotlaptop\desktop\iqtrpg\movinggridv2\movinggridv2\display.h(353): warning C4715: 'printGold': not all control paths return a value
+  movingGridV2.vcxproj -> C:\Users\DOTlaptop\Desktop\IQTRPG\movingGridV2\Debug\movingGridV2.exe
