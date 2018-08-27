@@ -20,8 +20,14 @@ public :
 	int LUCK = 0; //luck, affects dodge chance
 	int XP = 0; //x-perience points needed to level up
 	int gold = 0; //available money you've earned
-	string Name = "";
-	Item Backpack[6] = {};
+	int xPos = 0;
+	int yPos = 0;
+	string Name = ""; //the name of the bro
+	string Status = ""; //yeah boi the stats be back
+	Item Backpack[6] = {}; //backpack holds 6 items, with 3 being filled at start
+	Item CurrentWeapon = Backpack[0]; //this will be the current displayed weapon
+	Item CurrentArmor = Backpack[1];
+	Item KeyItem = Backpack[2]; //key item for opening doors, will be changed whenever the player picks up another "key item"
 
 	//display the user's stats when requested
 	void display_stats() {
@@ -36,8 +42,9 @@ public :
 	}
 
 	//allows the character to move
-	void move() {
-		//input move code here
+	void position(int xpos, int ypos) {
+		xPos = xpos;
+		yPos = ypos;
 	}
 
 	int equip_armor(int AC)
@@ -48,7 +55,12 @@ public :
 	}
 
 	void inventory(){
-		//input inventory code here
+		cout << "Weapon: " << Backpack[0].name << endl;
+		cout << "Armor: " << Backpack[1].name << endl;
+		cout << "Key Item: " << Backpack[2].name << endl;
+		cout << "Slot 2: " << Backpack[3].name << endl;
+		cout << "Slot 3: " << Backpack[4].name << endl;
+		cout << "Slot 4: " << Backpack[5].name << endl;
 	}
 
 	void options_menu() {
@@ -58,5 +70,48 @@ public :
 	void attack()
 	{
 		//initiate battle code
+	}
+
+	void applyStatus(string effect)
+	{
+		//here is where we mess with the status depending upon what the player was hit with
+		//if (effect == )
+	}
+
+	void statusReport(string status){
+		//here is where we check for a status during the player's turn, then act upon it
+	}
+
+	void UseItem(Consumable con)
+	{
+		//when an item is used, remove it from the inventory
+		if (con.uses == 0)
+		{
+			cout << "You're out of uses!" << endl;
+		}
+		else 
+		{
+			con.uses--;
+		}
+	}
+
+	void addUses(Consumable con)
+	{
+		if (con.uses == 9)
+		{
+			cout << "You can't hold anymore of that item";
+		}
+		else 
+		{
+			con.uses++;
+		}
+	}
+
+	void keyItemPickup(Player p1, string keyItem, Item key)
+	{
+		if (keyItem == "Key Item")
+		{
+			Backpack[2] = key;
+		}
 	}
 };
