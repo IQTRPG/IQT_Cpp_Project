@@ -8,12 +8,9 @@ using namespace std;
 */
 
 class Item {
+public:
 	//the master class that does literally nothing but holding all the other items inside it. hooray inheritance!
-};
-
-class Consumable : public Item {
-	int uses = 0; //how many times an item can be used
-	string ItemName = ""; //dynamically pass the name of the item, such as keycards
+	string name = ""; //the name of the item
 };
 
 class Potion : public Item {
@@ -46,6 +43,12 @@ public:
 	}
 };
 
+class Consumable : public Potion {
+public:
+	int uses = 0; //how many times an item can be used
+	string ItemName = ""; //dynamically pass the name of the item, such as keycards
+};
+
 class Weapon : public Item
 {
 	int dmg = 0; //natural damage of a weapon
@@ -62,4 +65,9 @@ class Armor : public Item
 	int armor = 0; //armor value, added to a player based upon the value of the armor types
 	int cost = 0;
 	int sell = 0;
+};
+
+class Key : public Item
+{
+	string name = ""; //keys do absolutely nothing, but stop someone from entering if the name is different
 };
