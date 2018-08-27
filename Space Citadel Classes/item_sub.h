@@ -2,6 +2,7 @@
 #include "Items.h"
 #include <iostream>
 #include <string>
+using namespace std;
 
 /*
 	Tada here is where we have the variants of potions, weapons, and armor
@@ -10,6 +11,7 @@
 //its a bottle of red stuff. totally drink that
 class RedPotion : public Potion
 {
+	string Name = "Red Potion";
 	int HP = 20;
 	string effect = "Restore";
 };
@@ -17,19 +19,36 @@ class RedPotion : public Potion
 //bottle o' green stuff. probably dont drink
 class GreenPotion : public Potion
 {
+	string Name = "Green Potion";
 	int HP = 10;
 	string effect = "Poison";
+};
+
+//liquor. heal em up!
+class Liqour : public Potion {
+	int HP = 15;
+	string effect = "Restore";
 };
 
 //normal sword
 class Sword : public Weapon
 {
+	string name = "Iron Blade";
 	int dmg = 7;
 	int cost = 10;
 	int sell = 5;
 };
 
-class Stick : public Weapon {
+class Probe : public Weapon
+{
+	string name = "Rusty Metal Probe";
+	int dmg = 10;
+	int cost = 10;
+	int sell = 5;
+};
+
+class Stick : public Sword {
+	string name = "Sticky Stick";
 	int dmg = 3;
 	int cost = 1;
 	int sell = 1;
@@ -37,6 +56,7 @@ class Stick : public Weapon {
 
 //variant of sword
 class Cutlass : public Sword {
+	string name = "Slashy-Boi";
 	int dmg = 20;
 	int cost = 15;
 	int sell = 8;
@@ -44,6 +64,7 @@ class Cutlass : public Sword {
 
 //another variant of sword
 class Scimitar : public Sword {
+	string name = "Scimitar";
 	int dmg = 25;
 	int cost = 20;
 	int sell = 10;
@@ -51,6 +72,7 @@ class Scimitar : public Sword {
 
 //rock out with ya glock out
 class Glock : public Weapon {
+	string name = "Tricera- Glock";
 	int dmg = 10;
 	int cost = 10;
 	int sell = 5;
@@ -58,6 +80,7 @@ class Glock : public Weapon {
 
 //for those older people
 class HasselSawedOff : public Weapon {
+	string name = "Hassel Sawed-Off";
 	int dmg = 30;
 	int cost = 20;
 	int sell = 10;
@@ -65,6 +88,7 @@ class HasselSawedOff : public Weapon {
 
 //its a spear! and an Axe! and a hammer!
 class Halberd : public Weapon {
+	string name = "Steel Halberd";
 	int dmg = 20;
 	int cost = 15;
 	int sell = 8;
@@ -114,4 +138,11 @@ class PlateMail : public Armor {
 	int armor = 20;
 	int cost = 30;
 	int sell = 15;
+};
+
+//destroy faces
+class FaceDestoryer : public Sword {
+	int dmg = 50;
+	int cost = 100;
+	int sell = 50;
 };
