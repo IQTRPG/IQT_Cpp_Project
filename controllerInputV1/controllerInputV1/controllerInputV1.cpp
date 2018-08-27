@@ -61,6 +61,7 @@ char getButtonPress(JOYINFOEX &joyinfoex)
 	}
 	else if (joyinfoex.dwButtons == 16)
 	{
+		
 		return 'J';
 	}
 	else if (joyinfoex.dwButtons == 32)

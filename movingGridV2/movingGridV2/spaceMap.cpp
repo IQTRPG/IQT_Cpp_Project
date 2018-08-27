@@ -14,6 +14,8 @@ char getMove();
 int makeGrid(int x, int y, char lastDir);
 char map1[22][30];
 int checkMove(char map1);
+char turn(char lastDir, char button);
+char newMoveController(int x, int y, char lastDir);
 
 int main()
 {
@@ -22,6 +24,7 @@ int main()
 	JOYINFOEX joyinfoex;
 	int victory = 0;
 	char a = 1;
+	char b = 1;
 	int x = 19, y = 15;
 	int lastx, lasty;
 	int theMove=3;
@@ -35,18 +38,31 @@ int main()
 		{
 			backUpLastDir = lastDir;
 			a = getMovementDirection(joyinfoex);
+			b = getButtonPress(joyinfoex);
 			Sleep(150);
 			if (a == 'L') {lasty = y++; lastDir = '>'; }
 			if (a == 'R') {lasty = y--; lastDir = '<';}
 			if (a == 'D') {lastx = x++; lastDir = 'v'; }
 			if (a == 'U') {lastx = x--; lastDir = '^'; }
+		
+			if (b == 'J' || b == 'K')
+			{
+				std::cout << " " << lastDir;
+				lastDir = turn(lastDir, b);
+				
+				std::cout << " " << lastDir;
+			}
+		
+			theMove = makeGrid(x, y, lastDir);
+			
+			/*
 			if (a != 0)
 			{
 				theMove = makeGrid(x, y, lastDir);
 				//display();
 			}
 
-
+			*/
 			if (theMove == 1)
 			{
 				if (a == 'L') { lasty = y--; backUpLastDir; }
@@ -59,14 +75,14 @@ int main()
 				backUpLastDir = lastDir;
 				break;
 			}
-			a = 0;
+			//a = 0;
 		}
 	}
 	getchar(); getchar();
 	return 0;
 }
 
-//this function gets the move from the player a,s,d,w
+//this function gets the move from the player a,s,d,w or the controller
 char getMove()
 {
 	char a = 1;
@@ -78,7 +94,7 @@ char getMove()
 	std::cout << "	w for up";
 		while (true)
 		{
-			//Reverify that the age is of the appropriate type
+			//Reverify that the input is correct type
 			std::getline(std::cin, input);
 			std::stringstream myStream(input);
 			if (myStream >> a && a =='a'|| a=='d'||a=='s'||a=='w')
@@ -97,33 +113,33 @@ int makeGrid(int x, int y, char lastDir)
 	int checkValue = 1;
 	std::vector<char> nextMap;
 	char map1[22][30]{
-		'W','W','W','W','W','W','W','W','W','W','W','W','W','W','W','W','W','W','W','W','W','W','W','W','W','W','W','W','W','W',
-		'W','*','W','W','W','W','W','W','W','W','W','W','W','W','W','W','W','W','W','W','W','W','W','W','W','W','W','W','W','W',
-		'W','O','W','W','W','W','W','W','W','W','W','W','W','W','W','W','W','W','W','W','W','W','W','W','W','W','W','W','W','W',
-		'W','O','W','W','W','W','W','W','W','W','W','W','W','W','W','W','W','W','W','W','W','W','W','W','W','W','W','W','W','W',
-		'W','O','W','W','W','W','W','W','W','W','W','W','W','W','W','W','W','W','W','W','W','W','W','W','W','W','W','W','W','W',
-		'W','O','O','O','O','O','O','O','D','O','O','O','W','W','W','W','W','W','W','W','W','W','W','W','W','W','W','W','W','W',
-		'W','W','W','W','W','W','W','W','W','W','W','O','W','W','O','O','O','O','O','O','O','O','W','W','W','W','W','W','W','W',
-		'W','W','W','W','W','W','W','W','W','W','W','O','W','W','O','W','W','W','W','W','W','O','W','W','W','W','W','W','W','W',
-		'W','W','W','W','W','W','W','W','W','W','W','O','W','W','O','W','W','W','W','W','W','O','W','W','W','W','W','W','W','W',
-		'W','W','W','W','W','W','W','W','W','W','W','O','W','W','O','W','W','W','W','W','W','O','W','W','W','W','W','W','W','W',
-		'W','W','W','W','W','W','W','W','W','W','W','O','W','W','O','W','W','W','W','W','W','O','W','W','W','W','W','W','W','W',
-		'W','W','W','W','W','W','W','W','W','W','W','O','W','W','O','W','W','W','W','W','W','O','W','W','W','W','W','W','W','W',
-		'W','W','W','W','W','W','W','W','W','W','W','O','O','O','O','W','W','W','W','W','W','O','W','W','W','W','W','W','W','W',
-		'W','W','W','W','W','W','W','W','W','W','W','W','W','W','W','W','O','O','O','O','O','O','O','W','W','W','W','W','W','W',
-		'W','W','W','W','W','W','W','W','W','W','W','W','W','W','W','W','O','O','O','O','O','O','O','W','W','W','W','W','W','W',
-		'W','W','W','W','W','W','W','W','W','W','W','W','W','W','W','W','O','O','O','O','O','O','O','W','W','W','W','W','W','W',
-		'W','W','W','W','W','W','W','W','W','W','W','W','W','W','W','W','O','O','O','O','O','O','O','W','W','W','W','W','W','W',
-		'W','W','W','W','W','W','W','W','W','W','W','W','W','W','W','W','O','W','W','W','W','W','W','W','W','W','W','W','W','W',
-		'W','W','W','W','W','W','W','W','W','W','W','W','W','W','W','W','O','W','W','W','W','W','W','W','W','W','W','W','W','W',
-		'W','W','W','W','W','W','W','W','W','W','W','W','W','O','O','O','O','O','O','W','W','W','W','W','W','W','W','W','W','W',
-		'W','W','W','W','W','W','W','W','W','W','W','W','W','O','O','O','O','O','O','W','W','W','W','W','W','W','W','W','W','W',
-		'W','W','W','W','W','W','W','W','W','W','W','W','W','W','W','W','W','W','W','W','W','W','W','W','W','W','W','W','W','W',
+		'W','W','W','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X',
+		'W','*','W','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X',
+		'W','O','W','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X',
+		'W','O','W','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X',
+		'W','O','W','W','W','W','W','W','W','W','W','W','W','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X',
+		'W','O','O','O','O','O','O','O','D','O','O','O','W','W','W','W','W','W','W','W','W','W','W','X','X','X','X','X','X','X',
+		'W','W','W','W','W','W','W','W','W','W','W','O','W','W','O','O','O','O','O','O','O','O','W','X','X','X','X','X','X','X',
+		'X','X','X','X','X','X','X','X','X','X','W','O','W','W','O','W','W','W','W','W','W','O','W','X','X','X','X','X','X','X',
+		'X','X','X','X','X','X','X','X','X','X','W','O','W','W','O','W','X','X','X','X','W','O','W','X','X','X','X','X','X','X',
+		'X','X','X','X','X','X','X','X','X','X','W','O','W','W','O','W','X','X','X','X','W','O','W','X','X','X','X','X','X','X',
+		'X','X','X','X','X','X','X','X','X','X','W','O','W','W','O','W','X','X','X','X','W','O','W','X','X','X','X','X','X','X',
+		'X','X','X','X','X','X','X','X','X','X','W','O','W','W','O','W','X','X','X','X','W','O','W','X','X','X','X','X','X','X',
+		'X','X','X','X','X','X','X','X','X','X','W','O','O','O','O','W','W','W','W','W','W','O','W','X','X','X','X','X','X','X',
+		'X','X','X','X','X','X','X','X','X','X','W','W','W','W','W','W','O','O','O','O','O','O','W','X','X','X','X','X','X','X',
+		'X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','W','O','W','W','W','W','W','W','X','X','X','X','X','X','X',
+		'X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','W','O','W','X','X','X','X','X','X','X','X','X','X','X','X',
+		'X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','W','O','W','X','X','X','X','X','X','X','X','X','X','X','X',
+		'X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','W','O','W','X','X','X','X','X','X','X','X','X','X','X','X',
+		'X','X','X','X','X','X','X','X','X','X','X','X','W','W','W','W','O','W','W','W','X','X','X','X','X','X','X','X','X','X',
+		'X','X','X','X','X','X','X','X','X','X','X','X','W','O','O','O','O','O','O','W','X','X','X','X','X','X','X','X','X','X',
+		'X','X','X','X','X','X','X','X','X','X','X','X','W','W','W','W','W','W','W','W','X','X','X','X','X','X','X','X','X','X',
+		'X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X',
 	};
 
 	nextMap=passGrid(map1,x,y, lastDir);
 	checkValue = checkMove(map1[x][y]);//makes sure the move is allowed
-	map(nextMap[0], nextMap[1], nextMap[2], nextMap[3], nextMap[4], nextMap[5],"t","t");
+	map(nextMap[0], nextMap[1], nextMap[2], nextMap[3], nextMap[4], nextMap[5], nextMap[6],nextMap[7],"t","t");
 	if (checkValue == 1)
 	{
 		return 1;
@@ -133,6 +149,10 @@ int makeGrid(int x, int y, char lastDir)
 		std::cout << "Victory!";
 		return 2;
 	}
+	std::cout << nextMap[0] << " " << nextMap[1] << " " << nextMap[2];
+	std::cout << nextMap[3] << " " << nextMap[4] << " " << nextMap[5];
+	std::cout << " " << lastDir;
+	Sleep(1500);
 	system("cls");//clears the screen so the next print out will be at the top
 	int centerX = x;
 	int centerY = y;
@@ -178,7 +198,26 @@ int checkMove(char map1)
 
 
 
+char turn(char lastDir, char button)
+{
+	char dirChange=lastDir;
+	if (button == 'J')
+	{
+		if (lastDir = '>') { dirChange = '^'; return dirChange;}
+		if (lastDir = '^') { dirChange = '<'; return dirChange;}
+		if (lastDir = '<') { dirChange = 'v'; return dirChange;}
+		if (lastDir = 'v') { dirChange = '>'; return dirChange;}
+	}
 
+	if (button == 'K')
+	{
+		if (lastDir = '>') { dirChange = 'v'; return dirChange;}
+		if (lastDir = 'v') { dirChange = '<'; return dirChange;}
+		if (lastDir = '<') { dirChange = '^'; return dirChange;}
+		if (lastDir = '^') { dirChange = '>'; return dirChange;}
+	}
+	return dirChange;
+}
 
 
 
@@ -213,3 +252,5 @@ y--;
 
 
 */
+
+

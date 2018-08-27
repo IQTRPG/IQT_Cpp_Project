@@ -19,6 +19,8 @@ std::vector<char> passGrid(char(&arr)[size_x][size_y], int x, int y, char lastDi
 		nextMap.push_back(arr[x - 2][y - 1]);
 		nextMap.push_back(arr[x - 2][y - 0]);
 		nextMap.push_back(arr[x - 2][y + 1]);
+		nextMap.push_back(arr[x - 0][y - 1]);
+		nextMap.push_back(arr[x - 0][y + 1]);
 		//std::cout << arr[x - 1][y - 1] << " " << arr[x - 1][y - 0] << " " << arr[x - 1][y + 1] << std::endl;
 		//std::cout << arr[x - 2][y - 1] << " " << arr[x - 2][y - 0] << " " << arr[x - 2][y + 1] << std::endl;
 	}
@@ -30,6 +32,8 @@ std::vector<char> passGrid(char(&arr)[size_x][size_y], int x, int y, char lastDi
 		nextMap.push_back(arr[x - 1][y + 2]);
 		nextMap.push_back(arr[x - 0][y + 2]);
 		nextMap.push_back(arr[x + 1][y + 2]);
+		nextMap.push_back(arr[x - 1][y - 0]);
+		nextMap.push_back(arr[x + 1][y + 0]);
 		//std::cout << arr[x - 1][y + 1] << " " << arr[x - 0][y + 1] << " " << arr[x + 1][y + 1] << std::endl;
 		//std::cout << arr[x - 1][y + 2] << " " << arr[x - 0][y + 2] << " " << arr[x + 1][y + 2] << std::endl;
 	}
@@ -40,9 +44,11 @@ std::vector<char> passGrid(char(&arr)[size_x][size_y], int x, int y, char lastDi
 		nextMap.push_back(arr[x + 1][y - 1]);
 		nextMap.push_back(arr[x + 2][y + 1]);
 		nextMap.push_back(arr[x + 2][y - 0]);
-		nextMap.push_back(arr[x - 1][y - 2]);
+		nextMap.push_back(arr[x + 2][y - 1]);
+		nextMap.push_back(arr[x - 0][y + 1]);
+		nextMap.push_back(arr[x - 0][y - 1]);
 		//std::cout << arr[x + 1][y + 1] << " " << arr[x + 1][y - 0] << " " << arr[x + 1][y - 1] << std::endl;
-		//std::cout << arr[x + 2][y + 1] << " " << arr[x + 2][y - 0] << " " << arr[x + 2][y -1 ] << std::endl;
+		//std::cout << arr[x + 2][y + 1] << " " << arr[x + 2][y - 0] << " " << arr[x + 2][y - 1 ] << std::endl;
 	}
 	else if (lastDir == '<')
 	{
@@ -52,6 +58,8 @@ std::vector<char> passGrid(char(&arr)[size_x][size_y], int x, int y, char lastDi
 		nextMap.push_back(arr[x + 1][y - 2]);
 		nextMap.push_back(arr[x - 0][y - 2]);
 		nextMap.push_back(arr[x - 1][y - 2]);
+		nextMap.push_back(arr[x + 1][y - 0]);
+		nextMap.push_back(arr[x - 1][y - 0]);
 		//std::cout << arr[x + 1][y - 1] << " " << arr[x - 0][y - 1] << " " << arr[x - 1][y - 1] << std::endl;
 		//std::cout << arr[x + 1][y - 2] << " " << arr[x - 0][y - 2] << " " << arr[x - 1][y - 2] << std::endl;
 	}
