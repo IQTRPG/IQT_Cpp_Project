@@ -100,3 +100,56 @@ class Arachne : public Spider {
 	int INT = 16; //intelligence, affects mp and magic damage
 	int LUCK = 6; //luck, affects dodge chance
 };
+
+//first boss
+class CornOnTheGoblin : public Boss {
+	//hahahahaha i couldnt help myself with boss names
+	int HP = 100; //health points, will be assigned by class
+	int MP = 40; //magic points, assigned by class and affects how often you can use spells
+	int DEF = 20; //defense, can be changed by armor value
+	int armor = 10; //changes based on armor equipped
+	int AGI = 25; //agility, affected by armor possibly, affects crit chance
+	int STR = 20; //strength, affected by weapons, affects damage
+	int CAR = 0; //charisma, affects shop prices maybe?
+	int INT = 20; //intelligence, affects mp and magic damage
+	int LUCK = 10; //luck, affects dodge chance
+};
+
+//second boss, this one themed after our lord and savior..... BANDITS
+class CurrentExpendableBanditLeader : public Boss{
+	int HP = 150; //health points, will be assigned by class
+	int MP = 40; //magic points, assigned by class and affects how often you can use spells
+	int DEF = 40; //defense, can be changed by armor value
+	int armor = 20; //changes based on armor equipped
+	int AGI = 30; //agility, affected by armor possibly, affects crit chance
+	int STR = 25; //strength, affected by weapons, affects damage
+	int CAR = 10; //charisma, affects shop prices maybe?
+	int INT = 12; //intelligence, affects mp and magic damage
+	int LUCK = 20; //luck, affects dodge chance
+};
+
+//third boss, this one based around spiders
+class SoMANYLegs : public Boss {
+	int HP = 200; //health points, will be assigned by class
+	int MP = 50; //magic points, assigned by class and affects how often you can use spells
+	int DEF = 60; //defense, can be changed by armor value
+	int armor = 30; //changes based on armor equipped
+	int AGI = 45; //agility, affected by armor possibly, affects crit chance
+	int STR = 20; //strength, affected by weapons, affects damage
+	int CAR = 40; //charisma, affects shop prices maybe? (its 40 because im sure the spider would try to be sexy. and then it dies. with fire)
+	int INT = 20; //intelligence, affects mp and magic damage
+	int LUCK = 15; //luck, affects dodge chance
+};
+
+//fourth boss... for those nerds out there. yknow who you are -_-
+class DoctorWhat : public Boss{
+	int HP = 200; //health points, will be assigned by class
+	int MP = 50; //magic points, assigned by class and affects how often you can use spells
+	int DEF = 60; //defense, can be changed by armor value
+	int armor = 30; //changes based on armor equipped
+	int AGI = 45; //agility, affected by armor possibly, affects crit chance
+	int STR = 20; //strength, affected by weapons, affects damage
+	int CAR = 40; //charisma, affects shop prices maybe? (its 40 because im sure the spider would try to be sexy. and then it dies. with fire)
+	int INT = 20; //intelligence, affects mp and magic damage
+	int LUCK = 15; //luck, affects dodge chance
+};
