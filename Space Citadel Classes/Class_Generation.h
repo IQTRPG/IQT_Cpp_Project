@@ -20,8 +20,11 @@ Stick stickyStick;
 RedPotion HealthUp;
 Bucket bucket;
 
+//generate the dungeon key
+Key TotallyNotBossKey;
+
 //generating all items
-RedPotion HealthUp;
+Liqour licker;
 GreenPotion PoisonCup;
 Sword IronSword;
 Cutlass Swashbuckler;
@@ -35,6 +38,7 @@ MedKit Bandages;
 Apple GrannySmith;
 Banana nana;
 PlateMail instantShip;
+FaceDestoryer TaserFace;
 
 //Generate Enemies, up to three duplicates of each enemy type have been generated
 SpaceGoblin Goblin1;
@@ -58,3 +62,9 @@ Spider SpideyBoi3;
 Arachne BiteyBoi1;
 Arachne BiteyBoi2;
 Arachne BiteyBoi3;
+
+//Bosses, currently 4.
+CornOnTheGoblin Jerry;
+CurrentExpendableBanditLeader Handsome_Bill;
+SoMANYLegs Arachnia;
+DoctorWhat drWhat;
