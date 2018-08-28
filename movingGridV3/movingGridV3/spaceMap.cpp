@@ -12,6 +12,7 @@
 #include "moveWithDirection.h"
 #include "interactionMap.h"
 #include "encounters.h"
+#include "combat.h"
 
 
 
@@ -24,6 +25,7 @@ int runGame(int levelNumber);
 
 int main()
 {
+	combatDisplay(' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', " ", " ", '>');
 	runGame(1);
 	return 0;
 }
@@ -86,7 +88,7 @@ int runGame(int levelNumber)
 				if (b == 'Y')
 				{
 					system("cls");
-					map('M',x,y,lastDir,' ',' ',' ',' ', "t", "t");
+					map('M',x,y,lastDir,' ',' ',' ',' ', "t", "t",lastDir);
 
 					while (b != 'B')
 					{

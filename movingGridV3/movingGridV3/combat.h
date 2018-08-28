@@ -10,7 +10,7 @@ void combatV1()
 {
 
 
-
+	
 
 
 	return;
@@ -18,7 +18,7 @@ void combatV1()
 
 
 
-void combatDisplay(char left, char center, char right, char LR, char CR, char RR, char L, char R, std::string text1, std::string text2)
+void combatDisplay(char left, char center, char right, char LR, char CR, char RR, char L, char R, std::string text1, std::string text2,char lastDir)
 {
 
 	printHealth(1);
@@ -53,7 +53,7 @@ void combatDisplay(char left, char center, char right, char LR, char CR, char RR
 	std::cout << " X - Inventory         A - Interact   \\_________________________________________/";
 	printWeapon(1);
 	std::cout << std::endl;
-	std::cout << " Y - Map               B -                                                       ";
+	std::cout << " Y - Map               B -                                 "<< lastDir<<"                     ";
 	printWeapon(2);
 	std::cout << std::endl;
 	std::cout << "                                                                                 ";

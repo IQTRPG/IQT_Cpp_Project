@@ -1,0 +1,9 @@
+﻿  MainGame.cpp
+c:\users\dotlaptop\desktop\iqtrpg\workingprojectv1\workingprojectv1\intro.h(163): warning C4018: '<': signed/unsigned mismatch
+c:\users\dotlaptop\desktop\iqtrpg\workingprojectv1\workingprojectv1\printmap.h(12): warning C4101: 'joyinfoex': unreferenced local variable
+c:\users\dotlaptop\desktop\iqtrpg\workingprojectv1\workingprojectv1\spacemap.h(48): warning C4101: 'lastx': unreferenced local variable
+c:\users\dotlaptop\desktop\iqtrpg\workingprojectv1\workingprojectv1\spacemap.h(48): warning C4101: 'lasty': unreferenced local variable
+c:\users\dotlaptop\desktop\iqtrpg\workingprojectv1\workingprojectv1\display.h(295): warning C4715: 'printXp': not all control paths return a value
+c:\users\dotlaptop\desktop\iqtrpg\workingprojectv1\workingprojectv1\display.h(255): warning C4715: 'printHealth': not all control paths return a value
+c:\users\dotlaptop\desktop\iqtrpg\workingprojectv1\workingprojectv1\display.h(354): warning C4715: 'printGold': not all control paths return a value
+  workingProjectV1.vcxproj -> C:\Users\DOTlaptop\Desktop\IQTRPG\workingProjectV1\Debug\workingProjectV1.exe
