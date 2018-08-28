@@ -23,7 +23,7 @@ std::string task1 = "1. Find key.";
 std::string task2 = "2. Punch alien in the face.";
 std::string task3 = "4. Probe ship commander.";
 
-void map(char left, char center, char right, char LR, char CR, char RR, std::string text1, std::string text2);
+void map(char left, char center, char right, char LR, char CR, char RR, std::string text1, std::string text2, char lastDir);
 
 int printHealth(int option);
 int printXp(int option);
@@ -37,7 +37,6 @@ void printTasks(int task);
 void printWeapon(int row);
 
 void changeWeapon(int option);
-
 
 
 int display()
@@ -119,10 +118,7 @@ int display()
 	return 0;
 }
 
-
-
-
-void map(char left, char center, char right, char LR, char CR, char RR, char L, char R, std::string text1, std::string text2)
+void map(char left, char center, char right, char LR, char CR, char RR, char L, char R, std::string text1, std::string text2, char lastDir)
 {
 	/*
 	std::cout << " Health [||||||||||||||||||        ]                                                           TASKS?                  " << std::endl;
@@ -157,7 +153,6 @@ void map(char left, char center, char right, char LR, char CR, char RR, char L, 
 	std::cout << "Action: ";
 	*/
 
-
 	printHealth(1);
 	std::cout << "|";
 	//////////////////
@@ -190,7 +185,7 @@ void map(char left, char center, char right, char LR, char CR, char RR, char L, 
 	std::cout << " X - Inventory         A - Interact   \\_________________________________________/";
 	printWeapon(1);
 	std::cout << std::endl;
-	std::cout << " Y - Map               B -                                                       ";
+	std::cout << " Y - Map               B -                                 " << lastDir << "                     ";
 	printWeapon(2);
 	std::cout << std::endl;
 	std::cout << "                                                                                 ";
@@ -203,10 +198,10 @@ void map(char left, char center, char right, char LR, char CR, char RR, char L, 
 	//return 1;
 }
 
-
-
 int printHealth(int option)
 {
+	health = playerPtr->HP;
+
 	if (option == 0)
 	{
 		return health;
@@ -262,27 +257,27 @@ int printXp(int option)
 	}
 	else if (option == 1)
 	{
-		std::string oldString = "     Xp: [";
-		// loop through to make fancy xp bar: [|||||||||||||     ]
-		int tester = maxXp / 20;
-		for (int i = tester; i < xp; ++i)
-		{
-			oldString += '|';
-			i = i + (tester - 1);
-		}
-		for (int i = xp; i < maxXp; i++)
-		{
-			oldString += ' ';
-			i = i + (tester - 1);
-		}
-		std::cout << oldString.substr(0, 10);
+		std::string oldString = "      ";
+		//// loop through to make fancy xp bar: [|||||||||||||     ]
+		//int tester = maxXp / 20;
+		//for (int i = tester; i < xp; ++i)
+		//{
+		//	oldString += '|';
+		//	i = i + (tester - 1);
+		//}
+		//for (int i = xp; i < maxXp; i++)
+		//{
+		//	oldString += ' ';
+		//	i = i + (tester - 1);
+		//}
+		//std::cout << oldString.substr(0, 10);
 
-		// Set xp to blue 
-		color_light_cyan();
+		//// Set xp to blue 
+		//color_light_cyan();
 
-		std::cout << oldString.substr(10, oldString.length());
-		colorReset();
-		std::cout << ']';
+		//std::cout << oldString.substr(10, oldString.length());
+		//colorReset();
+		//std::cout << ']';
 
 		for (int i = oldString.length(); i < 37; i++)
 		{
@@ -333,6 +328,7 @@ void printDialog2(std::string text)
 
 int printGold(int option)
 {
+	gold = playerPtr->gold;
 	// Print Gold value or return the int
 	if (!option)
 	{

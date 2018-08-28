@@ -314,77 +314,6 @@ void scene(char left, char center, char right, char LR, char CR, char RR, char L
 		std::cout << "|||||||||mnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmn||||||||" << std::endl;
 	}
 
-	else if (left == 'W' && center == 'W' && right == 'W' && L == 'W' && R == 'W')
-	{
-		std::cout << "|||||||||||||||._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'||||||||||||||" << std::endl;
-		std::cout << "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||" << std::endl;
-		std::cout << "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||" << std::endl;
-		std::cout << "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||" << std::endl;
-		std::cout << "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||" << std::endl;
-		std::cout << "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||" << std::endl;
-		std::cout << "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||" << std::endl;
-		std::cout << "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||" << std::endl;
-		std::cout << "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||" << std::endl;
-		std::cout << "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||" << std::endl;
-		std::cout << "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||" << std::endl;
-		std::cout << "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||" << std::endl;
-		std::cout << "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||" << std::endl;
-		std::cout << "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||" << std::endl;
-		std::cout << "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||" << std::endl;
-		std::cout << "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||" << std::endl;
-		std::cout << "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||" << std::endl;
-		std::cout << "|||||||||||||||nmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnm||||||||||||||" << std::endl;
-		std::cout << "||||||||||||mmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnn|||||||||||" << std::endl;
-		std::cout << "|||||||||mnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmn||||||||" << std::endl;
-	}
-
-	else if (left == 'W' && center == 'W' && right == 'W' && L == 'W' && R == 'O') {
-		std::cout << "|||||||||||||||._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._" << std::endl;
-		std::cout << "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||" << std::endl;
-		std::cout << "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||" << std::endl;
-		std::cout << "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||" << std::endl;
-		std::cout << "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||" << std::endl;
-		std::cout << "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||" << std::endl;
-		std::cout << "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||" << std::endl;
-		std::cout << "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||" << std::endl;
-		std::cout << "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||" << std::endl;
-		std::cout << "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||" << std::endl;
-		std::cout << "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||" << std::endl;
-		std::cout << "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||" << std::endl;
-		std::cout << "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||" << std::endl;
-		std::cout << "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||" << std::endl;
-		std::cout << "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||" << std::endl;
-		std::cout << "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||" << std::endl;
-		std::cout << "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||" << std::endl;
-		std::cout << "|||||||||||||||nmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmn" << std::endl;
-		std::cout << "||||||||||||mmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmn" << std::endl;
-		std::cout << "|||||||||mnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmn" << std::endl;
-	}
-
-	else if (left == 'W' && center == 'W' && right == 'W' && L == 'O' && R == 'W')
-	{
-		std::cout << "._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'||||||||||||||" << std::endl;
-		std::cout << "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||" << std::endl;
-		std::cout << "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||" << std::endl;
-		std::cout << "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||" << std::endl;
-		std::cout << "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||" << std::endl;
-		std::cout << "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||" << std::endl;
-		std::cout << "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||" << std::endl;
-		std::cout << "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||" << std::endl;
-		std::cout << "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||" << std::endl;
-		std::cout << "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||" << std::endl;
-		std::cout << "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||" << std::endl;
-		std::cout << "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||" << std::endl;
-		std::cout << "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||" << std::endl;
-		std::cout << "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||" << std::endl;
-		std::cout << "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||" << std::endl;
-		std::cout << "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||" << std::endl;
-		std::cout << "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||" << std::endl;
-		std::cout << "mmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnm||||||||||||||" << std::endl;
-		std::cout << "mmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnn|||||||||||" << std::endl;
-		std::cout << "mmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmn||||||||" << std::endl;
-	}
-
 	else if (left == 'W' && center == 'O' && right == 'W' && LR == 'W' && CR == 'O' && RR == 'W' && L == 'O' && R == 'O')
 	{
 		std::cout << "||||||||||||||||||._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'|||||||||||||||||" << std::endl;
@@ -433,30 +362,8 @@ void scene(char left, char center, char right, char LR, char CR, char RR, char L
 		std::cout << "|||||||||mnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmn||||||||" << std::endl;
 	}
 
-	else if (left == 'W' && center == 'O' && right == 'W' && LR == 'W' && CR == 'O' && RR == 'W') {
-		std::cout << "|||||||||||||||._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'||||||||||||||" << std::endl;
-		std::cout << "||||||||||||||||||._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'|||||||||||||||||" << std::endl;
-		std::cout << "|||||||||||||||||||||._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'||||||||||||||||||||" << std::endl;
-		std::cout << "||||||||||||||||||||||||._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'|||||||||||||||||||||||" << std::endl;
-		std::cout << "|||||||||||||||||||||||||||._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'||||||||||||||||||||||||||" << std::endl;
-		std::cout << "|||||||||||||||||||||||||||._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'||||||||||||||||||||||||||" << std::endl;
-		std::cout << "|||||||||||||||||||||||||||._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'||||||||||||||||||||||||||" << std::endl;
-		std::cout << "|||||||||||||||||||||||||||._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'||||||||||||||||||||||||||" << std::endl;
-		std::cout << "|||||||||||||||||||||||||||                                                                  ||||||||||||||||||||||||||" << std::endl;
-		std::cout << "|||||||||||||||||||||||||||                                                                  ||||||||||||||||||||||||||" << std::endl;
-		std::cout << "|||||||||||||||||||||||||||                                                                  ||||||||||||||||||||||||||" << std::endl;
-		std::cout << "|||||||||||||||||||||||||||                                                                  ||||||||||||||||||||||||||" << std::endl;
-		std::cout << "|||||||||||||||||||||||||||nmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnm||||||||||||||||||||||||||" << std::endl;
-		std::cout << "|||||||||||||||||||||||||||nmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnm||||||||||||||||||||||||||" << std::endl;
-		std::cout << "||||||||||||||||||||||||mmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnn|||||||||||||||||||||||" << std::endl;
-		std::cout << "|||||||||||||||||||||mnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmn||||||||||||||||||||" << std::endl;
-		std::cout << "||||||||||||||||||nnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmm|||||||||||||||||" << std::endl;
-		std::cout << "|||||||||||||||nmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnm||||||||||||||" << std::endl;
-		std::cout << "||||||||||||mmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnn|||||||||||" << std::endl;
-		std::cout << "|||||||||mnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmn||||||||" << std::endl;
-	}
-
-	else if (left == 'O' && center == 'O' && right == 'O' && LR == 'O' && CR == 'O' && RR == 'O' && L == 'W' && R == 'W') {
+	else if (left == 'O' && center == 'O' && right == 'O' && LR == 'O' && CR == 'O' && RR == 'O' && L == 'W' && R == 'W')
+	{
 		std::cout << "|||||||||||||||._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'||||||||||||||" << std::endl;
 		std::cout << "||||||||||||||||||._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'|||||||||||||||||" << std::endl;
 		std::cout << "||||||||||||||||||._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'|||||||||||||||||" << std::endl;
@@ -567,6 +474,30 @@ void scene(char left, char center, char right, char LR, char CR, char RR, char L
 		std::cout << "||||||||||||||||||nnmnnmmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmm|||||||||||||||||" << std::endl;
 		std::cout << "||||||||||||||||||nnmnnmmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmm|||||||||||||||||" << std::endl;
 		std::cout << "||||||||||||||||||nnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmm|||||||||||||||||" << std::endl;
+		std::cout << "||||||||||||||||||nnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmm|||||||||||||||||" << std::endl;
+		std::cout << "|||||||||||||||nmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnm||||||||||||||" << std::endl;
+		std::cout << "||||||||||||mmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnn|||||||||||" << std::endl;
+		std::cout << "|||||||||mnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmn||||||||" << std::endl;
+	}
+
+
+	else if (left == 'W' && center == 'O' && right == 'W' && LR == 'W' && CR == 'O' && RR == 'W') {
+		std::cout << "|||||||||||||||._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'||||||||||||||" << std::endl;
+		std::cout << "||||||||||||||||||._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'|||||||||||||||||" << std::endl;
+		std::cout << "|||||||||||||||||||||._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'||||||||||||||||||||" << std::endl;
+		std::cout << "||||||||||||||||||||||||._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'|||||||||||||||||||||||" << std::endl;
+		std::cout << "|||||||||||||||||||||||||||._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'||||||||||||||||||||||||||" << std::endl;
+		std::cout << "|||||||||||||||||||||||||||._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'||||||||||||||||||||||||||" << std::endl;
+		std::cout << "|||||||||||||||||||||||||||._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'||||||||||||||||||||||||||" << std::endl;
+		std::cout << "|||||||||||||||||||||||||||._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'||||||||||||||||||||||||||" << std::endl;
+		std::cout << "|||||||||||||||||||||||||||                                                                  ||||||||||||||||||||||||||" << std::endl;
+		std::cout << "|||||||||||||||||||||||||||                                                                  ||||||||||||||||||||||||||" << std::endl;
+		std::cout << "|||||||||||||||||||||||||||                                                                  ||||||||||||||||||||||||||" << std::endl;
+		std::cout << "|||||||||||||||||||||||||||                                                                  ||||||||||||||||||||||||||" << std::endl;
+		std::cout << "|||||||||||||||||||||||||||nmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnm||||||||||||||||||||||||||" << std::endl;
+		std::cout << "|||||||||||||||||||||||||||nmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnm||||||||||||||||||||||||||" << std::endl;
+		std::cout << "||||||||||||||||||||||||mmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnn|||||||||||||||||||||||" << std::endl;
+		std::cout << "|||||||||||||||||||||mnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmn||||||||||||||||||||" << std::endl;
 		std::cout << "||||||||||||||||||nnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmm|||||||||||||||||" << std::endl;
 		std::cout << "|||||||||||||||nmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnm||||||||||||||" << std::endl;
 		std::cout << "||||||||||||mmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnn|||||||||||" << std::endl;
@@ -839,10 +770,36 @@ void scene(char left, char center, char right, char LR, char CR, char RR, char L
 		std::cout << "mmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmn" << std::endl;
 	}
 
+	//// Door opening?
+	//else if (left == 'W' && center == 'D' && right == 'W' && LR == 'E' && L == 'O' && R == 'O')
+	//{
+	//	std::cout << "|||||||||||||||._'._'._'._'._'._'._'._'._'._'._'._'._'._'XXXXXXXXXX._'._'._'._'._'._'._'._'._'._'._'._'||||||||||||||||" << std::endl;
+	//	std::cout << "||||||||||||||||||||||||||||||||||||||||||||||||XXXXXXXXX         X||||||||||||||||||||||||||||||||||||||||||||||||||||" << std::endl;
+	//	std::cout << "|||||||||||||||||||||||||||||||||||||||||||XXXXX                  XXXXXXXXXX|||||||||||||||||||||||||||||||||||||||||||" << std::endl;
+	//	std::cout << "|||||||||||||||||||||||||||||||||||||||||||X                      X        X|||||||||||||||||||||||||||||||||||||||||||" << std::endl;
+	//	std::cout << "|||||||||||||||||||||||||||||||||||||||||||X                      X        X|||||||||||||||||||||||||||||||||||||||||||" << std::endl;
+	//	std::cout << "|||||||||||||||||||||||||||||||||||||||||||X                      X        X|||||||||||||||||||||||||||||||||||||||||||" << std::endl;
+	//	std::cout << "|||||||||||||||||||||||||||||||||||||||||||X                      X        X|||||||||||||||||||||||||||||||||||||||||||" << std::endl;
+	//	std::cout << "|||||||||||||||||||||||||||||||||||||||||||X                      X        X|||||||||||||||||||||||||||||||||||||||||||" << std::endl;
+	//	std::cout << "|||||||||||||||||||||||||||||||||||||||||||X                      X        X|||||||||||||||||||||||||||||||||||||||||||" << std::endl;
+	//	std::cout << "|||||||||||||||||||||||||||||||||||||||||||X                      X        X|||||||||||||||||||||||||||||||||||||||||||" << std::endl;
+	//	std::cout << "|||||||||||||||||||||||||||||||||||||||||||X                /\\    X        X|||||||||||||||||||||||||||||||||||||||||||" << std::endl;
+	//	std::cout << "|||||||||||||||||||||||||||||||||||||||||||X                \\/    X        X|||||||||||||||||||||||||||||||||||||||||||" << std::endl;
+	//	std::cout << "|||||||||||||||||||||||||||||||||||||||||||X                      X        X|||||||||||||||||||||||||||||||||||||||||||" << std::endl;
+	//	std::cout << "|||||||||||||||||||||||||||||||||||||||||||X                      X        X|||||||||||||||||||||||||||||||||||||||||||" << std::endl;
+	//	std::cout << "|||||||||||||||||||||||||||||||||||||||||||X                      X        X|||||||||||||||||||||||||||||||||||||||||||" << std::endl;
+	//	std::cout << "|||||||||||||||||||||||||||||||||||||||||||X                      X        X|||||||||||||||||||||||||||||||||||||||||||" << std::endl;
+	//	std::cout << "|||||||||||||||||||||||||||||||||||||||||||X                      X        X|||||||||||||||||||||||||||||||||||||||||||" << std::endl;
+	//	std::cout << "|||||||||||||||nmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnm                 Xnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnm||||||||||||||" << std::endl;
+	//	std::cout << "||||||||||||mmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmm        Xnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnn|||||||||||" << std::endl;
+	//	std::cout << "|||||||||mnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmXnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmn||||||||" << std::endl;
+	//}
+
 	// Door opening?
-	else if (left == 'W' && center == 'D' && right == 'W' && LR == 'C' && CR == 'C' && RR == 'C')
+	//else if (left == 'W' && center == 'D' && right == 'W' && LR == 'E' && L == 'W' && R == 'W')
+	else if (left == 'E')
 	{
-		std::cout << "|||||||||||||||._'._'._'._'._'._'._'._'._'._'._'._'._'._'XXXXXXXXXX   X'._'._'._'._'._'._'._'._'._'._'._'||||||||||||||" << std::endl;
+		std::cout << "._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'XXXXXXXXXX._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'." << std::endl;
 		std::cout << "||||||||||||||||||||||||||||||||||||||||||||||||XXXXXXXXX         X||||||||||||||||||||||||||||||||||||||||||||||||||||" << std::endl;
 		std::cout << "|||||||||||||||||||||||||||||||||||||||||||XXXXX                  XXXXXXXXXX|||||||||||||||||||||||||||||||||||||||||||" << std::endl;
 		std::cout << "|||||||||||||||||||||||||||||||||||||||||||X                      X        X|||||||||||||||||||||||||||||||||||||||||||" << std::endl;
@@ -859,9 +816,9 @@ void scene(char left, char center, char right, char LR, char CR, char RR, char L
 		std::cout << "|||||||||||||||||||||||||||||||||||||||||||X                      X        X|||||||||||||||||||||||||||||||||||||||||||" << std::endl;
 		std::cout << "|||||||||||||||||||||||||||||||||||||||||||X                      X        X|||||||||||||||||||||||||||||||||||||||||||" << std::endl;
 		std::cout << "|||||||||||||||||||||||||||||||||||||||||||X                      X        X|||||||||||||||||||||||||||||||||||||||||||" << std::endl;
-		std::cout << "|||||||||||||||nmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnm                 Xnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnm||||||||||||||" << std::endl;
-		std::cout << "||||||||||||mmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmm        Xnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnn|||||||||||" << std::endl;
-		std::cout << "|||||||||mnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmXnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmn||||||||" << std::endl;
+		std::cout << "mmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnm                 Xnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmn" << std::endl;
+		std::cout << "mmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmm        Xnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmn" << std::endl;
+		std::cout << "mmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmXnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmn" << std::endl;
 	}
 
 	else if (left == 'W' && center == 'O' && right == 'O' && LR == 'W' && CR == 'D' && RR == 'W')
@@ -933,6 +890,30 @@ void scene(char left, char center, char right, char LR, char CR, char RR, char L
 		std::cout << "||||||||||||||||||||||||mmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnn|||||||||||||||||||||||" << std::endl;
 		std::cout << "|||||||||||||||||||||mnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmn||||||||||||||||||||" << std::endl;
 		std::cout << "||||||||||||||||||nnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmm|||||||||||||||||" << std::endl;
+		std::cout << "|||||||||||||||nmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnm||||||||||||||" << std::endl;
+		std::cout << "||||||||||||mmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnn|||||||||||" << std::endl;
+		std::cout << "|||||||||mnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmn||||||||" << std::endl;
+	}
+
+	else if (left == 'W' && center == 'W' && right == 'W' && L == 'W' && R == 'W')
+	{
+		std::cout << "|||||||||||||||._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'||||||||||||||" << std::endl;
+		std::cout << "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||" << std::endl;
+		std::cout << "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||" << std::endl;
+		std::cout << "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||" << std::endl;
+		std::cout << "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||" << std::endl;
+		std::cout << "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||" << std::endl;
+		std::cout << "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||" << std::endl;
+		std::cout << "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||" << std::endl;
+		std::cout << "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||" << std::endl;
+		std::cout << "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||" << std::endl;
+		std::cout << "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||" << std::endl;
+		std::cout << "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||" << std::endl;
+		std::cout << "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||" << std::endl;
+		std::cout << "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||" << std::endl;
+		std::cout << "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||" << std::endl;
+		std::cout << "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||" << std::endl;
+		std::cout << "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||" << std::endl;
 		std::cout << "|||||||||||||||nmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnm||||||||||||||" << std::endl;
 		std::cout << "||||||||||||mmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnn|||||||||||" << std::endl;
 		std::cout << "|||||||||mnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmn||||||||" << std::endl;
@@ -1178,6 +1159,53 @@ void scene(char left, char center, char right, char LR, char CR, char RR, char L
 	//	std::cout << "|||||||||mnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmn||||||||" << std::endl;
 	//}
 
+	else if (left == 'W' && center == 'W' && right == 'W' && L == 'W' && R == 'O') {
+		std::cout << "|||||||||||||||._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._" << std::endl;
+		std::cout << "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||" << std::endl;
+		std::cout << "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||" << std::endl;
+		std::cout << "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||" << std::endl;
+		std::cout << "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||" << std::endl;
+		std::cout << "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||" << std::endl;
+		std::cout << "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||" << std::endl;
+		std::cout << "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||" << std::endl;
+		std::cout << "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||" << std::endl;
+		std::cout << "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||" << std::endl;
+		std::cout << "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||" << std::endl;
+		std::cout << "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||" << std::endl;
+		std::cout << "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||" << std::endl;
+		std::cout << "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||" << std::endl;
+		std::cout << "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||" << std::endl;
+		std::cout << "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||" << std::endl;
+		std::cout << "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||" << std::endl;
+		std::cout << "|||||||||||||||nmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmn" << std::endl;
+		std::cout << "||||||||||||mmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmn" << std::endl;
+		std::cout << "|||||||||mnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmn" << std::endl;
+	}
+
+	else if (left == 'W' && center == 'W' && right == 'W' && L == 'O' && R == 'W')
+	{
+		std::cout << "._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'||||||||||||||" << std::endl;
+		std::cout << "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||" << std::endl;
+		std::cout << "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||" << std::endl;
+		std::cout << "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||" << std::endl;
+		std::cout << "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||" << std::endl;
+		std::cout << "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||" << std::endl;
+		std::cout << "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||" << std::endl;
+		std::cout << "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||" << std::endl;
+		std::cout << "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||" << std::endl;
+		std::cout << "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||" << std::endl;
+		std::cout << "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||" << std::endl;
+		std::cout << "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||" << std::endl;
+		std::cout << "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||" << std::endl;
+		std::cout << "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||" << std::endl;
+		std::cout << "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||" << std::endl;
+		std::cout << "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||" << std::endl;
+		std::cout << "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||" << std::endl;
+		std::cout << "mmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnm||||||||||||||" << std::endl;
+		std::cout << "mmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnn|||||||||||" << std::endl;
+		std::cout << "mmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmn||||||||" << std::endl;
+	}
+
 	else if (left == 'W' && center == 'O' && right == 'W' && LR == 'W' && CR == 'O' && RR == 'W')
 	{
 		std::cout << "||||||||||||||||||._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'|||||||||||||||||" << std::endl;
@@ -1213,10 +1241,10 @@ void scene(char left, char center, char right, char LR, char CR, char RR, char L
 		std::cout << "||||||||||||||||||||||||||||||||||||._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'|||==     '||||||||||||||||||||||||" << std::endl;
 		std::cout << "||||||||||||||||||||||||||||||||||||                                                |||'      '||||||||||||||||||||||||" << std::endl;
 		std::cout << "||||||||||||||||||||||||||||||||||||                                                |||'      '||||||||||||||||||||||||" << std::endl;
-		std::cout << "||||||||||||||||||||||||||||||||||||                                                |||'      '||||||||||||||||||||||||" << std::endl;
 		std::cout << "||||||||||||||||||||||||||||||||||||                                                |||==     '||||||||||||||||||||||||" << std::endl;
-		std::cout << "|||||||||||||||||||||||||||||||||mnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmn|||==  '||||||||||||||||||||||||" << std::endl;
-		std::cout << "||||||||||||||||||||||||||||||nnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmm|||==||||||||||||||||||||||||" << std::endl;
+		std::cout << "||||||||||||||||||||||||||||||||||||                                                ||||||==  '||||||||||||||||||||||||" << std::endl;
+		std::cout << "|||||||||||||||||||||||||||||||||mnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmn||||||==||||||||||||||||||||||||" << std::endl;
+		std::cout << "||||||||||||||||||||||||||||||nnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmm|||||||||||||||||||||||||||||" << std::endl;
 		std::cout << "|||||||||||||||||||||||||||nmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnm||||||||||||||||||||||||||" << std::endl;
 		std::cout << "||||||||||||||||||||||||mmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnn|||||||||||||||||||||||" << std::endl;
 		std::cout << "|||||||||||||||||||||mnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmn||||||||||||||||||||" << std::endl;
@@ -1285,10 +1313,10 @@ void scene(char left, char center, char right, char LR, char CR, char RR, char L
 		std::cout << "|||||||||||||||||||||||||'     ==|||._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'|||||||||||||||||||||||||||||||||||" << std::endl;
 		std::cout << "|||||||||||||||||||||||||'      '|||                                                |||||||||||||||||||||||||||||||||||" << std::endl;
 		std::cout << "|||||||||||||||||||||||||'      '|||                                                |||||||||||||||||||||||||||||||||||" << std::endl;
-		std::cout << "|||||||||||||||||||||||||'      '|||                                                |||||||||||||||||||||||||||||||||||" << std::endl;
 		std::cout << "|||||||||||||||||||||||||'     ==|||                                                |||||||||||||||||||||||||||||||||||" << std::endl;
-		std::cout << "|||||||||||||||||||||||||'  ==|||mnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmn||||||||||||||||||||||||||||||||" << std::endl;
-		std::cout << "|||||||||||||||||||||||||==|||nnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmm|||||||||||||||||||||||||||||" << std::endl;
+		std::cout << "|||||||||||||||||||||||||'  ==||||||                                                |||||||||||||||||||||||||||||||||||" << std::endl;
+		std::cout << "|||||||||||||||||||||||||==||||||mnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmn||||||||||||||||||||||||||||||||" << std::endl;
+		std::cout << "||||||||||||||||||||||||||||||nnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmm|||||||||||||||||||||||||||||" << std::endl;
 		std::cout << "|||||||||||||||||||||||||||nmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnm||||||||||||||||||||||||||" << std::endl;
 		std::cout << "||||||||||||||||||||||||mmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnn|||||||||||||||||||||||" << std::endl;
 		std::cout << "|||||||||||||||||||||mnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmn||||||||||||||||||||" << std::endl;
@@ -1369,7 +1397,7 @@ void scene(char left, char center, char right, char LR, char CR, char RR, char L
 		std::cout << "|||||||||mnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmn||||||||" << std::endl;
 	}
 
-	else if (left == 'O' && center == 'W' && right == 'O' && LR == 'O' && CR == 'W' && RR == 'O')
+	else if (left == 'O' && center == 'O' && right == 'O' && LR == 'O' && CR == 'W' && RR == 'O')
 	{
 		std::cout << "||||||||||||||||||._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'|||||||||||||||||" << std::endl;
 		std::cout << "||||||||||||||||||._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'|||||||||||||||||" << std::endl;
@@ -1393,7 +1421,7 @@ void scene(char left, char center, char right, char LR, char CR, char RR, char L
 		std::cout << "|||||||||mnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmn||||||||" << std::endl;
 	}
 
-	else if (left == 'O' && center == 'W' && right == 'W' && LR == 'O' && CR == 'W' && RR == 'W')
+	else if (left == 'O' && center == 'O' && right == 'W' && LR == 'O' && CR == 'W' && RR == 'W')
 	{
 		std::cout << "||||||||||||||||||._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'|||||||||||||||||" << std::endl;
 		std::cout << "||||||||||||||||||._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'||||||||||||||||||||" << std::endl;
@@ -1417,7 +1445,7 @@ void scene(char left, char center, char right, char LR, char CR, char RR, char L
 		std::cout << "|||||||||mnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmn||||||||" << std::endl;
 	}
 
-	else if (left == 'O' && center == 'W' && right == 'O' && LR == 'O' && CR == 'W' && RR == 'W')
+	else if (left == 'O' && center == 'O' && right == 'O' && LR == 'O' && CR == 'W' && RR == 'W')
 	{
 		std::cout << "||||||||||||||||||._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'|||||||||||||||||" << std::endl;
 		std::cout << "||||||||||||||||||._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'|||||||||||||||||" << std::endl;
@@ -1441,7 +1469,7 @@ void scene(char left, char center, char right, char LR, char CR, char RR, char L
 		std::cout << "|||||||||mnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmn||||||||" << std::endl;
 	}
 
-	else if (left == 'W' && center == 'W' && right == 'O' && LR == 'W' && CR == 'W' && RR == 'O')
+	else if (left == 'W' && center == 'O' && right == 'O' && LR == 'W' && CR == 'W' && RR == 'O')
 	{
 		std::cout << "||||||||||||||||||._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'|||||||||||||||||" << std::endl;
 		std::cout << "|||||||||||||||||||||._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'|||||||||||||||||" << std::endl;
@@ -1465,7 +1493,7 @@ void scene(char left, char center, char right, char LR, char CR, char RR, char L
 		std::cout << "|||||||||mnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmn||||||||" << std::endl;
 	}
 
-	else if (left == 'O' && center == 'W' && right == 'O' && LR == 'W' && CR == 'W' && RR == 'O')
+	else if (left == 'O' && center == 'O' && right == 'O' && LR == 'W' && CR == 'W' && RR == 'O')
 	{
 		std::cout << "||||||||||||||||||._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'|||||||||||||||||" << std::endl;
 		std::cout << "||||||||||||||||||._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'|||||||||||||||||" << std::endl;
@@ -1561,6 +1589,54 @@ void scene(char left, char center, char right, char LR, char CR, char RR, char L
 		std::cout << "|||||||||mnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmn||||||||" << std::endl;
 	}
 
+	else if (left == 'W' && center == 'S' && right == 'W' && L == 'W' && R == 'W')
+	{
+		std::cout << "|||||||||||||||._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'||||||||||||||" << std::endl;
+		std::cout << "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||" << std::endl;
+		std::cout << "||||||||||||||||||||||||||||||||||||||||||=====================================||||||||||||||||||||||||||||||||||||||||" << std::endl;
+		std::cout << "||||||||||||||||||||||||||||||||||||||||||'               STORE               '||||||||||||||||||||||||||||||||||||||||" << std::endl;
+		std::cout << "||||||||||||||||||||||||||||||||||||||||||'==================================='||||||||||||||||||||||||||||||||||||||||" << std::endl;
+		std::cout << "||||||||||||||||||||||||||||||||||||||||||' |                               | '||||||||||||||||||||||||||||||||||||||||" << std::endl;
+		std::cout << "||||||||||||||||||||||||||||||||||||||||||' |                               | '||||||||||||||||||||||||||||||||||||||||" << std::endl;
+		std::cout << "||||||||||||||||||||||||||||||||||||||||||' |                               | '||||||||||||||||||||||||||||||||||||||||" << std::endl;
+		std::cout << "||||||||||||||||||||||||||||||||||||||||||' |                               | '||||||||||||||||||||||||||||||||||||||||" << std::endl;
+		std::cout << "||||||||||||||||||||||||||||||||||||||||||' |                               | '||||||||||||||||||||||||||||||||||||||||" << std::endl;
+		std::cout << "||||||||||||||||||||||||||||||||||||||||||' |_______________________________| '||||||||||||||||||||||||||||||||||||||||" << std::endl;
+		std::cout << "||||||||||||||||||||||||||||||||||||||||||'/                                \\'|||||||||||||||||||||||||||||||||||||||||" << std::endl;
+		std::cout << "||||||||||||||||||||||||||||||||||||||||||=====================================||||||||||||||||||||||||||||||||||||||||" << std::endl;
+		std::cout << "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||" << std::endl;
+		std::cout << "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||" << std::endl;
+		std::cout << "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||" << std::endl;
+		std::cout << "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||" << std::endl;
+		std::cout << "|||||||||||||||nmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnm||||||||||||||" << std::endl;
+		std::cout << "||||||||||||mmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnn|||||||||||" << std::endl;
+		std::cout << "|||||||||mnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmn||||||||" << std::endl;
+	}
+
+	else if (left == 'W' && center == 'W' && right == 'W' && L == 'O' && R == 'O')
+	{
+		std::cout << "._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._" << std::endl;
+		std::cout << "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||" << std::endl;
+		std::cout << "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||" << std::endl;
+		std::cout << "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||" << std::endl;
+		std::cout << "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||" << std::endl;
+		std::cout << "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||" << std::endl;
+		std::cout << "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||" << std::endl;
+		std::cout << "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||" << std::endl;
+		std::cout << "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||" << std::endl;
+		std::cout << "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||" << std::endl;
+		std::cout << "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||" << std::endl;
+		std::cout << "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||" << std::endl;
+		std::cout << "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||" << std::endl;
+		std::cout << "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||" << std::endl;
+		std::cout << "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||" << std::endl;
+		std::cout << "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||" << std::endl;
+		std::cout << "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||" << std::endl;
+		std::cout << "mmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmn" << std::endl;
+		std::cout << "mmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmn" << std::endl;
+		std::cout << "mmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnmmnnmmnn" << std::endl;
+	}
+
 	else if (left == 'W' && center == 'O' && right == 'O')
 	{
 		std::cout << "|||||||||||||||._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'||||||||||||||" << std::endl;
@@ -1635,30 +1711,6 @@ void scene(char left, char center, char right, char LR, char CR, char RR, char L
 
 	else if (left == 'W' && center == 'S' && right == 'W')
 	{
-		std::cout << "|||||||||||||||._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'||||||||||||||" << std::endl;
-		std::cout << "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||" << std::endl;
-		std::cout << "||||||||||||||||||||||||||||||||||||||||||=====================================||||||||||||||||||||||||||||||||||||||||" << std::endl;
-		std::cout << "||||||||||||||||||||||||||||||||||||||||||'               STORE               '||||||||||||||||||||||||||||||||||||||||" << std::endl;
-		std::cout << "||||||||||||||||||||||||||||||||||||||||||'==================================='||||||||||||||||||||||||||||||||||||||||" << std::endl;
-		std::cout << "||||||||||||||||||||||||||||||||||||||||||' |                               | '||||||||||||||||||||||||||||||||||||||||" << std::endl;
-		std::cout << "||||||||||||||||||||||||||||||||||||||||||' |                               | '||||||||||||||||||||||||||||||||||||||||" << std::endl;
-		std::cout << "||||||||||||||||||||||||||||||||||||||||||' |                               | '||||||||||||||||||||||||||||||||||||||||" << std::endl;
-		std::cout << "||||||||||||||||||||||||||||||||||||||||||' |                               | '||||||||||||||||||||||||||||||||||||||||" << std::endl;
-		std::cout << "||||||||||||||||||||||||||||||||||||||||||' |                               | '||||||||||||||||||||||||||||||||||||||||" << std::endl;
-		std::cout << "||||||||||||||||||||||||||||||||||||||||||' |_______________________________| '||||||||||||||||||||||||||||||||||||||||" << std::endl;
-		std::cout << "||||||||||||||||||||||||||||||||||||||||||'/                                \\'|||||||||||||||||||||||||||||||||||||||||" << std::endl;
-		std::cout << "||||||||||||||||||||||||||||||||||||||||||=====================================||||||||||||||||||||||||||||||||||||||||" << std::endl;
-		std::cout << "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||" << std::endl;
-		std::cout << "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||" << std::endl;
-		std::cout << "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||" << std::endl;
-		std::cout << "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||" << std::endl;
-		std::cout << "|||||||||||||||nmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnm||||||||||||||" << std::endl;
-		std::cout << "||||||||||||mmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnn|||||||||||" << std::endl;
-		std::cout << "|||||||||mnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmn||||||||" << std::endl;
-	}
-
-	else if (left == 'W' && center == 'S' && right == 'W')
-	{
 		std::cout << "._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._" << std::endl;
 		std::cout << "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||" << std::endl;
 		std::cout << "||||||||||||||||||||||||||||||||||||||||||=====================================||||||||||||||||||||||||||||||||||||||||" << std::endl;
@@ -1680,4 +1732,102 @@ void scene(char left, char center, char right, char LR, char CR, char RR, char L
 		std::cout << "mmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmn" << std::endl;
 		std::cout << "mmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnmmnnmmnn" << std::endl;
 	}
+
+	else if (left == 'O' && center == 'W' && right == 'W')
+	{
+		std::cout << "._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._" << std::endl;
+		std::cout << "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||" << std::endl;
+		std::cout << "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||" << std::endl;
+		std::cout << "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||" << std::endl;
+		std::cout << "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||" << std::endl;
+		std::cout << "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||" << std::endl;
+		std::cout << "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||" << std::endl;
+		std::cout << "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||" << std::endl;
+		std::cout << "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||" << std::endl;
+		std::cout << "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||" << std::endl;
+		std::cout << "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||" << std::endl;
+		std::cout << "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||" << std::endl;
+		std::cout << "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||" << std::endl;
+		std::cout << "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||" << std::endl;
+		std::cout << "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||" << std::endl;
+		std::cout << "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||" << std::endl;
+		std::cout << "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||" << std::endl;
+		std::cout << "mmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmn" << std::endl;
+		std::cout << "mmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmn" << std::endl;
+		std::cout << "mmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnmmnnmmnn" << std::endl;
+	}
+
+	else if (left == 'W' && center == 'W' && right == 'O')
+	{
+		std::cout << "._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._'._" << std::endl;
+		std::cout << "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||" << std::endl;
+		std::cout << "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||" << std::endl;
+		std::cout << "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||" << std::endl;
+		std::cout << "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||" << std::endl;
+		std::cout << "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||" << std::endl;
+		std::cout << "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||" << std::endl;
+		std::cout << "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||" << std::endl;
+		std::cout << "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||" << std::endl;
+		std::cout << "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||" << std::endl;
+		std::cout << "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||" << std::endl;
+		std::cout << "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||" << std::endl;
+		std::cout << "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||" << std::endl;
+		std::cout << "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||" << std::endl;
+		std::cout << "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||" << std::endl;
+		std::cout << "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||" << std::endl;
+		std::cout << "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||" << std::endl;
+		std::cout << "mmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmn" << std::endl;
+		std::cout << "mmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmn" << std::endl;
+		std::cout << "mmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnnmmnmmnnmmnn" << std::endl;
+	}
+
+	//Inventory screen
+	if (left == 'W') {
+		std::cout << "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||" << std::endl;
+		std::cout << "|||                                                                                                                 |||" << std::endl;
+		std::cout << "|||                                                                                                                 |||" << std::endl;
+		std::cout << "|||                                                                                                                 |||" << std::endl;
+		std::cout << "|||                                                                                                                 |||" << std::endl;
+		std::cout << "|||                                                                                                                 |||" << std::endl;
+		std::cout << "|||                     :::   :::  ::::::::  :::    :::      :::       ::: ::::::::::: ::::    :::                  |||" << std::endl;
+		std::cout << "|||                     :+:   :+: :+:    :+: :+:    :+:      :+:       :+:     :+:     :+:+:   :+:                  |||" << std::endl;
+		std::cout << "|||                      +:+ +:+  +:+    +:+ +:+    +:+      +:+       +:+     +:+     :+:+:+  +:+                  |||" << std::endl;
+		std::cout << "|||                       +#++:   +#+    +:+ +#+    +:+      +#+  +:+  +#+     +#+     +#+ +:+ +#+                  |||" << std::endl;
+		std::cout << "|||                        +#+    +#+    +#+ +#+    +#+      +#+ +#+#+ +#+     +#+     +#+  +#+#+#                  |||" << std::endl;
+		std::cout << "|||                        #+#    #+#    #+# #+#    #+#       #+#+# #+#+#      #+#     #+#   #+#+#                  |||" << std::endl;
+		std::cout << "|||                        ###     ########   ########         ###   ###   ########### ###    ####                  |||" << std::endl;
+		std::cout << "|||                                                                                                                 |||" << std::endl;
+		std::cout << "|||                                                                                                                 |||" << std::endl;
+		std::cout << "|||                                                                                                                 |||" << std::endl;
+		std::cout << "|||                                                                                                                 |||" << std::endl;
+		std::cout << "|||                                                                                                                 |||" << std::endl;
+		std::cout << "|||                                                                                                                 |||" << std::endl;
+		std::cout << "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||" << std::endl;
+	}
+
+	//Inventory screen
+	if (left == 'Y')
+	{
+		std::cout << "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||" << std::endl;
+		std::cout << "|||                                                                                                                 |||" << std::endl;
+		std::cout << "|||                                                                                                                 |||" << std::endl;
+		std::cout << "|||                                                                                                                 |||" << std::endl;
+		std::cout << "|||                                                                                                                 |||" << std::endl;
+		std::cout << "|||                                                                                                                 |||" << std::endl;
+		std::cout << "|||       ::::::::      :::     ::::    ::::  ::::::::::       ::::::::  :::     ::: :::::::::: :::::::::  :::      |||" << std::endl;
+		std::cout << "|||      :+:    :+:   :+: :+:   +:+:+: :+:+:+ :+:             :+:    :+: :+:     :+: :+:        :+:    :+: :+:      |||" << std::endl;
+		std::cout << "|||      +:+         +:+   +:+  +:+ +:+:+ +:+ +:+             +:+    +:+ +:+     +:+ +:+        +:+    +:+ +:+      |||" << std::endl;
+		std::cout << "|||      :#:        +#++:++#++: +#+  +:+  +#+ +#++:++#        +#+    +:+ +#+     +:+ +#++:++#   +#++:++#:  +#+      |||" << std::endl;
+		std::cout << "|||      +#+   +#+# +#+     +#+ +#+       +#+ +#+             +#+    +#+  +#+   +#+  +#+        +#+    +#+ +#+      |||" << std::endl;
+		std::cout << "|||      #+#    #+# #+#     #+# #+#       #+# #+#             #+#    #+#   #+#+#+#   #+#        #+#    #+#          |||" << std::endl;
+		std::cout << "|||       ########  ###     ### ###       ### ##########       ########      ###     ########## ###    ### ###      |||" << std::endl;
+		std::cout << "|||                                                                                                                 |||" << std::endl;
+		std::cout << "|||                                                                                                                 |||" << std::endl;
+		std::cout << "|||                                                                                                                 |||" << std::endl;
+		std::cout << "|||                                                                                                                 |||" << std::endl;
+		std::cout << "|||                                                                                                                 |||" << std::endl;
+		std::cout << "|||                                                                                                                 |||" << std::endl;
+		std::cout << "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||" << std::endl;
+	}
+
 }

@@ -3,12 +3,9 @@
 
 int main() 
 {
-	InterStellar_Idiot idiot;
-	Space_Ranger ranger;
-	CloudTrooper cloud;
 	Intro();
 	spaceMap();
-	shop(idiot, ranger, cloud);
+	shop();
 	while (1);
 }
 

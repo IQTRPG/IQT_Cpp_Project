@@ -10,6 +10,7 @@ class Player
 {
 public:
 	int HP = 0;   //health points, will be assigned by class
+	int maxHP = 100; //max hp user can have
 	int MP = 0;   //magic points, assigned by class and affects how often you can use spells
 	int DEF = 0;  //defense, can be changed by armor value
 	int armor = 0;//changes based on armor equipped
@@ -79,5 +80,20 @@ public:
 
 	void statusReport(string status) {
 		//here is where we check for a status during the player's turn, then act upon it
+	}
+
+	int getHP()
+	{
+		return HP;
+	}
+
+	int getMaxHP()
+	{
+		return maxHP;
+	}
+
+	void setHP(int number)
+	{
+		HP = number;
 	}
 };

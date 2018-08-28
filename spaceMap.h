@@ -85,7 +85,7 @@ int runGame(int levelNumber)
 				if (b == 'Y')
 				{
 					system("cls");
-					map('M', x, y, lastDir, ' ', ' ', ' ', ' ', "t", "t");
+					map('M', x, y, lastDir, ' ', ' ', ' ', ' ', "t", "t", lastDir);
 
 					while (b != 'B')
 					{
@@ -115,12 +115,8 @@ int runGame(int levelNumber)
 			}
 		}
 	}
-	getchar(); getchar();
 	return 0;
 }
-
-
-
 
 char turn(char lastDir, char button)
 {
@@ -148,7 +144,3 @@ char newMoveController(int x, int y, char lastDir)
 
 	return 0;
 }
-
-
-
-

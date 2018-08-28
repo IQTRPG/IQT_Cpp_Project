@@ -28,7 +28,7 @@ int moveWithDirection(std::array<std::array<char, 30>, 22>newMap, int x, int y, 
 		std::cout << "Victory!";
 		return 2;
 	}
-	map(nextScene[0], nextScene[1], nextScene[2], nextScene[3], nextScene[4], nextScene[5], nextScene[6], nextScene[7], "t", "t");
+	map(nextScene[0], nextScene[1], nextScene[2], nextScene[3], nextScene[4], nextScene[5], nextScene[6], nextScene[7], "t", "t", lastDir);
 	std::cout << nextScene[0] << " " << nextScene[1] << " " << nextScene[2];
 	std::cout << nextScene[3] << " " << nextScene[4] << " " << nextScene[5];
 	std::cout << " " << lastDir;
