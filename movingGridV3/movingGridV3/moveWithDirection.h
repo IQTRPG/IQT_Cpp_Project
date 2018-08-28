@@ -27,7 +27,7 @@ int moveWithDirection(std::array<std::array<char, 30>, 22>newMap, int x, int y, 
 	}
 	map(nextScene[0], nextScene[1], nextScene[2], nextScene[3], nextScene[4], nextScene[5], nextScene[6], nextScene[7], "t", "t");
 	std::cout << nextScene[0] << " " << nextScene[1] << " " << nextScene[2];
-	std::cout << nextScene[3] << " " << nextScene[4] << " " << nextScene[5];
+	std::cout << nextScene[3] << " " << nextScene[4] << " " << nextScene[5] << " " << nextScene[6] << " " << nextScene[7];
 	std::cout << " " << lastDir;
 	//Sleep(1500);
 	//system("cls");//clears the screen so the next print out will be at the top
@@ -101,6 +101,9 @@ std::vector<char>  changeMoveDirection(char a, char x, char y, char lastDir)
 	}
 	return moveDirection;
 }
+
+//this undoes the last move if it tries to move into a Wall(W) 
+//this is done by subtracting from the X or Y value based on direction of attempted movement
 std::vector<char>  undoMove(char a, char x, char y, char lastDir)
 {
 	std::vector<char> moveDirection;

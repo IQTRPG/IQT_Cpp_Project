@@ -7,10 +7,10 @@ void printMap(std::array<std::array<char, 30>, 22>Map, int x, int y, char lastDi
 {
 	char b = 0;
 	JOYINFOEX joyinfoex;
-	std::cout << "\n";
+	//std::cout << "\n";
 	Map[x][y] = lastDir;
 	{
-		for (int i = 0; i < 22; i++) {
+		for (int i = 0; i < 20; i++) {
 			std::cout << "\t\t\t";
 			for (int j = 0; j < 30; j++)
 			{
@@ -50,10 +50,11 @@ void printMap(std::array<std::array<char, 30>, 22>Map, int x, int y, char lastDi
 			}
 			std::cout << std::endl;
 		}
-		*/
+		
 		while (b != 'B')
 		{
 			b = getButtonPress(joyinfoex);
 		}
+		*/
 	}
 }

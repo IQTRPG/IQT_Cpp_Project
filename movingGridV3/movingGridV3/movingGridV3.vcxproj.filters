@@ -39,6 +39,15 @@
     <ClInclude Include="maps.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="interactionMap.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="encounters.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="combat.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="spaceMap.cpp">

@@ -116,8 +116,11 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="colorChange.h" />
+    <ClInclude Include="combat.h" />
     <ClInclude Include="controllerOut.h" />
     <ClInclude Include="display.h" />
+    <ClInclude Include="encounters.h" />
+    <ClInclude Include="interactionMap.h" />
     <ClInclude Include="maps.h" />
     <ClInclude Include="moveWithDirection.h" />
     <ClInclude Include="passingGrid.h" />

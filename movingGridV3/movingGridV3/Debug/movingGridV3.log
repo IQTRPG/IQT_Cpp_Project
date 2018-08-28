@@ -1,6 +1,7 @@
 ﻿  spaceMap.cpp
-c:\users\dotlaptop\desktop\iqtrpg\movinggridv3\movinggridv3\spacemap.cpp(38): warning C4101: 'lastx': unreferenced local variable
-c:\users\dotlaptop\desktop\iqtrpg\movinggridv3\movinggridv3\spacemap.cpp(38): warning C4101: 'lasty': unreferenced local variable
+c:\users\dotlaptop\desktop\iqtrpg\movinggridv3\movinggridv3\printmap.h(9): warning C4101: 'joyinfoex': unreferenced local variable
+c:\users\dotlaptop\desktop\iqtrpg\movinggridv3\movinggridv3\spacemap.cpp(49): warning C4101: 'lastx': unreferenced local variable
+c:\users\dotlaptop\desktop\iqtrpg\movinggridv3\movinggridv3\spacemap.cpp(49): warning C4101: 'lasty': unreferenced local variable
 c:\users\dotlaptop\desktop\iqtrpg\movinggridv3\movinggridv3\display.h(296): warning C4715: 'printXp': not all control paths return a value
 c:\users\dotlaptop\desktop\iqtrpg\movinggridv3\movinggridv3\display.h(256): warning C4715: 'printHealth': not all control paths return a value
 c:\users\dotlaptop\desktop\iqtrpg\movinggridv3\movinggridv3\display.h(355): warning C4715: 'printGold': not all control paths return a value
