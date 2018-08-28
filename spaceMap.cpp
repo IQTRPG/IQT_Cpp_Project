@@ -14,10 +14,9 @@
 #include "encounters.h"
 
 
-//char getMove();
-//int makeGrid(int x, int y, char lastDir);
+
 char map1[22][30];
-//int checkMove(char map1);
+
 char turn(char lastDir, char button);
 char newMoveController(int x, int y, char lastDir);
 int runGame(int levelNumber);
@@ -28,6 +27,8 @@ int main()
 	runGame(1);
 	return 0;
 }
+
+
 int runGame(int levelNumber)
 {
 	levelMaker testMap;
@@ -103,7 +104,7 @@ int runGame(int levelNumber)
 				}
 				theMove = moveWithDirection(newMap, x, y, lastDir);
 
-				checkEncounter(encounterMap, x, y);
+				encounterMap = checkEncounter(encounterMap, x, y,lastDir);
 
 				 if (theMove == 2)
 				{
