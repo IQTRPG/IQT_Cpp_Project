@@ -10,23 +10,33 @@
 #include "printMap.h"
 #include "maps.h"
 #include "moveWithDirection.h"
+#include "interactionMap.h"
+#include "encounters.h"
 
 
 //char getMove();
 //int makeGrid(int x, int y, char lastDir);
 char map1[22][30];
-int checkMove(char map1);
+//int checkMove(char map1);
 char turn(char lastDir, char button);
 char newMoveController(int x, int y, char lastDir);
+int runGame(int levelNumber);
+
 
 int main()
 {
+	runGame(1);
+	return 0;
+}
+int runGame(int levelNumber)
+{
 	levelMaker testMap;
-
-	std::array<std::array<char, 30>, 22>newMap = testMap.getLevel(1);
+	std::array<std::array<char, 30>, 22>newMap = testMap.getLevel(levelNumber);
 	std::cout << newMap[3][5];
 	
-	
+	interactionMaker testEncounter;
+	std::array<std::array<char, 30>, 22>encounterMap = testEncounter.getLevel(1);
+
 	//Sleep(1200);
 	JOYINFOEX joyinfoex;
 	int victory = 0;
@@ -79,7 +89,13 @@ int main()
 				}
 				if (b == 'Y')
 				{
-					printMap(newMap, x, y, lastDir);
+					system("cls");
+					map('M',x,y,lastDir,' ',' ',' ',' ', "t", "t");
+					//printMap(newMap, x, y, lastDir);
+					while (b != 'B')
+					{
+						b = getButtonPress(joyinfoex);
+					}
 				}
 
 				checkValue = checkMover(newMap[x][y]);
@@ -92,6 +108,8 @@ int main()
 				}
 				theMove = moveWithDirection(newMap, x, y, lastDir);
 
+				checkEncounter(encounterMap, x, y);
+				/*
 				if (theMove == 1)
 				{
 					if (a == 'L') { y = y--; backUpLastDir; }
@@ -99,7 +117,8 @@ int main()
 					if (a == 'D') { x = x--; backUpLastDir; }
 					if (a == 'U') { x = x++; backUpLastDir; }
 				}
-				else if (theMove == 2)
+				*/
+				 if (theMove == 2)
 				{
 					backUpLastDir = lastDir;
 					break;
