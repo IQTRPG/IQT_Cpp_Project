@@ -3,9 +3,12 @@
 #include <cstdlib>
 #include <sstream>
 #include <vector>
+#include "passingGrid.h"
+#include "maps.h"
+#include "display.h"
 
 int checkMover(char map1);
-std::vector<char>  changeMoveDirection(char a, char x, char y,char lastDir);
+std::vector<char>  changeMoveDirection(char a, char x, char y, char lastDir);
 
 int moveWithDirection(std::array<std::array<char, 30>, 22>newMap, int x, int y, char lastDir)
 {
@@ -14,8 +17,8 @@ int moveWithDirection(std::array<std::array<char, 30>, 22>newMap, int x, int y, 
 	std::vector<char> nextScene;
 	nextScene = passGrid(newMap, x, y, lastDir);
 	checkValue = checkMover(newMap[x][y]);//makes sure the move is allowed
-	//this line will print the current player view
-	
+										  //this line will print the current player view
+
 	if (checkValue == 1)
 	{
 		return 1;
@@ -35,8 +38,6 @@ int moveWithDirection(std::array<std::array<char, 30>, 22>newMap, int x, int y, 
 	//newMap[x][y] = lastDir;//sets the player icon to the new location
 	return 0;
 }
-
-
 
 int checkMover(char map1)
 {

@@ -69,12 +69,12 @@ char getMovementDirection(JOYINFOEX &joyinfoex)
 		return 'U';
 	}
 	/////////////////////////////////////////////////////////////
-	//defualt controls
+	//default controls
 	char b = 0;
 	char a = 0;
 	std::string input;
 	MMRESULT unplugged1 = joyGetPosEx(JOYSTICKID1, &joyinfoex) == JOYERR_UNPLUGGED;
-	if (unplugged1==TRUE)
+	if (unplugged1 == TRUE)
 	{
 		while (true)
 		{
@@ -108,7 +108,5 @@ char getMovementDirection(JOYINFOEX &joyinfoex)
 		return 0;
 	}
 
-	return 0;	
+	return 0;
 }
-
-

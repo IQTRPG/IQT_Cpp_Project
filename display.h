@@ -6,7 +6,6 @@
 #include "scene.h"
 #include "colorChange.h"
 
-
 int health = 75;
 int maxHealth = 100;
 int xp = 35;
@@ -432,6 +431,7 @@ void printWeapon(int row)
 	}
 }
 
+//have this one change based upon the weapons we included
 void changeWeapon(int option)
 {
 	switch (option)
@@ -461,7 +461,5 @@ void changeWeapon(int option)
 
 	default:
 		break;
-
 	}
-
 }

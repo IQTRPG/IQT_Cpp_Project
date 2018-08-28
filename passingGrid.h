@@ -8,8 +8,6 @@
 #include <vector>
 #include <array>
 
-
-
 std::vector<char> passGrid(std::array<std::array<char, 30>, 22>arr, int x, int y, char lastDir)
 {
 	std::vector<char> nextMap;
@@ -68,21 +66,6 @@ std::vector<char> passGrid(std::array<std::array<char, 30>, 22>arr, int x, int y
 	return nextMap;
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 template <size_t size_x, size_t size_y>
 std::vector<char> passGridv2(char(&arr)[size_x][size_y], int x, int y, char lastDir)

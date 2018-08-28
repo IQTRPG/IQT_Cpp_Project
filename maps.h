@@ -8,7 +8,7 @@
 class levelMaker {
 
 private:
-	std::array<std::array<char,30>,22> level1= {
+	std::array<std::array<char, 30>, 22> level1 = {
 		'X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X',
 		'X','W','W','W','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X',
 		'X','W','D','W','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X',
@@ -67,10 +67,3 @@ public:
 		return level1;
 	}
 };
-
-
-
-
-
-
-

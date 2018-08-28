@@ -3,6 +3,9 @@
 #include <cstdlib>
 #include <sstream>
 #include <array>
+#include "controllerOut.h"
+#include "colorChange.h"
+
 void printMap(std::array<std::array<char, 30>, 22>Map, int x, int y, char lastDir)
 {
 	char b = 0;
@@ -18,7 +21,7 @@ void printMap(std::array<std::array<char, 30>, 22>Map, int x, int y, char lastDi
 				{
 					color_megenta();
 				}
-				if (Map[i][j]==Map[x][y])
+				if (Map[i][j] == Map[x][y])
 				{
 					color_green();
 				}
@@ -36,24 +39,24 @@ void printMap(std::array<std::array<char, 30>, 22>Map, int x, int y, char lastDi
 		//arr = newMap;
 		std::cout << "\n\n\n";
 		for (int i = (centerX - 3); i < (centerX + 3); i++) {
-			std::cout << "\t\t\t";
-			for (int j = (centerY - 3); j < (centerY + 3); j++)
-			{
-				if (Map[i][j] == 'W')
-				{
-					color_megenta();
-				}
-
-				std::cout << Map[i][j];
-				std::cout << " ";
-				colorReset();
-			}
-			std::cout << std::endl;
+		std::cout << "\t\t\t";
+		for (int j = (centerY - 3); j < (centerY + 3); j++)
+		{
+		if (Map[i][j] == 'W')
+		{
+		color_megenta();
 		}
-		
+
+		std::cout << Map[i][j];
+		std::cout << " ";
+		colorReset();
+		}
+		std::cout << std::endl;
+		}
+
 		while (b != 'B')
 		{
-			b = getButtonPress(joyinfoex);
+		b = getButtonPress(joyinfoex);
 		}
 		*/
 	}

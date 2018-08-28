@@ -5,11 +5,11 @@
 #include <vector>
 #include <array>
 #include "interactionMap.h"
+#include "passingGrid.h"
+#include "scene.h"
 
-
-std::array<std::array<char, 30>, 22> checkEncounter(std::array<std::array<char, 30>, 22>encounterMap,int x, int y, char lastDir)
+std::array<std::array<char, 30>, 22> checkEncounter(std::array<std::array<char, 30>, 22>encounterMap, int x, int y, char lastDir)
 {
-
 	if (encounterMap[x][y] == 'C')
 	{
 		std::vector<char> nextScene;
@@ -25,9 +25,9 @@ std::array<std::array<char, 30>, 22> checkEncounter(std::array<std::array<char, 
 		color_green();
 		scene(nextScene[0], nextScene[1], nextScene[2], nextScene[3], nextScene[4], nextScene[5], nextScene[6], nextScene[7]);
 		Sleep(120);
-		
+
 		system("cls");
-		map(nextScene[0], nextScene[1], nextScene[2], nextScene[3], nextScene[4], nextScene[5], nextScene[6], nextScene[7],"t","t");
+		map(nextScene[0], nextScene[1], nextScene[2], nextScene[3], nextScene[4], nextScene[5], nextScene[6], nextScene[7], "t", "t");
 		std::cout << "COMBAT!!!";
 		interactionMaker encounterMap;
 		encounterMap.clearEncounter(x, y, 1);
