@@ -78,6 +78,7 @@ void printBoss1();
 void printBoss2();
 void printBoss3();
 
+
 void fightMinion1() //void fightMinion1() level 1 odds
 {
 	srand(time(NULL)); //see the randomizer based on computer's time
@@ -91,7 +92,7 @@ void fightMinion1() //void fightMinion1() level 1 odds
 	int enemyDamage;
 	int enemyDefense;
 	int reward;
-	int randomizer = 30; // rand() % 100; //gives random number between 0 and 99
+	int randomizer = rand() % 100; //gives random number between 0 and 99
 
 	//for selectors
 	int battle_menu_item = 0;
@@ -99,21 +100,13 @@ void fightMinion1() //void fightMinion1() level 1 odds
 	bool battle_menu = true;
 	int item_menu_item = 0;
 	bool item_menu = true;
-	//bool win = false;
-
-	//for testing purposes only
-	weaponPtr = (Probe *)&probe;			//damage = 10
-	armorPtr = (Helmet *)&helmet;			//defense = 10
-	item1Ptr = (Apple *)&apple;				//heal = 10
-	item2Ptr = (Banana *)&banana;			//heal = 20
-	item3Ptr = (RedPotion *)&red_potion;	//heal = 50
-	item4Ptr = (MedKit *)&med_kit;			//heal = 100
+	bool win = false;
 
 	//load player stats (with weapon stats)
-	playerHP = player.getHP();
-	playerDamage = player.getDamage() + weaponPtr->getStat();
-	playerDefense = player.getDefense() + armorPtr->getStat();
-	playerGold = player.getGold();
+	playerHP = playerPtr->getHP();
+	playerDamage = playerPtr->getDamage() + weaponPtr->getStat();
+	playerDefense = playerPtr->getDefense() + armorPtr->getStat();
+	playerGold = playerPtr->getGold();
 
 	print_battle();
 
@@ -215,8 +208,10 @@ void fightMinion1() //void fightMinion1() level 1 odds
 	
 	gotoXY(6, 12); std::cout << "->";
 	//choice: attack (did you win?), use item (no attack, another choice in here), run (80%)
+
 	do //start battle menu
 	{
+
 		gotoXY(8, 9); std::cout << "Your current HP: " << playerHP << "              ";
 
 		gotoXY(8, 12); std::cout << "1) Attack                                      ";
@@ -225,317 +220,330 @@ void fightMinion1() //void fightMinion1() level 1 odds
 
 
 		system("pause>nul");
-
-		if (GetAsyncKeyState(VK_DOWN) && y != 14) //down is pressed unless at bottom
+		
+		//did they win yet?
+		if (win == false) //no winner yet
 		{
-			gotoXY(6, y); std::cout << "  ";
-			y++;
-			gotoXY(6, y); std::cout << "->";
-			battle_menu_item++;
-			continue;
-		}
-		if (GetAsyncKeyState(VK_UP) && y != 12) //up is pressed unless at top
-		{
-			gotoXY(6, y); std::cout << "  ";
-			y--;
-			gotoXY(6, y); std::cout << "->";
-			battle_menu_item--;
-			continue;
-		}
-		if (GetAsyncKeyState(VK_RETURN)) //enter key pressed
-		{
-			switch (battle_menu_item)
+			if (GetAsyncKeyState(VK_DOWN) && y != 14) //down is pressed unless at bottom
 			{
-			case 0: //attack
+				gotoXY(6, y); std::cout << "  ";
+				y++;
+				gotoXY(6, y); std::cout << "->";
+				battle_menu_item++;
+				continue;
+			}
+			if (GetAsyncKeyState(VK_UP) && y != 12) //up is pressed unless at top
 			{
-				gotoXY(8, 15); std::cout << "                                               ";
-				gotoXY(8, 16); std::cout << "                                               ";
-				gotoXY(8, 17); std::cout << "                                               ";
-				gotoXY(8, 18); std::cout << "                                               ";
-				gotoXY(8, 19); std::cout << "                                               ";
-				gotoXY(8, 20); std::cout << "                                               ";
-				gotoXY(8, 21); std::cout << "                                               ";
-				gotoXY(8, 22); std::cout << "                                               ";
-				int trueDamage = ((playerDamage * (rand() % 21 + 90)) / 100) - (enemyDefense / 10); //deals anywhere from 90-110% of damage minus 10% of enemy defense
-				enemyHP = enemyHP - trueDamage; //enemy health remaining
-				gotoXY(8, 16); std::cout << "You hit the " << enemyName << " for " << trueDamage << " damage.        ";
-
-				if (enemyHP <= 0) //enemy is dead
+				gotoXY(6, y); std::cout << "  ";
+				y--;
+				gotoXY(6, y); std::cout << "->";
+				battle_menu_item--;
+				continue;
+			}
+			if (GetAsyncKeyState(VK_RETURN)) //enter key pressed
+			{
+				switch (battle_menu_item)
 				{
-					gotoXY(8, 18); std::cout << "You have defeated the " << enemyName << ".              ";
-					playerGold = playerGold + reward;
-					gotoXY(8, 19); std::cout << "You picked up " << reward << " gold pieces.                  ";
-					//win = true;
-					//while (1); //you win
-					break;
-				}
-
-				else //enemy attacks
+				case 0: //attack
 				{
-					int enemyTrueDamage = ((enemyDamage * (rand() % 21 + 90)) / 100) - (playerDefense / 10); //deals 90-110% damage minus 10% player defense
-					playerHP = playerHP - enemyTrueDamage;
-					gotoXY(8, 18); std::cout << "The " << enemyName << " has " << enemyHP << " hit points remaining.         ";
-					gotoXY(8, 19); std::cout << "The " << enemyName << " hits you for " << enemyTrueDamage << " damage.        ";
+					gotoXY(8, 15); std::cout << "                                               ";
+					gotoXY(8, 16); std::cout << "                                               ";
+					gotoXY(8, 17); std::cout << "                                               ";
+					gotoXY(8, 18); std::cout << "                                               ";
+					gotoXY(8, 19); std::cout << "                                               ";
+					gotoXY(8, 20); std::cout << "                                               ";
+					gotoXY(8, 21); std::cout << "                                               ";
+					gotoXY(8, 22); std::cout << "                                               ";
+					int trueDamage = ((playerDamage * (rand() % 21 + 90)) / 100) - (enemyDefense / 10); //deals anywhere from 90-110% of damage minus 10% of enemy defense
+					enemyHP = enemyHP - trueDamage; //enemy health remaining
+					gotoXY(8, 16); std::cout << "You hit the " << enemyName << " for " << trueDamage << " damage.    ";
 
-					gotoXY(8, 9); std::cout << "Your current HP: " << playerHP << "              ";
-
-
-					if (playerHP <= 0) //player is dead
+					if (enemyHP <= 0) //enemy is dead
 					{
-						gotoXY(8, 21); std::cout << "You are dead!  Game over!                  ";
-						while (1); //game ends
+						gotoXY(8, 18); std::cout << "You have defeated the " << enemyName << ".              ";
+						playerGold = playerGold + reward;
+						gotoXY(8, 19); std::cout << "You picked up " << reward << " gold pieces.                  ";
+						playerPtr->setGold(playerGold);
+						win = true;
+						//while (1); //you win
 						break;
 					}
-				}break;
-			}
-			case 1: //use item
-			{
-				gotoXY(8, 15); std::cout << "                                               ";
-				gotoXY(8, 16); std::cout << "                                               ";
-				gotoXY(8, 17); std::cout << "                                               ";
-				gotoXY(8, 18); std::cout << "                                               ";
-				gotoXY(8, 19); std::cout << "                                               ";
-				gotoXY(8, 20); std::cout << "                                               ";
-				gotoXY(8, 21); std::cout << "                                               ";
-				gotoXY(8, 22); std::cout << "                                               ";
-				gotoXY(6, 13); std::cout << "  ";
-				y = 12;
-				item_menu_item = 0;
-				item_menu = true;
 
-				gotoXY(8, 11); std::cout << "Select an item to heal with.                    ";
-				gotoXY(6, 12); std::cout << "->";
+					else //enemy attacks
+					{
+						int enemyTrueDamage = ((enemyDamage * (rand() % 21 + 90)) / 100) - (playerDefense / 10); //deals 90-110% damage minus 10% player defense
+						playerHP = playerHP - enemyTrueDamage;
+						gotoXY(8, 18); std::cout << "The " << enemyName << " has " << enemyHP << " hit points remaining.     ";
+						gotoXY(8, 19); std::cout << "The " << enemyName << " hits you for " << enemyTrueDamage << " damage.        ";
 
-				do //start item menu
+						gotoXY(8, 9); std::cout << "Your current HP: " << playerHP << "              ";
+
+
+						if (playerHP <= 0) //player is dead
+						{
+							gotoXY(8, 21); std::cout << "You are dead!  Game over!                  ";
+							while (1); //game ends
+							break;
+						}
+					}break;
+				}
+				case 1: //use item
 				{
+					gotoXY(8, 15); std::cout << "                                               ";
+					gotoXY(8, 16); std::cout << "                                               ";
+					gotoXY(8, 17); std::cout << "                                               ";
+					gotoXY(8, 18); std::cout << "                                               ";
+					gotoXY(8, 19); std::cout << "                                               ";
+					gotoXY(8, 20); std::cout << "                                               ";
+					gotoXY(8, 21); std::cout << "                                               ";
+					gotoXY(8, 22); std::cout << "                                               ";
+					gotoXY(6, 13); std::cout << "  ";
+					y = 12;
+					item_menu_item = 0;
+					item_menu = true;
+
+					gotoXY(8, 11); std::cout << "Select an item to heal with.                    ";
+					gotoXY(6, 12); std::cout << "->";
+
+					do //start item menu
+					{
 
 
-					playerMaxHP = player.getMaxHP();
+						playerMaxHP = player.getMaxHP();
 
-					if (item1Ptr != NULL)
-					{
-						gotoXY(8, 12); std::cout << "1) " << item1Ptr->getName() << " heals for " << item1Ptr->getStat() << " hit points.        ";
-					}
-					else
-					{
-						gotoXY(8, 12); std::cout << "1) Empty                                       ";
-					}
-					if (item2Ptr != NULL)
-					{
-						gotoXY(8, 13); std::cout << "2) " << item2Ptr->getName() << " heals for " << item2Ptr->getStat() << " hit points.        ";
-					}
-					else
-					{
-						gotoXY(8, 13); std::cout << "2) Empty                                       ";
-					}
-					if (item3Ptr != NULL)
-					{
-						gotoXY(8, 14); std::cout << "3) " << item3Ptr->getName() << " heals for " << item3Ptr->getStat() << " hit points.        ";
-					}
-					else
-					{
-						gotoXY(8, 14); std::cout << "3) Empty                                       ";
-					}
-					if (item4Ptr != NULL)
-					{
-						gotoXY(8, 15); std::cout << "4) " << item4Ptr->getName() << " heals for " << item4Ptr->getStat() << " hit points.        ";
-					}
-					else
-					{
-						gotoXY(8, 15); std::cout << "4) Empty                                       ";
-					}
-
-					system("pause>nul");
-
-					if (GetAsyncKeyState(VK_DOWN) && y != 15)
-					{
-						gotoXY(6, y); std::cout << "  ";
-						y++;
-						gotoXY(6, y); std::cout << "->";
-						item_menu_item++;
-						continue;
-					}
-					if (GetAsyncKeyState(VK_UP) && y != 12)
-					{
-						gotoXY(6, y); std::cout << "  ";
-						y--;
-						gotoXY(6, y); std::cout << "->";
-						item_menu_item--;
-						continue;
-					}
-					if (GetAsyncKeyState(VK_RETURN))
-					{
-						switch (item_menu_item)
+						if (item1Ptr != NULL)
 						{
-						case 0: //item 1
+							gotoXY(8, 12); std::cout << "1) " << item1Ptr->getName() << " heals for " << item1Ptr->getStat() << " hit points.        ";
+						}
+						else
 						{
-							gotoXY(6, 12); std::cout << "  ";
-							if (item1Ptr != NULL)
+							gotoXY(8, 12); std::cout << "1) Empty                                       ";
+						}
+						if (item2Ptr != NULL)
+						{
+							gotoXY(8, 13); std::cout << "2) " << item2Ptr->getName() << " heals for " << item2Ptr->getStat() << " hit points.        ";
+						}
+						else
+						{
+							gotoXY(8, 13); std::cout << "2) Empty                                       ";
+						}
+						if (item3Ptr != NULL)
+						{
+							gotoXY(8, 14); std::cout << "3) " << item3Ptr->getName() << " heals for " << item3Ptr->getStat() << " hit points.        ";
+						}
+						else
+						{
+							gotoXY(8, 14); std::cout << "3) Empty                                       ";
+						}
+						if (item4Ptr != NULL)
+						{
+							gotoXY(8, 15); std::cout << "4) " << item4Ptr->getName() << " heals for " << item4Ptr->getStat() << " hit points.        ";
+						}
+						else
+						{
+							gotoXY(8, 15); std::cout << "4) Empty                                       ";
+						}
+
+						system("pause>nul");
+
+						if (GetAsyncKeyState(VK_DOWN) && y != 15)
+						{
+							gotoXY(6, y); std::cout << "  ";
+							y++;
+							gotoXY(6, y); std::cout << "->";
+							item_menu_item++;
+							continue;
+						}
+						if (GetAsyncKeyState(VK_UP) && y != 12)
+						{
+							gotoXY(6, y); std::cout << "  ";
+							y--;
+							gotoXY(6, y); std::cout << "->";
+							item_menu_item--;
+							continue;
+						}
+						if (GetAsyncKeyState(VK_RETURN))
+						{
+							switch (item_menu_item)
 							{
-								//heal player
-								playerHP = playerHP + item1Ptr->getStat();
-								if (playerHP > playerMaxHP)
+							case 0: //item 1
+							{
+								gotoXY(6, 12); std::cout << "  ";
+								if (item1Ptr != NULL)
 								{
-									gotoXY(8, 17); std::cout << "You were healed for " << playerMaxHP + item1Ptr->getStat() - playerHP << " hit points.         ";
-									playerHP = playerMaxHP;
+									//heal player
+									playerHP = playerHP + item1Ptr->getStat();
+									if (playerHP > playerMaxHP)
+									{
+										gotoXY(8, 17); std::cout << "You were healed for " << playerMaxHP + item1Ptr->getStat() - playerHP << " hit points.         ";
+										playerHP = playerMaxHP;
+									}
+									else
+									{
+										gotoXY(8, 17); std::cout << "You were healed for " << item1Ptr->getStat() << " hit points.         ";
+									}
+									//remove item and shift other items
+									item1Ptr = item2Ptr;
+									item2Ptr = item3Ptr;
+									item3Ptr = item4Ptr;
+									item4Ptr = NULL;
 								}
 								else
 								{
-									gotoXY(8, 17); std::cout << "You were healed for " << item1Ptr->getStat() << " hit points.         ";
+									gotoXY(8, 17); std::cout << "No item in slot 1.  You lose your turn.        ";
 								}
-								//remove item and shift other items
-								item1Ptr = item2Ptr;
-								item2Ptr = item3Ptr;
-								item3Ptr = item4Ptr;
-								item4Ptr = NULL;
+								break;
 							}
-							else
+							case 1: //item 2
 							{
-								gotoXY(8, 17); std::cout << "No item in slot 1.  You lose your turn.        ";
-							}
-							break;
-						}
-						case 1: //item 2
-						{
-							gotoXY(6, 13); std::cout << "  ";
-							if (item2Ptr != NULL)
-							{
-								//heal player
-								playerHP = playerHP + item2Ptr->getStat();
-								if (playerHP > playerMaxHP)
+								gotoXY(6, 13); std::cout << "  ";
+								if (item2Ptr != NULL)
 								{
-									gotoXY(8, 17); std::cout << "You were healed for " << playerMaxHP + item2Ptr->getStat() - playerHP << " hit points.         ";
-									playerHP = playerMaxHP;
+									//heal player
+									playerHP = playerHP + item2Ptr->getStat();
+									if (playerHP > playerMaxHP)
+									{
+										gotoXY(8, 17); std::cout << "You were healed for " << playerMaxHP + item2Ptr->getStat() - playerHP << " hit points.         ";
+										playerHP = playerMaxHP;
+									}
+									else
+									{
+										gotoXY(8, 17); std::cout << "You were healed for " << item2Ptr->getStat() << " hit points.         ";
+									}
+									//remove item and shift other items
+									item2Ptr = item3Ptr;
+									item3Ptr = item4Ptr;
+									item4Ptr = NULL;
 								}
 								else
 								{
-									gotoXY(8, 17); std::cout << "You were healed for " << item2Ptr->getStat() << " hit points.         ";
+									gotoXY(8, 17); std::cout << "No item in slot 2.  You lose your turn.        ";
 								}
-								//remove item and shift other items
-								item2Ptr = item3Ptr;
-								item3Ptr = item4Ptr;
-								item4Ptr = NULL;
+								break;
 							}
-							else
+							case 2: //item 3
 							{
-								gotoXY(8, 17); std::cout << "No item in slot 2.  You lose your turn.        ";
-							}
-							break;
-						}
-						case 2: //item 3
-						{
-							gotoXY(6, 14); std::cout << "  ";
-							if (item3Ptr != NULL)
-							{
-								//heal player
-								playerHP = playerHP + item3Ptr->getStat();
-								if (playerHP > playerMaxHP)
+								gotoXY(6, 14); std::cout << "  ";
+								if (item3Ptr != NULL)
 								{
-									gotoXY(8, 17); std::cout << "You were healed for " << playerMaxHP + item3Ptr->getStat() - playerHP << " hit points.         ";
-									playerHP = playerMaxHP;
+									//heal player
+									playerHP = playerHP + item3Ptr->getStat();
+									if (playerHP > playerMaxHP)
+									{
+										gotoXY(8, 17); std::cout << "You were healed for " << playerMaxHP + item3Ptr->getStat() - playerHP << " hit points.         ";
+										playerHP = playerMaxHP;
+									}
+									else
+									{
+										gotoXY(8, 17); std::cout << "You were healed for " << item3Ptr->getStat() << " hit points.         ";
+									}
+									//remove item and shift other items
+									item3Ptr = item4Ptr;
+									item4Ptr = NULL;
 								}
 								else
 								{
-									gotoXY(8, 17); std::cout << "You were healed for " << item3Ptr->getStat() << " hit points.         ";
+									gotoXY(8, 17); std::cout << "No item in slot 3.  You lose your turn.        ";
 								}
-								//remove item and shift other items
-								item3Ptr = item4Ptr;
-								item4Ptr = NULL;
+								break;
 							}
-							else
+							case 3: //item 4
 							{
-								gotoXY(8, 17); std::cout << "No item in slot 3.  You lose your turn.        ";
-							}
-							break;
-						}
-						case 3: //item 4
-						{
-							gotoXY(6, 15); std::cout << "  ";
-							if (item4Ptr != NULL)
-							{
-								//heal player
-								playerHP = playerHP + item4Ptr->getStat();
-								if (playerHP > playerMaxHP)
+								gotoXY(6, 15); std::cout << "  ";
+								if (item4Ptr != NULL)
 								{
-									gotoXY(8, 17); std::cout << "You were healed for " << playerMaxHP + item4Ptr->getStat() - playerHP << " hit points.         ";
-									playerHP = playerMaxHP;
+									//heal player
+									playerHP = playerHP + item4Ptr->getStat();
+									if (playerHP > playerMaxHP)
+									{
+										gotoXY(8, 17); std::cout << "You were healed for " << playerMaxHP + item4Ptr->getStat() - playerHP << " hit points.         ";
+										playerHP = playerMaxHP;
+									}
+									else
+									{
+										gotoXY(8, 17); std::cout << "You were healed for " << item4Ptr->getStat() << " hit points.         ";
+									}
+									//remove item and shift other items
+									item4Ptr = NULL;
 								}
 								else
 								{
-									gotoXY(8, 17); std::cout << "You were healed for " << item4Ptr->getStat() << " hit points.         ";
+									gotoXY(8, 17); std::cout << "No item in slot 4.  You lose your turn.        ";
 								}
-								//remove item and shift other items
-								item4Ptr = NULL;
+								break;
 							}
-							else
+							} // close switch
+							//enemy attacks
+							int enemyTrueDamage = ((enemyDamage * (rand() % 20 + 91)) / 100) - (playerDefense / 10); //deals 90-110% damage minus 10% player defense
+							playerHP = playerHP - enemyTrueDamage;
+							gotoXY(8, 19); std::cout << "The " << enemyName << " has " << enemyHP << " hit points remaining.         ";
+							gotoXY(8, 20); std::cout << "The " << enemyName << " hits you for " << enemyTrueDamage << " damage.        ";
+
+							gotoXY(8, 9); std::cout << "Your current HP: " << playerHP << "              ";
+
+							if (playerHP <= 0) //player is dead
 							{
-								gotoXY(8, 17); std::cout << "No item in slot 4.  You lose your turn.        ";
+								gotoXY(8, 22); std::cout << "You are dead!  Game over!                  ";
+								while (1); //game ends
 							}
-							break;
-						}
-						} // close switch
+							item_menu = false;
+						} //close if
+					} while (item_menu);
+					y = 12;
+					gotoXY(6, 12); std::cout << "->";
+					item_menu_item = 0;
+					item_menu = true;
+					break;
+				}
+				case 2: //run
+				{
+					gotoXY(8, 15); std::cout << "                                               ";
+					gotoXY(8, 16); std::cout << "                                               ";
+					gotoXY(8, 17); std::cout << "                                               ";
+					gotoXY(8, 18); std::cout << "                                               ";
+					gotoXY(8, 19); std::cout << "                                               ";
+					gotoXY(8, 20); std::cout << "                                               ";
+					gotoXY(8, 21); std::cout << "                                               ";
+					gotoXY(8, 22); std::cout << "                                               ";
+					gotoXY(6, 14); std::cout << "  ";
+					int random = rand() % 5; //80% chance to run away successfully
+					if (random == 0)
+					{
+						gotoXY(8, 11); std::cout << "Run away attempt has failed.                   ";
 						//enemy attacks
 						int enemyTrueDamage = ((enemyDamage * (rand() % 20 + 91)) / 100) - (playerDefense / 10); //deals 90-110% damage minus 10% player defense
 						playerHP = playerHP - enemyTrueDamage;
-						gotoXY(8, 19); std::cout << "The " << enemyName << " has " << enemyHP << " hit points remaining.         ";
-						gotoXY(8, 20); std::cout << "The " << enemyName << " hits you for " << enemyTrueDamage << " damage.        ";
+						gotoXY(8, 13); std::cout << "The " << enemyName << " has " << enemyHP << " hit points remaining.         ";
+						gotoXY(8, 14); std::cout << "The " << enemyName << " hits you for " << enemyTrueDamage << " damage.        ";
 
 						gotoXY(8, 9); std::cout << "Your current HP: " << playerHP << "              ";
 
 						if (playerHP <= 0) //player is dead
 						{
-							gotoXY(8, 22); std::cout << "You are dead!  Game over!                  ";
+							gotoXY(8, 16); std::cout << "You are dead!  Game over!                  ";
 							while (1); //game ends
 						}
-						item_menu = false;
-					} //close if
-				} while (item_menu);
-				y = 12;
-				gotoXY(6, 12); std::cout << "->";
-				item_menu_item = 0;
-				item_menu = true;
-				break;
-			}
-			case 2: //run
-			{
-				gotoXY(8, 15); std::cout << "                                               ";
-				gotoXY(8, 16); std::cout << "                                               ";
-				gotoXY(8, 17); std::cout << "                                               ";
-				gotoXY(8, 18); std::cout << "                                               ";
-				gotoXY(8, 19); std::cout << "                                               ";
-				gotoXY(8, 20); std::cout << "                                               ";
-				gotoXY(8, 21); std::cout << "                                               ";
-				gotoXY(8, 22); std::cout << "                                               ";
-				gotoXY(6, 14); std::cout << "  ";
-				int random = rand() % 5; //80% chance to run away successfully
-				if (random == 0)
-				{
-					gotoXY(8, 11); std::cout << "Run away attempt has failed.                   ";
-					//enemy attacks
-					int enemyTrueDamage = ((enemyDamage * (rand() % 20 + 91)) / 100) - (playerDefense / 10); //deals 90-110% damage minus 10% player defense
-					playerHP = playerHP - enemyTrueDamage;
-					gotoXY(8, 13); std::cout << "The " << enemyName << " has " << enemyHP << " hit points remaining.         ";
-					gotoXY(8, 14); std::cout << "The " << enemyName << " hits you for " << enemyTrueDamage << " damage.        ";
-
-					gotoXY(8, 9); std::cout << "Your current HP: " << playerHP << "              ";
-
-					if (playerHP <= 0) //player is dead
-					{
-						gotoXY(8, 16); std::cout << "You are dead!  Game over!                  ";
-						while (1); //game ends
 					}
+					else
+					{
+					gotoXY(8, 11); std::cout << "RUN AWAY!!!!!                                      ";
+					gotoXY(8, 12); std::cout << "                                               ";
+					gotoXY(8, 13); std::cout << "                                               ";
+					gotoXY(8, 14); std::cout << "                                               ";
+					getchar();
+					return;
+					}
+					break;
 				}
-				else
-				{
-					gotoXY(8, 11); std::cout << "Run away attempt is successful.                " << random;
-					while (1); //figure out how to escape
-				}
-				break;
+				} //close switch
+				y = 12;
+				battle_menu_item = 0;
+				//battle_menu = false;
 			}
-			} //close switch
-			y = 12;
-			battle_menu_item = 0;
-			  //battle_menu = false;
+		}
+		else //you won
+		{
+			return;
 		}
 	}while (battle_menu);
 	while (1);
@@ -564,21 +572,13 @@ void fightMinion2() //level 2 odds
 	bool battle_menu = true;
 	int item_menu_item = 0;
 	bool item_menu = true;
-	//bool win = false;
+	bool win = false;
 
-	//for testing purposes only
-	weaponPtr = (Probe *)&probe;			//damage = 10
-	armorPtr = (Helmet *)&helmet;			//defense = 10
-	item1Ptr = (Apple *)&apple;				//heal = 10
-	item2Ptr = (Banana *)&banana;			//heal = 20
-	item3Ptr = (RedPotion *)&red_potion;	//heal = 50
-	item4Ptr = (MedKit *)&med_kit;			//heal = 100
-
-											//load player stats (with weapon stats)
-	playerHP = player.getHP();
-	playerDamage = player.getDamage() + weaponPtr->getStat();
-	playerDefense = player.getDefense() + armorPtr->getStat();
-	playerGold = player.getGold();
+	//load player stats (with weapon stats)
+	playerHP = playerPtr->getHP();
+	playerDamage = playerPtr->getDamage() + weaponPtr->getStat();
+	playerDefense = playerPtr->getDefense() + armorPtr->getStat();
+	playerGold = playerPtr->getGold();
 
 	print_battle();
 
@@ -680,8 +680,10 @@ void fightMinion2() //level 2 odds
 
 	gotoXY(6, 12); std::cout << "->";
 	//choice: attack (did you win?), use item (no attack, another choice in here), run (80%)
+
 	do //start battle menu
 	{
+
 		gotoXY(8, 9); std::cout << "Your current HP: " << playerHP << "              ";
 
 		gotoXY(8, 12); std::cout << "1) Attack                                      ";
@@ -691,316 +693,329 @@ void fightMinion2() //level 2 odds
 
 		system("pause>nul");
 
-		if (GetAsyncKeyState(VK_DOWN) && y != 14) //down is pressed unless at bottom
+		//did they win yet?
+		if (win == false) //no winner yet
 		{
-			gotoXY(6, y); std::cout << "  ";
-			y++;
-			gotoXY(6, y); std::cout << "->";
-			battle_menu_item++;
-			continue;
-		}
-		if (GetAsyncKeyState(VK_UP) && y != 12) //up is pressed unless at top
-		{
-			gotoXY(6, y); std::cout << "  ";
-			y--;
-			gotoXY(6, y); std::cout << "->";
-			battle_menu_item--;
-			continue;
-		}
-		if (GetAsyncKeyState(VK_RETURN)) //enter key pressed
-		{
-			switch (battle_menu_item)
+			if (GetAsyncKeyState(VK_DOWN) && y != 14) //down is pressed unless at bottom
 			{
-			case 0: //attack
+				gotoXY(6, y); std::cout << "  ";
+				y++;
+				gotoXY(6, y); std::cout << "->";
+				battle_menu_item++;
+				continue;
+			}
+			if (GetAsyncKeyState(VK_UP) && y != 12) //up is pressed unless at top
 			{
-				gotoXY(8, 15); std::cout << "                                               ";
-				gotoXY(8, 16); std::cout << "                                               ";
-				gotoXY(8, 17); std::cout << "                                               ";
-				gotoXY(8, 18); std::cout << "                                               ";
-				gotoXY(8, 19); std::cout << "                                               ";
-				gotoXY(8, 20); std::cout << "                                               ";
-				gotoXY(8, 21); std::cout << "                                               ";
-				gotoXY(8, 22); std::cout << "                                               ";
-				int trueDamage = ((playerDamage * (rand() % 21 + 90)) / 100) - (enemyDefense / 10); //deals anywhere from 90-110% of damage minus 10% of enemy defense
-				enemyHP = enemyHP - trueDamage; //enemy health remaining
-				gotoXY(8, 16); std::cout << "You hit the " << enemyName << " for " << trueDamage << " damage.        ";
-
-				if (enemyHP <= 0) //enemy is dead
+				gotoXY(6, y); std::cout << "  ";
+				y--;
+				gotoXY(6, y); std::cout << "->";
+				battle_menu_item--;
+				continue;
+			}
+			if (GetAsyncKeyState(VK_RETURN)) //enter key pressed
+			{
+				switch (battle_menu_item)
 				{
-					gotoXY(8, 18); std::cout << "You have defeated the " << enemyName << ".              ";
-					playerGold = playerGold + reward;
-					gotoXY(8, 19); std::cout << "You picked up " << reward << " gold pieces.                  ";
-					//win = true;
-					//while (1); //you win
-					break;
-				}
-
-				else //enemy attacks
+				case 0: //attack
 				{
-					int enemyTrueDamage = ((enemyDamage * (rand() % 21 + 90)) / 100) - (playerDefense / 10); //deals 90-110% damage minus 10% player defense
-					playerHP = playerHP - enemyTrueDamage;
-					gotoXY(8, 18); std::cout << "The " << enemyName << " has " << enemyHP << " hit points remaining.         ";
-					gotoXY(8, 19); std::cout << "The " << enemyName << " hits you for " << enemyTrueDamage << " damage.        ";
+					gotoXY(8, 15); std::cout << "                                               ";
+					gotoXY(8, 16); std::cout << "                                               ";
+					gotoXY(8, 17); std::cout << "                                               ";
+					gotoXY(8, 18); std::cout << "                                               ";
+					gotoXY(8, 19); std::cout << "                                               ";
+					gotoXY(8, 20); std::cout << "                                               ";
+					gotoXY(8, 21); std::cout << "                                               ";
+					gotoXY(8, 22); std::cout << "                                               ";
+					int trueDamage = ((playerDamage * (rand() % 21 + 90)) / 100) - (enemyDefense / 10); //deals anywhere from 90-110% of damage minus 10% of enemy defense
+					enemyHP = enemyHP - trueDamage; //enemy health remaining
+					gotoXY(8, 16); std::cout << "You hit the " << enemyName << " for " << trueDamage << " damage.    ";
 
-					gotoXY(8, 9); std::cout << "Your current HP: " << playerHP << "              ";
-
-
-					if (playerHP <= 0) //player is dead
+					if (enemyHP <= 0) //enemy is dead
 					{
-						gotoXY(8, 21); std::cout << "You are dead!  Game over!                  ";
-						while (1); //game ends
+						gotoXY(8, 18); std::cout << "You have defeated the " << enemyName << ".              ";
+						playerGold = playerGold + reward;
+						gotoXY(8, 19); std::cout << "You picked up " << reward << " gold pieces.                  ";
+						playerPtr->setGold(playerGold);
+						win = true;
+						//while (1); //you win
 						break;
 					}
-				}break;
-			}
-			case 1: //use item
-			{
-				gotoXY(8, 15); std::cout << "                                               ";
-				gotoXY(8, 16); std::cout << "                                               ";
-				gotoXY(8, 17); std::cout << "                                               ";
-				gotoXY(8, 18); std::cout << "                                               ";
-				gotoXY(8, 19); std::cout << "                                               ";
-				gotoXY(8, 20); std::cout << "                                               ";
-				gotoXY(8, 21); std::cout << "                                               ";
-				gotoXY(8, 22); std::cout << "                                               ";
-				gotoXY(6, 13); std::cout << "  ";
-				y = 12;
-				item_menu_item = 0;
-				item_menu = true;
 
-				gotoXY(8, 11); std::cout << "Select an item to heal with.                    ";
-				gotoXY(6, 12); std::cout << "->";
+					else //enemy attacks
+					{
+						int enemyTrueDamage = ((enemyDamage * (rand() % 21 + 90)) / 100) - (playerDefense / 10); //deals 90-110% damage minus 10% player defense
+						playerHP = playerHP - enemyTrueDamage;
+						gotoXY(8, 18); std::cout << "The " << enemyName << " has " << enemyHP << " hit points remaining.     ";
+						gotoXY(8, 19); std::cout << "The " << enemyName << " hits you for " << enemyTrueDamage << " damage.        ";
 
-				do //start item menu
+						gotoXY(8, 9); std::cout << "Your current HP: " << playerHP << "              ";
+
+
+						if (playerHP <= 0) //player is dead
+						{
+							gotoXY(8, 21); std::cout << "You are dead!  Game over!                  ";
+							while (1); //game ends
+							break;
+						}
+					}break;
+				}
+				case 1: //use item
 				{
+					gotoXY(8, 15); std::cout << "                                               ";
+					gotoXY(8, 16); std::cout << "                                               ";
+					gotoXY(8, 17); std::cout << "                                               ";
+					gotoXY(8, 18); std::cout << "                                               ";
+					gotoXY(8, 19); std::cout << "                                               ";
+					gotoXY(8, 20); std::cout << "                                               ";
+					gotoXY(8, 21); std::cout << "                                               ";
+					gotoXY(8, 22); std::cout << "                                               ";
+					gotoXY(6, 13); std::cout << "  ";
+					y = 12;
+					item_menu_item = 0;
+					item_menu = true;
+
+					gotoXY(8, 11); std::cout << "Select an item to heal with.                    ";
+					gotoXY(6, 12); std::cout << "->";
+
+					do //start item menu
+					{
 
 
-					playerMaxHP = player.getMaxHP();
+						playerMaxHP = player.getMaxHP();
 
-					if (item1Ptr != NULL)
-					{
-						gotoXY(8, 12); std::cout << "1) " << item1Ptr->getName() << " heals for " << item1Ptr->getStat() << " hit points.        ";
-					}
-					else
-					{
-						gotoXY(8, 12); std::cout << "1) Empty                                       ";
-					}
-					if (item2Ptr != NULL)
-					{
-						gotoXY(8, 13); std::cout << "2) " << item2Ptr->getName() << " heals for " << item2Ptr->getStat() << " hit points.        ";
-					}
-					else
-					{
-						gotoXY(8, 13); std::cout << "2) Empty                                       ";
-					}
-					if (item3Ptr != NULL)
-					{
-						gotoXY(8, 14); std::cout << "3) " << item3Ptr->getName() << " heals for " << item3Ptr->getStat() << " hit points.        ";
-					}
-					else
-					{
-						gotoXY(8, 14); std::cout << "3) Empty                                       ";
-					}
-					if (item4Ptr != NULL)
-					{
-						gotoXY(8, 15); std::cout << "4) " << item4Ptr->getName() << " heals for " << item4Ptr->getStat() << " hit points.        ";
-					}
-					else
-					{
-						gotoXY(8, 15); std::cout << "4) Empty                                       ";
-					}
-
-					system("pause>nul");
-
-					if (GetAsyncKeyState(VK_DOWN) && y != 15)
-					{
-						gotoXY(6, y); std::cout << "  ";
-						y++;
-						gotoXY(6, y); std::cout << "->";
-						item_menu_item++;
-						continue;
-					}
-					if (GetAsyncKeyState(VK_UP) && y != 12)
-					{
-						gotoXY(6, y); std::cout << "  ";
-						y--;
-						gotoXY(6, y); std::cout << "->";
-						item_menu_item--;
-						continue;
-					}
-					if (GetAsyncKeyState(VK_RETURN))
-					{
-						switch (item_menu_item)
+						if (item1Ptr != NULL)
 						{
-						case 0: //item 1
+							gotoXY(8, 12); std::cout << "1) " << item1Ptr->getName() << " heals for " << item1Ptr->getStat() << " hit points.        ";
+						}
+						else
 						{
-							gotoXY(6, 12); std::cout << "  ";
-							if (item1Ptr != NULL)
+							gotoXY(8, 12); std::cout << "1) Empty                                       ";
+						}
+						if (item2Ptr != NULL)
+						{
+							gotoXY(8, 13); std::cout << "2) " << item2Ptr->getName() << " heals for " << item2Ptr->getStat() << " hit points.        ";
+						}
+						else
+						{
+							gotoXY(8, 13); std::cout << "2) Empty                                       ";
+						}
+						if (item3Ptr != NULL)
+						{
+							gotoXY(8, 14); std::cout << "3) " << item3Ptr->getName() << " heals for " << item3Ptr->getStat() << " hit points.        ";
+						}
+						else
+						{
+							gotoXY(8, 14); std::cout << "3) Empty                                       ";
+						}
+						if (item4Ptr != NULL)
+						{
+							gotoXY(8, 15); std::cout << "4) " << item4Ptr->getName() << " heals for " << item4Ptr->getStat() << " hit points.        ";
+						}
+						else
+						{
+							gotoXY(8, 15); std::cout << "4) Empty                                       ";
+						}
+
+						system("pause>nul");
+
+						if (GetAsyncKeyState(VK_DOWN) && y != 15)
+						{
+							gotoXY(6, y); std::cout << "  ";
+							y++;
+							gotoXY(6, y); std::cout << "->";
+							item_menu_item++;
+							continue;
+						}
+						if (GetAsyncKeyState(VK_UP) && y != 12)
+						{
+							gotoXY(6, y); std::cout << "  ";
+							y--;
+							gotoXY(6, y); std::cout << "->";
+							item_menu_item--;
+							continue;
+						}
+						if (GetAsyncKeyState(VK_RETURN))
+						{
+							switch (item_menu_item)
 							{
-								//heal player
-								playerHP = playerHP + item1Ptr->getStat();
-								if (playerHP > playerMaxHP)
+							case 0: //item 1
+							{
+								gotoXY(6, 12); std::cout << "  ";
+								if (item1Ptr != NULL)
 								{
-									gotoXY(8, 17); std::cout << "You were healed for " << playerMaxHP + item1Ptr->getStat() - playerHP << " hit points.         ";
-									playerHP = playerMaxHP;
+									//heal player
+									playerHP = playerHP + item1Ptr->getStat();
+									if (playerHP > playerMaxHP)
+									{
+										gotoXY(8, 17); std::cout << "You were healed for " << playerMaxHP + item1Ptr->getStat() - playerHP << " hit points.         ";
+										playerHP = playerMaxHP;
+									}
+									else
+									{
+										gotoXY(8, 17); std::cout << "You were healed for " << item1Ptr->getStat() << " hit points.         ";
+									}
+									//remove item and shift other items
+									item1Ptr = item2Ptr;
+									item2Ptr = item3Ptr;
+									item3Ptr = item4Ptr;
+									item4Ptr = NULL;
 								}
 								else
 								{
-									gotoXY(8, 17); std::cout << "You were healed for " << item1Ptr->getStat() << " hit points.         ";
+									gotoXY(8, 17); std::cout << "No item in slot 1.  You lose your turn.        ";
 								}
-								//remove item and shift other items
-								item1Ptr = item2Ptr;
-								item2Ptr = item3Ptr;
-								item3Ptr = item4Ptr;
-								item4Ptr = NULL;
+								break;
 							}
-							else
+							case 1: //item 2
 							{
-								gotoXY(8, 17); std::cout << "No item in slot 1.  You lose your turn.        ";
-							}
-							break;
-						}
-						case 1: //item 2
-						{
-							gotoXY(6, 13); std::cout << "  ";
-							if (item2Ptr != NULL)
-							{
-								//heal player
-								playerHP = playerHP + item2Ptr->getStat();
-								if (playerHP > playerMaxHP)
+								gotoXY(6, 13); std::cout << "  ";
+								if (item2Ptr != NULL)
 								{
-									gotoXY(8, 17); std::cout << "You were healed for " << playerMaxHP + item2Ptr->getStat() - playerHP << " hit points.         ";
-									playerHP = playerMaxHP;
+									//heal player
+									playerHP = playerHP + item2Ptr->getStat();
+									if (playerHP > playerMaxHP)
+									{
+										gotoXY(8, 17); std::cout << "You were healed for " << playerMaxHP + item2Ptr->getStat() - playerHP << " hit points.         ";
+										playerHP = playerMaxHP;
+									}
+									else
+									{
+										gotoXY(8, 17); std::cout << "You were healed for " << item2Ptr->getStat() << " hit points.         ";
+									}
+									//remove item and shift other items
+									item2Ptr = item3Ptr;
+									item3Ptr = item4Ptr;
+									item4Ptr = NULL;
 								}
 								else
 								{
-									gotoXY(8, 17); std::cout << "You were healed for " << item2Ptr->getStat() << " hit points.         ";
+									gotoXY(8, 17); std::cout << "No item in slot 2.  You lose your turn.        ";
 								}
-								//remove item and shift other items
-								item2Ptr = item3Ptr;
-								item3Ptr = item4Ptr;
-								item4Ptr = NULL;
+								break;
 							}
-							else
+							case 2: //item 3
 							{
-								gotoXY(8, 17); std::cout << "No item in slot 2.  You lose your turn.        ";
-							}
-							break;
-						}
-						case 2: //item 3
-						{
-							gotoXY(6, 14); std::cout << "  ";
-							if (item3Ptr != NULL)
-							{
-								//heal player
-								playerHP = playerHP + item3Ptr->getStat();
-								if (playerHP > playerMaxHP)
+								gotoXY(6, 14); std::cout << "  ";
+								if (item3Ptr != NULL)
 								{
-									gotoXY(8, 17); std::cout << "You were healed for " << playerMaxHP + item3Ptr->getStat() - playerHP << " hit points.         ";
-									playerHP = playerMaxHP;
+									//heal player
+									playerHP = playerHP + item3Ptr->getStat();
+									if (playerHP > playerMaxHP)
+									{
+										gotoXY(8, 17); std::cout << "You were healed for " << playerMaxHP + item3Ptr->getStat() - playerHP << " hit points.         ";
+										playerHP = playerMaxHP;
+									}
+									else
+									{
+										gotoXY(8, 17); std::cout << "You were healed for " << item3Ptr->getStat() << " hit points.         ";
+									}
+									//remove item and shift other items
+									item3Ptr = item4Ptr;
+									item4Ptr = NULL;
 								}
 								else
 								{
-									gotoXY(8, 17); std::cout << "You were healed for " << item3Ptr->getStat() << " hit points.         ";
+									gotoXY(8, 17); std::cout << "No item in slot 3.  You lose your turn.        ";
 								}
-								//remove item and shift other items
-								item3Ptr = item4Ptr;
-								item4Ptr = NULL;
+								break;
 							}
-							else
+							case 3: //item 4
 							{
-								gotoXY(8, 17); std::cout << "No item in slot 3.  You lose your turn.        ";
-							}
-							break;
-						}
-						case 3: //item 4
-						{
-							gotoXY(6, 15); std::cout << "  ";
-							if (item4Ptr != NULL)
-							{
-								//heal player
-								playerHP = playerHP + item4Ptr->getStat();
-								if (playerHP > playerMaxHP)
+								gotoXY(6, 15); std::cout << "  ";
+								if (item4Ptr != NULL)
 								{
-									gotoXY(8, 17); std::cout << "You were healed for " << playerMaxHP + item4Ptr->getStat() - playerHP << " hit points.         ";
-									playerHP = playerMaxHP;
+									//heal player
+									playerHP = playerHP + item4Ptr->getStat();
+									if (playerHP > playerMaxHP)
+									{
+										gotoXY(8, 17); std::cout << "You were healed for " << playerMaxHP + item4Ptr->getStat() - playerHP << " hit points.         ";
+										playerHP = playerMaxHP;
+									}
+									else
+									{
+										gotoXY(8, 17); std::cout << "You were healed for " << item4Ptr->getStat() << " hit points.         ";
+									}
+									//remove item and shift other items
+									item4Ptr = NULL;
 								}
 								else
 								{
-									gotoXY(8, 17); std::cout << "You were healed for " << item4Ptr->getStat() << " hit points.         ";
+									gotoXY(8, 17); std::cout << "No item in slot 4.  You lose your turn.        ";
 								}
-								//remove item and shift other items
-								item4Ptr = NULL;
+								break;
 							}
-							else
+							} // close switch
+							  //enemy attacks
+							int enemyTrueDamage = ((enemyDamage * (rand() % 20 + 91)) / 100) - (playerDefense / 10); //deals 90-110% damage minus 10% player defense
+							playerHP = playerHP - enemyTrueDamage;
+							gotoXY(8, 19); std::cout << "The " << enemyName << " has " << enemyHP << " hit points remaining.         ";
+							gotoXY(8, 20); std::cout << "The " << enemyName << " hits you for " << enemyTrueDamage << " damage.        ";
+
+							gotoXY(8, 9); std::cout << "Your current HP: " << playerHP << "              ";
+
+							if (playerHP <= 0) //player is dead
 							{
-								gotoXY(8, 17); std::cout << "No item in slot 4.  You lose your turn.        ";
+								gotoXY(8, 22); std::cout << "You are dead!  Game over!                  ";
+								while (1); //game ends
 							}
-							break;
-						}
-						} // close switch
-						  //enemy attacks
+							item_menu = false;
+						} //close if
+					} while (item_menu);
+					y = 12;
+					gotoXY(6, 12); std::cout << "->";
+					item_menu_item = 0;
+					item_menu = true;
+					break;
+				}
+				case 2: //run
+				{
+					gotoXY(8, 15); std::cout << "                                               ";
+					gotoXY(8, 16); std::cout << "                                               ";
+					gotoXY(8, 17); std::cout << "                                               ";
+					gotoXY(8, 18); std::cout << "                                               ";
+					gotoXY(8, 19); std::cout << "                                               ";
+					gotoXY(8, 20); std::cout << "                                               ";
+					gotoXY(8, 21); std::cout << "                                               ";
+					gotoXY(8, 22); std::cout << "                                               ";
+					gotoXY(6, 14); std::cout << "  ";
+					int random = rand() % 5; //80% chance to run away successfully
+					if (random == 0)
+					{
+						gotoXY(8, 11); std::cout << "Run away attempt has failed.                   ";
+						//enemy attacks
 						int enemyTrueDamage = ((enemyDamage * (rand() % 20 + 91)) / 100) - (playerDefense / 10); //deals 90-110% damage minus 10% player defense
 						playerHP = playerHP - enemyTrueDamage;
-						gotoXY(8, 19); std::cout << "The " << enemyName << " has " << enemyHP << " hit points remaining.         ";
-						gotoXY(8, 20); std::cout << "The " << enemyName << " hits you for " << enemyTrueDamage << " damage.        ";
+						gotoXY(8, 13); std::cout << "The " << enemyName << " has " << enemyHP << " hit points remaining.         ";
+						gotoXY(8, 14); std::cout << "The " << enemyName << " hits you for " << enemyTrueDamage << " damage.        ";
 
 						gotoXY(8, 9); std::cout << "Your current HP: " << playerHP << "              ";
 
 						if (playerHP <= 0) //player is dead
 						{
-							gotoXY(8, 22); std::cout << "You are dead!  Game over!                  ";
+							gotoXY(8, 16); std::cout << "You are dead!  Game over!                  ";
 							while (1); //game ends
 						}
-						item_menu = false;
-					} //close if
-				} while (item_menu);
-				y = 12;
-				gotoXY(6, 12); std::cout << "->";
-				item_menu_item = 0;
-				item_menu = true;
-				break;
-			}
-			case 2: //run
-			{
-				gotoXY(8, 15); std::cout << "                                               ";
-				gotoXY(8, 16); std::cout << "                                               ";
-				gotoXY(8, 17); std::cout << "                                               ";
-				gotoXY(8, 18); std::cout << "                                               ";
-				gotoXY(8, 19); std::cout << "                                               ";
-				gotoXY(8, 20); std::cout << "                                               ";
-				gotoXY(8, 21); std::cout << "                                               ";
-				gotoXY(8, 22); std::cout << "                                               ";
-				gotoXY(6, 14); std::cout << "  ";
-				int random = rand() % 5; //80% chance to run away successfully
-				if (random == 0)
-				{
-					gotoXY(8, 11); std::cout << "Run away attempt has failed.                   ";
-					//enemy attacks
-					int enemyTrueDamage = ((enemyDamage * (rand() % 20 + 91)) / 100) - (playerDefense / 10); //deals 90-110% damage minus 10% player defense
-					playerHP = playerHP - enemyTrueDamage;
-					gotoXY(8, 13); std::cout << "The " << enemyName << " has " << enemyHP << " hit points remaining.         ";
-					gotoXY(8, 14); std::cout << "The " << enemyName << " hits you for " << enemyTrueDamage << " damage.        ";
-
-					gotoXY(8, 9); std::cout << "Your current HP: " << playerHP << "              ";
-
-					if (playerHP <= 0) //player is dead
-					{
-						gotoXY(8, 16); std::cout << "You are dead!  Game over!                  ";
-						while (1); //game ends
 					}
+					else
+					{
+					gotoXY(8, 11); std::cout << "RUN AWAY!!!!!                                      ";
+					gotoXY(8, 12); std::cout << "                                               ";
+					gotoXY(8, 13); std::cout << "                                               ";
+					gotoXY(8, 14); std::cout << "                                               ";
+					getchar();
+					return;
+					}
+					break;
 				}
-				else
-				{
-					gotoXY(8, 11); std::cout << "Run away attempt is successful.                " << random;
-					while (1); //figure out how to escape
-				}
-				break;
+				} //close switch
+				y = 12;
+				battle_menu_item = 0;
+				//battle_menu = false;
 			}
-			} //close switch
-			y = 12;
-			battle_menu_item = 0;
-			//battle_menu = false;
+		}
+		else //you won
+		{
+			return;
 		}
 	} while (battle_menu);
 	while (1);
@@ -1028,21 +1043,13 @@ void fightMinion3() //level 3 odds
 	bool battle_menu = true;
 	int item_menu_item = 0;
 	bool item_menu = true;
-	//bool win = false;
+	bool win = false;
 
-	//for testing purposes only
-	weaponPtr = (Probe *)&probe;			//damage = 10
-	armorPtr = (Helmet *)&helmet;			//defense = 10
-	item1Ptr = (Apple *)&apple;				//heal = 10
-	item2Ptr = (Banana *)&banana;			//heal = 20
-	item3Ptr = (RedPotion *)&red_potion;	//heal = 50
-	item4Ptr = (MedKit *)&med_kit;			//heal = 100
-
-											//load player stats (with weapon stats)
-	playerHP = player.getHP();
-	playerDamage = player.getDamage() + weaponPtr->getStat();
-	playerDefense = player.getDefense() + armorPtr->getStat();
-	playerGold = player.getGold();
+	//load player stats (with weapon stats)
+	playerHP = playerPtr->getHP();
+	playerDamage = playerPtr->getDamage() + weaponPtr->getStat();
+	playerDefense = playerPtr->getDefense() + armorPtr->getStat();
+	playerGold = playerPtr->getGold();
 
 	print_battle();
 
@@ -1144,8 +1151,10 @@ void fightMinion3() //level 3 odds
 
 	gotoXY(6, 12); std::cout << "->";
 	//choice: attack (did you win?), use item (no attack, another choice in here), run (80%)
+
 	do //start battle menu
 	{
+
 		gotoXY(8, 9); std::cout << "Your current HP: " << playerHP << "              ";
 
 		gotoXY(8, 12); std::cout << "1) Attack                                      ";
@@ -1155,316 +1164,329 @@ void fightMinion3() //level 3 odds
 
 		system("pause>nul");
 
-		if (GetAsyncKeyState(VK_DOWN) && y != 14) //down is pressed unless at bottom
+		//did they win yet?
+		if (win == false) //no winner yet
 		{
-			gotoXY(6, y); std::cout << "  ";
-			y++;
-			gotoXY(6, y); std::cout << "->";
-			battle_menu_item++;
-			continue;
-		}
-		if (GetAsyncKeyState(VK_UP) && y != 12) //up is pressed unless at top
-		{
-			gotoXY(6, y); std::cout << "  ";
-			y--;
-			gotoXY(6, y); std::cout << "->";
-			battle_menu_item--;
-			continue;
-		}
-		if (GetAsyncKeyState(VK_RETURN)) //enter key pressed
-		{
-			switch (battle_menu_item)
+			if (GetAsyncKeyState(VK_DOWN) && y != 14) //down is pressed unless at bottom
 			{
-			case 0: //attack
+				gotoXY(6, y); std::cout << "  ";
+				y++;
+				gotoXY(6, y); std::cout << "->";
+				battle_menu_item++;
+				continue;
+			}
+			if (GetAsyncKeyState(VK_UP) && y != 12) //up is pressed unless at top
 			{
-				gotoXY(8, 15); std::cout << "                                               ";
-				gotoXY(8, 16); std::cout << "                                               ";
-				gotoXY(8, 17); std::cout << "                                               ";
-				gotoXY(8, 18); std::cout << "                                               ";
-				gotoXY(8, 19); std::cout << "                                               ";
-				gotoXY(8, 20); std::cout << "                                               ";
-				gotoXY(8, 21); std::cout << "                                               ";
-				gotoXY(8, 22); std::cout << "                                               ";
-				int trueDamage = ((playerDamage * (rand() % 21 + 90)) / 100) - (enemyDefense / 10); //deals anywhere from 90-110% of damage minus 10% of enemy defense
-				enemyHP = enemyHP - trueDamage; //enemy health remaining
-				gotoXY(8, 16); std::cout << "You hit the " << enemyName << " for " << trueDamage << " damage.        ";
-
-				if (enemyHP <= 0) //enemy is dead
+				gotoXY(6, y); std::cout << "  ";
+				y--;
+				gotoXY(6, y); std::cout << "->";
+				battle_menu_item--;
+				continue;
+			}
+			if (GetAsyncKeyState(VK_RETURN)) //enter key pressed
+			{
+				switch (battle_menu_item)
 				{
-					gotoXY(8, 18); std::cout << "You have defeated the " << enemyName << ".              ";
-					playerGold = playerGold + reward;
-					gotoXY(8, 19); std::cout << "You picked up " << reward << " gold pieces.                  ";
-					//win = true;
-					//while (1); //you win
-					break;
-				}
-
-				else //enemy attacks
+				case 0: //attack
 				{
-					int enemyTrueDamage = ((enemyDamage * (rand() % 21 + 90)) / 100) - (playerDefense / 10); //deals 90-110% damage minus 10% player defense
-					playerHP = playerHP - enemyTrueDamage;
-					gotoXY(8, 18); std::cout << "The " << enemyName << " has " << enemyHP << " hit points remaining.         ";
-					gotoXY(8, 19); std::cout << "The " << enemyName << " hits you for " << enemyTrueDamage << " damage.        ";
+					gotoXY(8, 15); std::cout << "                                               ";
+					gotoXY(8, 16); std::cout << "                                               ";
+					gotoXY(8, 17); std::cout << "                                               ";
+					gotoXY(8, 18); std::cout << "                                               ";
+					gotoXY(8, 19); std::cout << "                                               ";
+					gotoXY(8, 20); std::cout << "                                               ";
+					gotoXY(8, 21); std::cout << "                                               ";
+					gotoXY(8, 22); std::cout << "                                               ";
+					int trueDamage = ((playerDamage * (rand() % 21 + 90)) / 100) - (enemyDefense / 10); //deals anywhere from 90-110% of damage minus 10% of enemy defense
+					enemyHP = enemyHP - trueDamage; //enemy health remaining
+					gotoXY(8, 16); std::cout << "You hit the " << enemyName << " for " << trueDamage << " damage.    ";
 
-					gotoXY(8, 9); std::cout << "Your current HP: " << playerHP << "              ";
-
-
-					if (playerHP <= 0) //player is dead
+					if (enemyHP <= 0) //enemy is dead
 					{
-						gotoXY(8, 21); std::cout << "You are dead!  Game over!                  ";
-						while (1); //game ends
+						gotoXY(8, 18); std::cout << "You have defeated the " << enemyName << ".              ";
+						playerGold = playerGold + reward;
+						gotoXY(8, 19); std::cout << "You picked up " << reward << " gold pieces.                  ";
+						playerPtr->setGold(playerGold);
+						win = true;
+						//while (1); //you win
 						break;
 					}
-				}break;
-			}
-			case 1: //use item
-			{
-				gotoXY(8, 15); std::cout << "                                               ";
-				gotoXY(8, 16); std::cout << "                                               ";
-				gotoXY(8, 17); std::cout << "                                               ";
-				gotoXY(8, 18); std::cout << "                                               ";
-				gotoXY(8, 19); std::cout << "                                               ";
-				gotoXY(8, 20); std::cout << "                                               ";
-				gotoXY(8, 21); std::cout << "                                               ";
-				gotoXY(8, 22); std::cout << "                                               ";
-				gotoXY(6, 13); std::cout << "  ";
-				y = 12;
-				item_menu_item = 0;
-				item_menu = true;
 
-				gotoXY(8, 11); std::cout << "Select an item to heal with.                    ";
-				gotoXY(6, 12); std::cout << "->";
+					else //enemy attacks
+					{
+						int enemyTrueDamage = ((enemyDamage * (rand() % 21 + 90)) / 100) - (playerDefense / 10); //deals 90-110% damage minus 10% player defense
+						playerHP = playerHP - enemyTrueDamage;
+						gotoXY(8, 18); std::cout << "The " << enemyName << " has " << enemyHP << " hit points remaining.     ";
+						gotoXY(8, 19); std::cout << "The " << enemyName << " hits you for " << enemyTrueDamage << " damage.        ";
 
-				do //start item menu
+						gotoXY(8, 9); std::cout << "Your current HP: " << playerHP << "              ";
+
+
+						if (playerHP <= 0) //player is dead
+						{
+							gotoXY(8, 21); std::cout << "You are dead!  Game over!                  ";
+							while (1); //game ends
+							break;
+						}
+					}break;
+				}
+				case 1: //use item
 				{
+					gotoXY(8, 15); std::cout << "                                               ";
+					gotoXY(8, 16); std::cout << "                                               ";
+					gotoXY(8, 17); std::cout << "                                               ";
+					gotoXY(8, 18); std::cout << "                                               ";
+					gotoXY(8, 19); std::cout << "                                               ";
+					gotoXY(8, 20); std::cout << "                                               ";
+					gotoXY(8, 21); std::cout << "                                               ";
+					gotoXY(8, 22); std::cout << "                                               ";
+					gotoXY(6, 13); std::cout << "  ";
+					y = 12;
+					item_menu_item = 0;
+					item_menu = true;
+
+					gotoXY(8, 11); std::cout << "Select an item to heal with.                    ";
+					gotoXY(6, 12); std::cout << "->";
+
+					do //start item menu
+					{
 
 
-					playerMaxHP = player.getMaxHP();
+						playerMaxHP = player.getMaxHP();
 
-					if (item1Ptr != NULL)
-					{
-						gotoXY(8, 12); std::cout << "1) " << item1Ptr->getName() << " heals for " << item1Ptr->getStat() << " hit points.        ";
-					}
-					else
-					{
-						gotoXY(8, 12); std::cout << "1) Empty                                       ";
-					}
-					if (item2Ptr != NULL)
-					{
-						gotoXY(8, 13); std::cout << "2) " << item2Ptr->getName() << " heals for " << item2Ptr->getStat() << " hit points.        ";
-					}
-					else
-					{
-						gotoXY(8, 13); std::cout << "2) Empty                                       ";
-					}
-					if (item3Ptr != NULL)
-					{
-						gotoXY(8, 14); std::cout << "3) " << item3Ptr->getName() << " heals for " << item3Ptr->getStat() << " hit points.        ";
-					}
-					else
-					{
-						gotoXY(8, 14); std::cout << "3) Empty                                       ";
-					}
-					if (item4Ptr != NULL)
-					{
-						gotoXY(8, 15); std::cout << "4) " << item4Ptr->getName() << " heals for " << item4Ptr->getStat() << " hit points.        ";
-					}
-					else
-					{
-						gotoXY(8, 15); std::cout << "4) Empty                                       ";
-					}
-
-					system("pause>nul");
-
-					if (GetAsyncKeyState(VK_DOWN) && y != 15)
-					{
-						gotoXY(6, y); std::cout << "  ";
-						y++;
-						gotoXY(6, y); std::cout << "->";
-						item_menu_item++;
-						continue;
-					}
-					if (GetAsyncKeyState(VK_UP) && y != 12)
-					{
-						gotoXY(6, y); std::cout << "  ";
-						y--;
-						gotoXY(6, y); std::cout << "->";
-						item_menu_item--;
-						continue;
-					}
-					if (GetAsyncKeyState(VK_RETURN))
-					{
-						switch (item_menu_item)
+						if (item1Ptr != NULL)
 						{
-						case 0: //item 1
+							gotoXY(8, 12); std::cout << "1) " << item1Ptr->getName() << " heals for " << item1Ptr->getStat() << " hit points.        ";
+						}
+						else
 						{
-							gotoXY(6, 12); std::cout << "  ";
-							if (item1Ptr != NULL)
+							gotoXY(8, 12); std::cout << "1) Empty                                       ";
+						}
+						if (item2Ptr != NULL)
+						{
+							gotoXY(8, 13); std::cout << "2) " << item2Ptr->getName() << " heals for " << item2Ptr->getStat() << " hit points.        ";
+						}
+						else
+						{
+							gotoXY(8, 13); std::cout << "2) Empty                                       ";
+						}
+						if (item3Ptr != NULL)
+						{
+							gotoXY(8, 14); std::cout << "3) " << item3Ptr->getName() << " heals for " << item3Ptr->getStat() << " hit points.        ";
+						}
+						else
+						{
+							gotoXY(8, 14); std::cout << "3) Empty                                       ";
+						}
+						if (item4Ptr != NULL)
+						{
+							gotoXY(8, 15); std::cout << "4) " << item4Ptr->getName() << " heals for " << item4Ptr->getStat() << " hit points.        ";
+						}
+						else
+						{
+							gotoXY(8, 15); std::cout << "4) Empty                                       ";
+						}
+
+						system("pause>nul");
+
+						if (GetAsyncKeyState(VK_DOWN) && y != 15)
+						{
+							gotoXY(6, y); std::cout << "  ";
+							y++;
+							gotoXY(6, y); std::cout << "->";
+							item_menu_item++;
+							continue;
+						}
+						if (GetAsyncKeyState(VK_UP) && y != 12)
+						{
+							gotoXY(6, y); std::cout << "  ";
+							y--;
+							gotoXY(6, y); std::cout << "->";
+							item_menu_item--;
+							continue;
+						}
+						if (GetAsyncKeyState(VK_RETURN))
+						{
+							switch (item_menu_item)
 							{
-								//heal player
-								playerHP = playerHP + item1Ptr->getStat();
-								if (playerHP > playerMaxHP)
+							case 0: //item 1
+							{
+								gotoXY(6, 12); std::cout << "  ";
+								if (item1Ptr != NULL)
 								{
-									gotoXY(8, 17); std::cout << "You were healed for " << playerMaxHP + item1Ptr->getStat() - playerHP << " hit points.         ";
-									playerHP = playerMaxHP;
+									//heal player
+									playerHP = playerHP + item1Ptr->getStat();
+									if (playerHP > playerMaxHP)
+									{
+										gotoXY(8, 17); std::cout << "You were healed for " << playerMaxHP + item1Ptr->getStat() - playerHP << " hit points.         ";
+										playerHP = playerMaxHP;
+									}
+									else
+									{
+										gotoXY(8, 17); std::cout << "You were healed for " << item1Ptr->getStat() << " hit points.         ";
+									}
+									//remove item and shift other items
+									item1Ptr = item2Ptr;
+									item2Ptr = item3Ptr;
+									item3Ptr = item4Ptr;
+									item4Ptr = NULL;
 								}
 								else
 								{
-									gotoXY(8, 17); std::cout << "You were healed for " << item1Ptr->getStat() << " hit points.         ";
+									gotoXY(8, 17); std::cout << "No item in slot 1.  You lose your turn.        ";
 								}
-								//remove item and shift other items
-								item1Ptr = item2Ptr;
-								item2Ptr = item3Ptr;
-								item3Ptr = item4Ptr;
-								item4Ptr = NULL;
+								break;
 							}
-							else
+							case 1: //item 2
 							{
-								gotoXY(8, 17); std::cout << "No item in slot 1.  You lose your turn.        ";
-							}
-							break;
-						}
-						case 1: //item 2
-						{
-							gotoXY(6, 13); std::cout << "  ";
-							if (item2Ptr != NULL)
-							{
-								//heal player
-								playerHP = playerHP + item2Ptr->getStat();
-								if (playerHP > playerMaxHP)
+								gotoXY(6, 13); std::cout << "  ";
+								if (item2Ptr != NULL)
 								{
-									gotoXY(8, 17); std::cout << "You were healed for " << playerMaxHP + item2Ptr->getStat() - playerHP << " hit points.         ";
-									playerHP = playerMaxHP;
+									//heal player
+									playerHP = playerHP + item2Ptr->getStat();
+									if (playerHP > playerMaxHP)
+									{
+										gotoXY(8, 17); std::cout << "You were healed for " << playerMaxHP + item2Ptr->getStat() - playerHP << " hit points.         ";
+										playerHP = playerMaxHP;
+									}
+									else
+									{
+										gotoXY(8, 17); std::cout << "You were healed for " << item2Ptr->getStat() << " hit points.         ";
+									}
+									//remove item and shift other items
+									item2Ptr = item3Ptr;
+									item3Ptr = item4Ptr;
+									item4Ptr = NULL;
 								}
 								else
 								{
-									gotoXY(8, 17); std::cout << "You were healed for " << item2Ptr->getStat() << " hit points.         ";
+									gotoXY(8, 17); std::cout << "No item in slot 2.  You lose your turn.        ";
 								}
-								//remove item and shift other items
-								item2Ptr = item3Ptr;
-								item3Ptr = item4Ptr;
-								item4Ptr = NULL;
+								break;
 							}
-							else
+							case 2: //item 3
 							{
-								gotoXY(8, 17); std::cout << "No item in slot 2.  You lose your turn.        ";
-							}
-							break;
-						}
-						case 2: //item 3
-						{
-							gotoXY(6, 14); std::cout << "  ";
-							if (item3Ptr != NULL)
-							{
-								//heal player
-								playerHP = playerHP + item3Ptr->getStat();
-								if (playerHP > playerMaxHP)
+								gotoXY(6, 14); std::cout << "  ";
+								if (item3Ptr != NULL)
 								{
-									gotoXY(8, 17); std::cout << "You were healed for " << playerMaxHP + item3Ptr->getStat() - playerHP << " hit points.         ";
-									playerHP = playerMaxHP;
+									//heal player
+									playerHP = playerHP + item3Ptr->getStat();
+									if (playerHP > playerMaxHP)
+									{
+										gotoXY(8, 17); std::cout << "You were healed for " << playerMaxHP + item3Ptr->getStat() - playerHP << " hit points.         ";
+										playerHP = playerMaxHP;
+									}
+									else
+									{
+										gotoXY(8, 17); std::cout << "You were healed for " << item3Ptr->getStat() << " hit points.         ";
+									}
+									//remove item and shift other items
+									item3Ptr = item4Ptr;
+									item4Ptr = NULL;
 								}
 								else
 								{
-									gotoXY(8, 17); std::cout << "You were healed for " << item3Ptr->getStat() << " hit points.         ";
+									gotoXY(8, 17); std::cout << "No item in slot 3.  You lose your turn.        ";
 								}
-								//remove item and shift other items
-								item3Ptr = item4Ptr;
-								item4Ptr = NULL;
+								break;
 							}
-							else
+							case 3: //item 4
 							{
-								gotoXY(8, 17); std::cout << "No item in slot 3.  You lose your turn.        ";
-							}
-							break;
-						}
-						case 3: //item 4
-						{
-							gotoXY(6, 15); std::cout << "  ";
-							if (item4Ptr != NULL)
-							{
-								//heal player
-								playerHP = playerHP + item4Ptr->getStat();
-								if (playerHP > playerMaxHP)
+								gotoXY(6, 15); std::cout << "  ";
+								if (item4Ptr != NULL)
 								{
-									gotoXY(8, 17); std::cout << "You were healed for " << playerMaxHP + item4Ptr->getStat() - playerHP << " hit points.         ";
-									playerHP = playerMaxHP;
+									//heal player
+									playerHP = playerHP + item4Ptr->getStat();
+									if (playerHP > playerMaxHP)
+									{
+										gotoXY(8, 17); std::cout << "You were healed for " << playerMaxHP + item4Ptr->getStat() - playerHP << " hit points.         ";
+										playerHP = playerMaxHP;
+									}
+									else
+									{
+										gotoXY(8, 17); std::cout << "You were healed for " << item4Ptr->getStat() << " hit points.         ";
+									}
+									//remove item and shift other items
+									item4Ptr = NULL;
 								}
 								else
 								{
-									gotoXY(8, 17); std::cout << "You were healed for " << item4Ptr->getStat() << " hit points.         ";
+									gotoXY(8, 17); std::cout << "No item in slot 4.  You lose your turn.        ";
 								}
-								//remove item and shift other items
-								item4Ptr = NULL;
+								break;
 							}
-							else
+							} // close switch
+							  //enemy attacks
+							int enemyTrueDamage = ((enemyDamage * (rand() % 20 + 91)) / 100) - (playerDefense / 10); //deals 90-110% damage minus 10% player defense
+							playerHP = playerHP - enemyTrueDamage;
+							gotoXY(8, 19); std::cout << "The " << enemyName << " has " << enemyHP << " hit points remaining.         ";
+							gotoXY(8, 20); std::cout << "The " << enemyName << " hits you for " << enemyTrueDamage << " damage.        ";
+
+							gotoXY(8, 9); std::cout << "Your current HP: " << playerHP << "              ";
+
+							if (playerHP <= 0) //player is dead
 							{
-								gotoXY(8, 17); std::cout << "No item in slot 4.  You lose your turn.        ";
+								gotoXY(8, 22); std::cout << "You are dead!  Game over!                  ";
+								while (1); //game ends
 							}
-							break;
-						}
-						} // close switch
-						  //enemy attacks
+							item_menu = false;
+						} //close if
+					} while (item_menu);
+					y = 12;
+					gotoXY(6, 12); std::cout << "->";
+					item_menu_item = 0;
+					item_menu = true;
+					break;
+				}
+				case 2: //run
+				{
+					gotoXY(8, 15); std::cout << "                                               ";
+					gotoXY(8, 16); std::cout << "                                               ";
+					gotoXY(8, 17); std::cout << "                                               ";
+					gotoXY(8, 18); std::cout << "                                               ";
+					gotoXY(8, 19); std::cout << "                                               ";
+					gotoXY(8, 20); std::cout << "                                               ";
+					gotoXY(8, 21); std::cout << "                                               ";
+					gotoXY(8, 22); std::cout << "                                               ";
+					gotoXY(6, 14); std::cout << "  ";
+					int random = rand() % 5; //80% chance to run away successfully
+					if (random == 0)
+					{
+						gotoXY(8, 11); std::cout << "Run away attempt has failed.                   ";
+						//enemy attacks
 						int enemyTrueDamage = ((enemyDamage * (rand() % 20 + 91)) / 100) - (playerDefense / 10); //deals 90-110% damage minus 10% player defense
 						playerHP = playerHP - enemyTrueDamage;
-						gotoXY(8, 19); std::cout << "The " << enemyName << " has " << enemyHP << " hit points remaining.         ";
-						gotoXY(8, 20); std::cout << "The " << enemyName << " hits you for " << enemyTrueDamage << " damage.        ";
+						gotoXY(8, 13); std::cout << "The " << enemyName << " has " << enemyHP << " hit points remaining.         ";
+						gotoXY(8, 14); std::cout << "The " << enemyName << " hits you for " << enemyTrueDamage << " damage.        ";
 
 						gotoXY(8, 9); std::cout << "Your current HP: " << playerHP << "              ";
 
 						if (playerHP <= 0) //player is dead
 						{
-							gotoXY(8, 22); std::cout << "You are dead!  Game over!                  ";
+							gotoXY(8, 16); std::cout << "You are dead!  Game over!                  ";
 							while (1); //game ends
 						}
-						item_menu = false;
-					} //close if
-				} while (item_menu);
-				y = 12;
-				gotoXY(6, 12); std::cout << "->";
-				item_menu_item = 0;
-				item_menu = true;
-				break;
-			}
-			case 2: //run
-			{
-				gotoXY(8, 15); std::cout << "                                               ";
-				gotoXY(8, 16); std::cout << "                                               ";
-				gotoXY(8, 17); std::cout << "                                               ";
-				gotoXY(8, 18); std::cout << "                                               ";
-				gotoXY(8, 19); std::cout << "                                               ";
-				gotoXY(8, 20); std::cout << "                                               ";
-				gotoXY(8, 21); std::cout << "                                               ";
-				gotoXY(8, 22); std::cout << "                                               ";
-				gotoXY(6, 14); std::cout << "  ";
-				int random = rand() % 5; //80% chance to run away successfully
-				if (random == 0)
-				{
-					gotoXY(8, 11); std::cout << "Run away attempt has failed.                   ";
-					//enemy attacks
-					int enemyTrueDamage = ((enemyDamage * (rand() % 20 + 91)) / 100) - (playerDefense / 10); //deals 90-110% damage minus 10% player defense
-					playerHP = playerHP - enemyTrueDamage;
-					gotoXY(8, 13); std::cout << "The " << enemyName << " has " << enemyHP << " hit points remaining.         ";
-					gotoXY(8, 14); std::cout << "The " << enemyName << " hits you for " << enemyTrueDamage << " damage.        ";
-
-					gotoXY(8, 9); std::cout << "Your current HP: " << playerHP << "              ";
-
-					if (playerHP <= 0) //player is dead
-					{
-						gotoXY(8, 16); std::cout << "You are dead!  Game over!                  ";
-						while (1); //game ends
 					}
+					else
+					{
+					gotoXY(8, 11); std::cout << "RUN AWAY!!!!!                                      ";
+					gotoXY(8, 12); std::cout << "                                               ";
+					gotoXY(8, 13); std::cout << "                                               ";
+					gotoXY(8, 14); std::cout << "                                               ";
+					getchar();
+					return;
+					}
+					break;
 				}
-				else
-				{
-					gotoXY(8, 11); std::cout << "Run away attempt is successful.                " << random;
-					while (1); //figure out how to escape
-				}
-				break;
+				} //close switch
+				y = 12;
+				battle_menu_item = 0;
+				//battle_menu = false;
 			}
-			} //close switch
-			y = 12;
-			battle_menu_item = 0;
-			//battle_menu = false;
+		}
+		else //you won
+		{
+			return;
 		}
 	} while (battle_menu);
 	while (1);
@@ -1474,6 +1496,7 @@ void fightMinion3() //level 3 odds
 
 void fightBoss1()
 {
+	srand(time(NULL)); //see the randomizer based on computer's time
 	int playerMaxHP;
 	int playerHP;
 	int playerDamage;
@@ -1485,15 +1508,14 @@ void fightBoss1()
 	int enemyDefense;
 	int reward;
 
-	//for selectors
+								   //for selectors
 	int battle_menu_item = 0;
 	int y = 12;
 	bool battle_menu = true;
 	int item_menu_item = 0;
 	bool item_menu = true;
-	//bool win = false;
+	bool win = false;
 
-	//for testing purposes only
 	weaponPtr = (Probe *)&probe;			//damage = 10
 	armorPtr = (Helmet *)&helmet;			//defense = 10
 	item1Ptr = (Apple *)&apple;				//heal = 10
@@ -1501,11 +1523,11 @@ void fightBoss1()
 	item3Ptr = (RedPotion *)&red_potion;	//heal = 50
 	item4Ptr = (MedKit *)&med_kit;			//heal = 100
 
-											//load player stats (with weapon stats)
-	playerHP = player.getHP();
-	playerDamage = player.getDamage() + weaponPtr->getStat();
-	playerDefense = player.getDefense() + armorPtr->getStat();
-	playerGold = player.getGold();
+	//load player stats (with weapon stats)
+	playerHP = playerPtr->getHP();
+	playerDamage = playerPtr->getDamage() + weaponPtr->getStat();
+	playerDefense = playerPtr->getDefense() + armorPtr->getStat();
+	playerGold = playerPtr->getGold();
 
 	print_battle();
 
@@ -1523,12 +1545,14 @@ void fightBoss1()
 	gotoXY(8, 7); std::cout << "Your Attack Power: " << playerDamage << "              ";
 	gotoXY(8, 8); std::cout << "Your Armor Class: " << playerDefense << "              ";
 	gotoXY(8, 9); std::cout << "Your current HP: " << playerHP << "              ";
-	gotoXY(8, 11); std::cout << "A " << enemyName << " approaches.  Prepare to fight!    ";
+	gotoXY(8, 11); std::cout << enemyName << " approaches.  Prepare to fight!";
 
 	gotoXY(6, 12); std::cout << "->";
 	//choice: attack (did you win?), use item (no attack, another choice in here), run (80%)
+
 	do //start battle menu
 	{
+
 		gotoXY(8, 9); std::cout << "Your current HP: " << playerHP << "              ";
 
 		gotoXY(8, 12); std::cout << "1) Attack                                      ";
@@ -1538,316 +1562,329 @@ void fightBoss1()
 
 		system("pause>nul");
 
-		if (GetAsyncKeyState(VK_DOWN) && y != 14) //down is pressed unless at bottom
+		//did they win yet?
+		if (win == false) //no winner yet
 		{
-			gotoXY(6, y); std::cout << "  ";
-			y++;
-			gotoXY(6, y); std::cout << "->";
-			battle_menu_item++;
-			continue;
-		}
-		if (GetAsyncKeyState(VK_UP) && y != 12) //up is pressed unless at top
-		{
-			gotoXY(6, y); std::cout << "  ";
-			y--;
-			gotoXY(6, y); std::cout << "->";
-			battle_menu_item--;
-			continue;
-		}
-		if (GetAsyncKeyState(VK_RETURN)) //enter key pressed
-		{
-			switch (battle_menu_item)
+			if (GetAsyncKeyState(VK_DOWN) && y != 14) //down is pressed unless at bottom
 			{
-			case 0: //attack
+				gotoXY(6, y); std::cout << "  ";
+				y++;
+				gotoXY(6, y); std::cout << "->";
+				battle_menu_item++;
+				continue;
+			}
+			if (GetAsyncKeyState(VK_UP) && y != 12) //up is pressed unless at top
 			{
-				gotoXY(8, 15); std::cout << "                                               ";
-				gotoXY(8, 16); std::cout << "                                               ";
-				gotoXY(8, 17); std::cout << "                                               ";
-				gotoXY(8, 18); std::cout << "                                               ";
-				gotoXY(8, 19); std::cout << "                                               ";
-				gotoXY(8, 20); std::cout << "                                               ";
-				gotoXY(8, 21); std::cout << "                                               ";
-				gotoXY(8, 22); std::cout << "                                               ";
-				int trueDamage = ((playerDamage * (rand() % 21 + 90)) / 100) - (enemyDefense / 10); //deals anywhere from 90-110% of damage minus 10% of enemy defense
-				enemyHP = enemyHP - trueDamage; //enemy health remaining
-				gotoXY(8, 16); std::cout << "You hit the " << enemyName << " for " << trueDamage << " damage.        ";
-
-				if (enemyHP <= 0) //enemy is dead
+				gotoXY(6, y); std::cout << "  ";
+				y--;
+				gotoXY(6, y); std::cout << "->";
+				battle_menu_item--;
+				continue;
+			}
+			if (GetAsyncKeyState(VK_RETURN)) //enter key pressed
+			{
+				switch (battle_menu_item)
 				{
-					gotoXY(8, 18); std::cout << "You have defeated the " << enemyName << ".              ";
-					playerGold = playerGold + reward;
-					gotoXY(8, 19); std::cout << "You picked up " << reward << " gold pieces.                  ";
-					//win = true;
-					//while (1); //you win
-					break;
-				}
-
-				else //enemy attacks
+				case 0: //attack
 				{
-					int enemyTrueDamage = ((enemyDamage * (rand() % 21 + 90)) / 100) - (playerDefense / 10); //deals 90-110% damage minus 10% player defense
-					playerHP = playerHP - enemyTrueDamage;
-					gotoXY(8, 18); std::cout << "The " << enemyName << " has " << enemyHP << " hit points remaining.         ";
-					gotoXY(8, 19); std::cout << "The " << enemyName << " hits you for " << enemyTrueDamage << " damage.        ";
+					gotoXY(8, 15); std::cout << "                                               ";
+					gotoXY(8, 16); std::cout << "                                               ";
+					gotoXY(8, 17); std::cout << "                                               ";
+					gotoXY(8, 18); std::cout << "                                               ";
+					gotoXY(8, 19); std::cout << "                                               ";
+					gotoXY(8, 20); std::cout << "                                               ";
+					gotoXY(8, 21); std::cout << "                                               ";
+					gotoXY(8, 22); std::cout << "                                               ";
+					int trueDamage = ((playerDamage * (rand() % 21 + 90)) / 100) - (enemyDefense / 10); //deals anywhere from 90-110% of damage minus 10% of enemy defense
+					enemyHP = enemyHP - trueDamage; //enemy health remaining
+					gotoXY(8, 16); std::cout << "You hit " << enemyName << " for " << trueDamage << " damage.    ";
 
-					gotoXY(8, 9); std::cout << "Your current HP: " << playerHP << "              ";
-
-
-					if (playerHP <= 0) //player is dead
+					if (enemyHP <= 0) //enemy is dead
 					{
-						gotoXY(8, 21); std::cout << "You are dead!  Game over!                  ";
-						while (1); //game ends
+						gotoXY(8, 18); std::cout << "You have defeated " << enemyName << ".              ";
+						playerGold = playerGold + reward;
+						gotoXY(8, 19); std::cout << "You picked up " << reward << " gold pieces.                  ";
+						playerPtr->setGold(playerGold);
+						win = true;
+						//while (1); //you win
 						break;
 					}
-				}break;
-			}
-			case 1: //use item
-			{
-				gotoXY(8, 15); std::cout << "                                               ";
-				gotoXY(8, 16); std::cout << "                                               ";
-				gotoXY(8, 17); std::cout << "                                               ";
-				gotoXY(8, 18); std::cout << "                                               ";
-				gotoXY(8, 19); std::cout << "                                               ";
-				gotoXY(8, 20); std::cout << "                                               ";
-				gotoXY(8, 21); std::cout << "                                               ";
-				gotoXY(8, 22); std::cout << "                                               ";
-				gotoXY(6, 13); std::cout << "  ";
-				y = 12;
-				item_menu_item = 0;
-				item_menu = true;
 
-				gotoXY(8, 11); std::cout << "Select an item to heal with.                    ";
-				gotoXY(6, 12); std::cout << "->";
+					else //enemy attacks
+					{
+						int enemyTrueDamage = ((enemyDamage * (rand() % 21 + 90)) / 100) - (playerDefense / 10); //deals 90-110% damage minus 10% player defense
+						playerHP = playerHP - enemyTrueDamage;
+						gotoXY(8, 18); std::cout << enemyName << " has " << enemyHP << " hit points remaining.     ";
+						gotoXY(8, 19); std::cout << enemyName << " hits you for " << enemyTrueDamage << " damage.        ";
 
-				do //start item menu
+						gotoXY(8, 9); std::cout << "Your current HP: " << playerHP << "              ";
+
+
+						if (playerHP <= 0) //player is dead
+						{
+							gotoXY(8, 21); std::cout << "You are dead!  Game over!                  ";
+							while (1); //game ends
+							break;
+						}
+					}break;
+				}
+				case 1: //use item
 				{
+					gotoXY(8, 15); std::cout << "                                               ";
+					gotoXY(8, 16); std::cout << "                                               ";
+					gotoXY(8, 17); std::cout << "                                               ";
+					gotoXY(8, 18); std::cout << "                                               ";
+					gotoXY(8, 19); std::cout << "                                               ";
+					gotoXY(8, 20); std::cout << "                                               ";
+					gotoXY(8, 21); std::cout << "                                               ";
+					gotoXY(8, 22); std::cout << "                                               ";
+					gotoXY(6, 13); std::cout << "  ";
+					y = 12;
+					item_menu_item = 0;
+					item_menu = true;
+
+					gotoXY(8, 11); std::cout << "Select an item to heal with.                    ";
+					gotoXY(6, 12); std::cout << "->";
+
+					do //start item menu
+					{
 
 
-					playerMaxHP = player.getMaxHP();
+						playerMaxHP = player.getMaxHP();
 
-					if (item1Ptr != NULL)
-					{
-						gotoXY(8, 12); std::cout << "1) " << item1Ptr->getName() << " heals for " << item1Ptr->getStat() << " hit points.        ";
-					}
-					else
-					{
-						gotoXY(8, 12); std::cout << "1) Empty                                       ";
-					}
-					if (item2Ptr != NULL)
-					{
-						gotoXY(8, 13); std::cout << "2) " << item2Ptr->getName() << " heals for " << item2Ptr->getStat() << " hit points.        ";
-					}
-					else
-					{
-						gotoXY(8, 13); std::cout << "2) Empty                                       ";
-					}
-					if (item3Ptr != NULL)
-					{
-						gotoXY(8, 14); std::cout << "3) " << item3Ptr->getName() << " heals for " << item3Ptr->getStat() << " hit points.        ";
-					}
-					else
-					{
-						gotoXY(8, 14); std::cout << "3) Empty                                       ";
-					}
-					if (item4Ptr != NULL)
-					{
-						gotoXY(8, 15); std::cout << "4) " << item4Ptr->getName() << " heals for " << item4Ptr->getStat() << " hit points.        ";
-					}
-					else
-					{
-						gotoXY(8, 15); std::cout << "4) Empty                                       ";
-					}
-
-					system("pause>nul");
-
-					if (GetAsyncKeyState(VK_DOWN) && y != 15)
-					{
-						gotoXY(6, y); std::cout << "  ";
-						y++;
-						gotoXY(6, y); std::cout << "->";
-						item_menu_item++;
-						continue;
-					}
-					if (GetAsyncKeyState(VK_UP) && y != 12)
-					{
-						gotoXY(6, y); std::cout << "  ";
-						y--;
-						gotoXY(6, y); std::cout << "->";
-						item_menu_item--;
-						continue;
-					}
-					if (GetAsyncKeyState(VK_RETURN))
-					{
-						switch (item_menu_item)
+						if (item1Ptr != NULL)
 						{
-						case 0: //item 1
+							gotoXY(8, 12); std::cout << "1) " << item1Ptr->getName() << " heals for " << item1Ptr->getStat() << " hit points.        ";
+						}
+						else
 						{
-							gotoXY(6, 12); std::cout << "  ";
-							if (item1Ptr != NULL)
+							gotoXY(8, 12); std::cout << "1) Empty                                       ";
+						}
+						if (item2Ptr != NULL)
+						{
+							gotoXY(8, 13); std::cout << "2) " << item2Ptr->getName() << " heals for " << item2Ptr->getStat() << " hit points.        ";
+						}
+						else
+						{
+							gotoXY(8, 13); std::cout << "2) Empty                                       ";
+						}
+						if (item3Ptr != NULL)
+						{
+							gotoXY(8, 14); std::cout << "3) " << item3Ptr->getName() << " heals for " << item3Ptr->getStat() << " hit points.        ";
+						}
+						else
+						{
+							gotoXY(8, 14); std::cout << "3) Empty                                       ";
+						}
+						if (item4Ptr != NULL)
+						{
+							gotoXY(8, 15); std::cout << "4) " << item4Ptr->getName() << " heals for " << item4Ptr->getStat() << " hit points.        ";
+						}
+						else
+						{
+							gotoXY(8, 15); std::cout << "4) Empty                                       ";
+						}
+
+						system("pause>nul");
+
+						if (GetAsyncKeyState(VK_DOWN) && y != 15)
+						{
+							gotoXY(6, y); std::cout << "  ";
+							y++;
+							gotoXY(6, y); std::cout << "->";
+							item_menu_item++;
+							continue;
+						}
+						if (GetAsyncKeyState(VK_UP) && y != 12)
+						{
+							gotoXY(6, y); std::cout << "  ";
+							y--;
+							gotoXY(6, y); std::cout << "->";
+							item_menu_item--;
+							continue;
+						}
+						if (GetAsyncKeyState(VK_RETURN))
+						{
+							switch (item_menu_item)
 							{
-								//heal player
-								playerHP = playerHP + item1Ptr->getStat();
-								if (playerHP > playerMaxHP)
+							case 0: //item 1
+							{
+								gotoXY(6, 12); std::cout << "  ";
+								if (item1Ptr != NULL)
 								{
-									gotoXY(8, 17); std::cout << "You were healed for " << playerMaxHP + item1Ptr->getStat() - playerHP << " hit points.         ";
-									playerHP = playerMaxHP;
+									//heal player
+									playerHP = playerHP + item1Ptr->getStat();
+									if (playerHP > playerMaxHP)
+									{
+										gotoXY(8, 17); std::cout << "You were healed for " << playerMaxHP + item1Ptr->getStat() - playerHP << " hit points.         ";
+										playerHP = playerMaxHP;
+									}
+									else
+									{
+										gotoXY(8, 17); std::cout << "You were healed for " << item1Ptr->getStat() << " hit points.         ";
+									}
+									//remove item and shift other items
+									item1Ptr = item2Ptr;
+									item2Ptr = item3Ptr;
+									item3Ptr = item4Ptr;
+									item4Ptr = NULL;
 								}
 								else
 								{
-									gotoXY(8, 17); std::cout << "You were healed for " << item1Ptr->getStat() << " hit points.         ";
+									gotoXY(8, 17); std::cout << "No item in slot 1.  You lose your turn.        ";
 								}
-								//remove item and shift other items
-								item1Ptr = item2Ptr;
-								item2Ptr = item3Ptr;
-								item3Ptr = item4Ptr;
-								item4Ptr = NULL;
+								break;
 							}
-							else
+							case 1: //item 2
 							{
-								gotoXY(8, 17); std::cout << "No item in slot 1.  You lose your turn.        ";
-							}
-							break;
-						}
-						case 1: //item 2
-						{
-							gotoXY(6, 13); std::cout << "  ";
-							if (item2Ptr != NULL)
-							{
-								//heal player
-								playerHP = playerHP + item2Ptr->getStat();
-								if (playerHP > playerMaxHP)
+								gotoXY(6, 13); std::cout << "  ";
+								if (item2Ptr != NULL)
 								{
-									gotoXY(8, 17); std::cout << "You were healed for " << playerMaxHP + item2Ptr->getStat() - playerHP << " hit points.         ";
-									playerHP = playerMaxHP;
+									//heal player
+									playerHP = playerHP + item2Ptr->getStat();
+									if (playerHP > playerMaxHP)
+									{
+										gotoXY(8, 17); std::cout << "You were healed for " << playerMaxHP + item2Ptr->getStat() - playerHP << " hit points.         ";
+										playerHP = playerMaxHP;
+									}
+									else
+									{
+										gotoXY(8, 17); std::cout << "You were healed for " << item2Ptr->getStat() << " hit points.         ";
+									}
+									//remove item and shift other items
+									item2Ptr = item3Ptr;
+									item3Ptr = item4Ptr;
+									item4Ptr = NULL;
 								}
 								else
 								{
-									gotoXY(8, 17); std::cout << "You were healed for " << item2Ptr->getStat() << " hit points.         ";
+									gotoXY(8, 17); std::cout << "No item in slot 2.  You lose your turn.        ";
 								}
-								//remove item and shift other items
-								item2Ptr = item3Ptr;
-								item3Ptr = item4Ptr;
-								item4Ptr = NULL;
+								break;
 							}
-							else
+							case 2: //item 3
 							{
-								gotoXY(8, 17); std::cout << "No item in slot 2.  You lose your turn.        ";
-							}
-							break;
-						}
-						case 2: //item 3
-						{
-							gotoXY(6, 14); std::cout << "  ";
-							if (item3Ptr != NULL)
-							{
-								//heal player
-								playerHP = playerHP + item3Ptr->getStat();
-								if (playerHP > playerMaxHP)
+								gotoXY(6, 14); std::cout << "  ";
+								if (item3Ptr != NULL)
 								{
-									gotoXY(8, 17); std::cout << "You were healed for " << playerMaxHP + item3Ptr->getStat() - playerHP << " hit points.         ";
-									playerHP = playerMaxHP;
+									//heal player
+									playerHP = playerHP + item3Ptr->getStat();
+									if (playerHP > playerMaxHP)
+									{
+										gotoXY(8, 17); std::cout << "You were healed for " << playerMaxHP + item3Ptr->getStat() - playerHP << " hit points.         ";
+										playerHP = playerMaxHP;
+									}
+									else
+									{
+										gotoXY(8, 17); std::cout << "You were healed for " << item3Ptr->getStat() << " hit points.         ";
+									}
+									//remove item and shift other items
+									item3Ptr = item4Ptr;
+									item4Ptr = NULL;
 								}
 								else
 								{
-									gotoXY(8, 17); std::cout << "You were healed for " << item3Ptr->getStat() << " hit points.         ";
+									gotoXY(8, 17); std::cout << "No item in slot 3.  You lose your turn.        ";
 								}
-								//remove item and shift other items
-								item3Ptr = item4Ptr;
-								item4Ptr = NULL;
+								break;
 							}
-							else
+							case 3: //item 4
 							{
-								gotoXY(8, 17); std::cout << "No item in slot 3.  You lose your turn.        ";
-							}
-							break;
-						}
-						case 3: //item 4
-						{
-							gotoXY(6, 15); std::cout << "  ";
-							if (item4Ptr != NULL)
-							{
-								//heal player
-								playerHP = playerHP + item4Ptr->getStat();
-								if (playerHP > playerMaxHP)
+								gotoXY(6, 15); std::cout << "  ";
+								if (item4Ptr != NULL)
 								{
-									gotoXY(8, 17); std::cout << "You were healed for " << playerMaxHP + item4Ptr->getStat() - playerHP << " hit points.         ";
-									playerHP = playerMaxHP;
+									//heal player
+									playerHP = playerHP + item4Ptr->getStat();
+									if (playerHP > playerMaxHP)
+									{
+										gotoXY(8, 17); std::cout << "You were healed for " << playerMaxHP + item4Ptr->getStat() - playerHP << " hit points.         ";
+										playerHP = playerMaxHP;
+									}
+									else
+									{
+										gotoXY(8, 17); std::cout << "You were healed for " << item4Ptr->getStat() << " hit points.         ";
+									}
+									//remove item and shift other items
+									item4Ptr = NULL;
 								}
 								else
 								{
-									gotoXY(8, 17); std::cout << "You were healed for " << item4Ptr->getStat() << " hit points.         ";
+									gotoXY(8, 17); std::cout << "No item in slot 4.  You lose your turn.        ";
 								}
-								//remove item and shift other items
-								item4Ptr = NULL;
+								break;
 							}
-							else
+							} // close switch
+							  //enemy attacks
+							int enemyTrueDamage = ((enemyDamage * (rand() % 20 + 91)) / 100) - (playerDefense / 10); //deals 90-110% damage minus 10% player defense
+							playerHP = playerHP - enemyTrueDamage;
+							gotoXY(8, 19); std::cout << enemyName << " has " << enemyHP << " hit points remaining.         ";
+							gotoXY(8, 20); std::cout << enemyName << " hits you for " << enemyTrueDamage << " damage.        ";
+
+							gotoXY(8, 9); std::cout << "Your current HP: " << playerHP << "              ";
+
+							if (playerHP <= 0) //player is dead
 							{
-								gotoXY(8, 17); std::cout << "No item in slot 4.  You lose your turn.        ";
+								gotoXY(8, 22); std::cout << "You are dead!  Game over!                  ";
+								while (1); //game ends
 							}
-							break;
-						}
-						} // close switch
-						  //enemy attacks
+							item_menu = false;
+						} //close if
+					} while (item_menu);
+					y = 12;
+					gotoXY(6, 12); std::cout << "->";
+					item_menu_item = 0;
+					item_menu = true;
+					break;
+				}
+				case 2: //run
+				{
+					gotoXY(8, 15); std::cout << "                                               ";
+					gotoXY(8, 16); std::cout << "                                               ";
+					gotoXY(8, 17); std::cout << "                                               ";
+					gotoXY(8, 18); std::cout << "                                               ";
+					gotoXY(8, 19); std::cout << "                                               ";
+					gotoXY(8, 20); std::cout << "                                               ";
+					gotoXY(8, 21); std::cout << "                                               ";
+					gotoXY(8, 22); std::cout << "                                               ";
+					gotoXY(6, 14); std::cout << "  ";
+					int random = rand() % 5; //80% chance to run away successfully
+					if (random == 0)
+					{
+						gotoXY(8, 11); std::cout << "Run away attempt has failed.                   ";
+						//enemy attacks
 						int enemyTrueDamage = ((enemyDamage * (rand() % 20 + 91)) / 100) - (playerDefense / 10); //deals 90-110% damage minus 10% player defense
 						playerHP = playerHP - enemyTrueDamage;
-						gotoXY(8, 19); std::cout << "The " << enemyName << " has " << enemyHP << " hit points remaining.         ";
-						gotoXY(8, 20); std::cout << "The " << enemyName << " hits you for " << enemyTrueDamage << " damage.        ";
+						gotoXY(8, 13); std::cout << enemyName << " has " << enemyHP << " hit points remaining.         ";
+						gotoXY(8, 14); std::cout << enemyName << " hits you for " << enemyTrueDamage << " damage.        ";
 
 						gotoXY(8, 9); std::cout << "Your current HP: " << playerHP << "              ";
 
 						if (playerHP <= 0) //player is dead
 						{
-							gotoXY(8, 22); std::cout << "You are dead!  Game over!                  ";
+							gotoXY(8, 16); std::cout << "You are dead!  Game over!                  ";
 							while (1); //game ends
 						}
-						item_menu = false;
-					} //close if
-				} while (item_menu);
-				y = 12;
-				gotoXY(6, 12); std::cout << "->";
-				item_menu_item = 0;
-				item_menu = true;
-				break;
-			}
-			case 2: //run
-			{
-				gotoXY(8, 15); std::cout << "                                               ";
-				gotoXY(8, 16); std::cout << "                                               ";
-				gotoXY(8, 17); std::cout << "                                               ";
-				gotoXY(8, 18); std::cout << "                                               ";
-				gotoXY(8, 19); std::cout << "                                               ";
-				gotoXY(8, 20); std::cout << "                                               ";
-				gotoXY(8, 21); std::cout << "                                               ";
-				gotoXY(8, 22); std::cout << "                                               ";
-				gotoXY(6, 14); std::cout << "  ";
-				int random = rand() % 5; //80% chance to run away successfully
-				if (random == 0)
-				{
-					gotoXY(8, 11); std::cout << "Run away attempt has failed.                   ";
-					//enemy attacks
-					int enemyTrueDamage = ((enemyDamage * (rand() % 20 + 91)) / 100) - (playerDefense / 10); //deals 90-110% damage minus 10% player defense
-					playerHP = playerHP - enemyTrueDamage;
-					gotoXY(8, 13); std::cout << "The " << enemyName << " has " << enemyHP << " hit points remaining.         ";
-					gotoXY(8, 14); std::cout << "The " << enemyName << " hits you for " << enemyTrueDamage << " damage.        ";
-
-					gotoXY(8, 9); std::cout << "Your current HP: " << playerHP << "              ";
-
-					if (playerHP <= 0) //player is dead
-					{
-						gotoXY(8, 16); std::cout << "You are dead!  Game over!                  ";
-						while (1); //game ends
 					}
+					else
+					{
+						gotoXY(8, 11); std::cout << "RUN AWAY!!!!!                                      ";
+						gotoXY(8, 12); std::cout << "                                               ";
+						gotoXY(8, 13); std::cout << "                                               ";
+						gotoXY(8, 14); std::cout << "                                               ";
+						getchar();
+						return;
+					}
+					break;
 				}
-				else
-				{
-					gotoXY(8, 11); std::cout << "Run away attempt is successful.                " << random;
-					while (1); //figure out how to escape
-				}
-				break;
+				} //close switch
+				y = 12;
+				battle_menu_item = 0;
+				//battle_menu = false;
 			}
-			} //close switch
-			y = 12;
-			battle_menu_item = 0;
-			//battle_menu = false;
+		}
+		else //you won
+		{
+			return;
 		}
 	} while (battle_menu);
 	while (1);
@@ -1856,6 +1893,7 @@ void fightBoss1()
 
 void fightBoss2()
 {
+	srand(time(NULL)); //see the randomizer based on computer's time
 	int playerMaxHP;
 	int playerHP;
 	int playerDamage;
@@ -1873,9 +1911,8 @@ void fightBoss2()
 	bool battle_menu = true;
 	int item_menu_item = 0;
 	bool item_menu = true;
-	//bool win = false;
+	bool win = false;
 
-	//for testing purposes only
 	weaponPtr = (Probe *)&probe;			//damage = 10
 	armorPtr = (Helmet *)&helmet;			//defense = 10
 	item1Ptr = (Apple *)&apple;				//heal = 10
@@ -1884,10 +1921,10 @@ void fightBoss2()
 	item4Ptr = (MedKit *)&med_kit;			//heal = 100
 
 											//load player stats (with weapon stats)
-	playerHP = player.getHP();
-	playerDamage = player.getDamage() + weaponPtr->getStat();
-	playerDefense = player.getDefense() + armorPtr->getStat();
-	playerGold = player.getGold();
+	playerHP = playerPtr->getHP();
+	playerDamage = playerPtr->getDamage() + weaponPtr->getStat();
+	playerDefense = playerPtr->getDefense() + armorPtr->getStat();
+	playerGold = playerPtr->getGold();
 
 	print_battle();
 
@@ -1905,12 +1942,14 @@ void fightBoss2()
 	gotoXY(8, 7); std::cout << "Your Attack Power: " << playerDamage << "              ";
 	gotoXY(8, 8); std::cout << "Your Armor Class: " << playerDefense << "              ";
 	gotoXY(8, 9); std::cout << "Your current HP: " << playerHP << "              ";
-	gotoXY(8, 11); std::cout << "A " << enemyName << " approaches.  Prepare to fight!    ";
+	gotoXY(8, 11); std::cout << enemyName << " approaches.  Prepare to fight!";
 
 	gotoXY(6, 12); std::cout << "->";
 	//choice: attack (did you win?), use item (no attack, another choice in here), run (80%)
+
 	do //start battle menu
 	{
+
 		gotoXY(8, 9); std::cout << "Your current HP: " << playerHP << "              ";
 
 		gotoXY(8, 12); std::cout << "1) Attack                                      ";
@@ -1920,316 +1959,329 @@ void fightBoss2()
 
 		system("pause>nul");
 
-		if (GetAsyncKeyState(VK_DOWN) && y != 14) //down is pressed unless at bottom
+		//did they win yet?
+		if (win == false) //no winner yet
 		{
-			gotoXY(6, y); std::cout << "  ";
-			y++;
-			gotoXY(6, y); std::cout << "->";
-			battle_menu_item++;
-			continue;
-		}
-		if (GetAsyncKeyState(VK_UP) && y != 12) //up is pressed unless at top
-		{
-			gotoXY(6, y); std::cout << "  ";
-			y--;
-			gotoXY(6, y); std::cout << "->";
-			battle_menu_item--;
-			continue;
-		}
-		if (GetAsyncKeyState(VK_RETURN)) //enter key pressed
-		{
-			switch (battle_menu_item)
+			if (GetAsyncKeyState(VK_DOWN) && y != 14) //down is pressed unless at bottom
 			{
-			case 0: //attack
+				gotoXY(6, y); std::cout << "  ";
+				y++;
+				gotoXY(6, y); std::cout << "->";
+				battle_menu_item++;
+				continue;
+			}
+			if (GetAsyncKeyState(VK_UP) && y != 12) //up is pressed unless at top
 			{
-				gotoXY(8, 15); std::cout << "                                               ";
-				gotoXY(8, 16); std::cout << "                                               ";
-				gotoXY(8, 17); std::cout << "                                               ";
-				gotoXY(8, 18); std::cout << "                                               ";
-				gotoXY(8, 19); std::cout << "                                               ";
-				gotoXY(8, 20); std::cout << "                                               ";
-				gotoXY(8, 21); std::cout << "                                               ";
-				gotoXY(8, 22); std::cout << "                                               ";
-				int trueDamage = ((playerDamage * (rand() % 21 + 90)) / 100) - (enemyDefense / 10); //deals anywhere from 90-110% of damage minus 10% of enemy defense
-				enemyHP = enemyHP - trueDamage; //enemy health remaining
-				gotoXY(8, 16); std::cout << "You hit the " << enemyName << " for " << trueDamage << " damage.        ";
-
-				if (enemyHP <= 0) //enemy is dead
+				gotoXY(6, y); std::cout << "  ";
+				y--;
+				gotoXY(6, y); std::cout << "->";
+				battle_menu_item--;
+				continue;
+			}
+			if (GetAsyncKeyState(VK_RETURN)) //enter key pressed
+			{
+				switch (battle_menu_item)
 				{
-					gotoXY(8, 18); std::cout << "You have defeated the " << enemyName << ".              ";
-					playerGold = playerGold + reward;
-					gotoXY(8, 19); std::cout << "You picked up " << reward << " gold pieces.                  ";
-					//win = true;
-					//while (1); //you win
-					break;
-				}
-
-				else //enemy attacks
+				case 0: //attack
 				{
-					int enemyTrueDamage = ((enemyDamage * (rand() % 21 + 90)) / 100) - (playerDefense / 10); //deals 90-110% damage minus 10% player defense
-					playerHP = playerHP - enemyTrueDamage;
-					gotoXY(8, 18); std::cout << "The " << enemyName << " has " << enemyHP << " hit points remaining.         ";
-					gotoXY(8, 19); std::cout << "The " << enemyName << " hits you for " << enemyTrueDamage << " damage.        ";
+					gotoXY(8, 15); std::cout << "                                               ";
+					gotoXY(8, 16); std::cout << "                                               ";
+					gotoXY(8, 17); std::cout << "                                               ";
+					gotoXY(8, 18); std::cout << "                                               ";
+					gotoXY(8, 19); std::cout << "                                               ";
+					gotoXY(8, 20); std::cout << "                                               ";
+					gotoXY(8, 21); std::cout << "                                               ";
+					gotoXY(8, 22); std::cout << "                                               ";
+					int trueDamage = ((playerDamage * (rand() % 21 + 90)) / 100) - (enemyDefense / 10); //deals anywhere from 90-110% of damage minus 10% of enemy defense
+					enemyHP = enemyHP - trueDamage; //enemy health remaining
+					gotoXY(8, 16); std::cout << "You hit " << enemyName << " for " << trueDamage << " damage.    ";
 
-					gotoXY(8, 9); std::cout << "Your current HP: " << playerHP << "              ";
-
-
-					if (playerHP <= 0) //player is dead
+					if (enemyHP <= 0) //enemy is dead
 					{
-						gotoXY(8, 21); std::cout << "You are dead!  Game over!                  ";
-						while (1); //game ends
+						gotoXY(8, 18); std::cout << "You have defeated " << enemyName << ".              ";
+						playerGold = playerGold + reward;
+						gotoXY(8, 19); std::cout << "You picked up " << reward << " gold pieces.                  ";
+						playerPtr->setGold(playerGold);
+						win = true;
+						//while (1); //you win
 						break;
 					}
-				}break;
-			}
-			case 1: //use item
-			{
-				gotoXY(8, 15); std::cout << "                                               ";
-				gotoXY(8, 16); std::cout << "                                               ";
-				gotoXY(8, 17); std::cout << "                                               ";
-				gotoXY(8, 18); std::cout << "                                               ";
-				gotoXY(8, 19); std::cout << "                                               ";
-				gotoXY(8, 20); std::cout << "                                               ";
-				gotoXY(8, 21); std::cout << "                                               ";
-				gotoXY(8, 22); std::cout << "                                               ";
-				gotoXY(6, 13); std::cout << "  ";
-				y = 12;
-				item_menu_item = 0;
-				item_menu = true;
 
-				gotoXY(8, 11); std::cout << "Select an item to heal with.                    ";
-				gotoXY(6, 12); std::cout << "->";
+					else //enemy attacks
+					{
+						int enemyTrueDamage = ((enemyDamage * (rand() % 21 + 90)) / 100) - (playerDefense / 10); //deals 90-110% damage minus 10% player defense
+						playerHP = playerHP - enemyTrueDamage;
+						gotoXY(8, 18); std::cout << enemyName << " has " << enemyHP << " hit points remaining.     ";
+						gotoXY(8, 19); std::cout << enemyName << " hits you for " << enemyTrueDamage << " damage.        ";
 
-				do //start item menu
+						gotoXY(8, 9); std::cout << "Your current HP: " << playerHP << "              ";
+
+
+						if (playerHP <= 0) //player is dead
+						{
+							gotoXY(8, 21); std::cout << "You are dead!  Game over!                  ";
+							while (1); //game ends
+							break;
+						}
+					}break;
+				}
+				case 1: //use item
 				{
+					gotoXY(8, 15); std::cout << "                                               ";
+					gotoXY(8, 16); std::cout << "                                               ";
+					gotoXY(8, 17); std::cout << "                                               ";
+					gotoXY(8, 18); std::cout << "                                               ";
+					gotoXY(8, 19); std::cout << "                                               ";
+					gotoXY(8, 20); std::cout << "                                               ";
+					gotoXY(8, 21); std::cout << "                                               ";
+					gotoXY(8, 22); std::cout << "                                               ";
+					gotoXY(6, 13); std::cout << "  ";
+					y = 12;
+					item_menu_item = 0;
+					item_menu = true;
+
+					gotoXY(8, 11); std::cout << "Select an item to heal with.                    ";
+					gotoXY(6, 12); std::cout << "->";
+
+					do //start item menu
+					{
 
 
-					playerMaxHP = player.getMaxHP();
+						playerMaxHP = player.getMaxHP();
 
-					if (item1Ptr != NULL)
-					{
-						gotoXY(8, 12); std::cout << "1) " << item1Ptr->getName() << " heals for " << item1Ptr->getStat() << " hit points.        ";
-					}
-					else
-					{
-						gotoXY(8, 12); std::cout << "1) Empty                                       ";
-					}
-					if (item2Ptr != NULL)
-					{
-						gotoXY(8, 13); std::cout << "2) " << item2Ptr->getName() << " heals for " << item2Ptr->getStat() << " hit points.        ";
-					}
-					else
-					{
-						gotoXY(8, 13); std::cout << "2) Empty                                       ";
-					}
-					if (item3Ptr != NULL)
-					{
-						gotoXY(8, 14); std::cout << "3) " << item3Ptr->getName() << " heals for " << item3Ptr->getStat() << " hit points.        ";
-					}
-					else
-					{
-						gotoXY(8, 14); std::cout << "3) Empty                                       ";
-					}
-					if (item4Ptr != NULL)
-					{
-						gotoXY(8, 15); std::cout << "4) " << item4Ptr->getName() << " heals for " << item4Ptr->getStat() << " hit points.        ";
-					}
-					else
-					{
-						gotoXY(8, 15); std::cout << "4) Empty                                       ";
-					}
-
-					system("pause>nul");
-
-					if (GetAsyncKeyState(VK_DOWN) && y != 15)
-					{
-						gotoXY(6, y); std::cout << "  ";
-						y++;
-						gotoXY(6, y); std::cout << "->";
-						item_menu_item++;
-						continue;
-					}
-					if (GetAsyncKeyState(VK_UP) && y != 12)
-					{
-						gotoXY(6, y); std::cout << "  ";
-						y--;
-						gotoXY(6, y); std::cout << "->";
-						item_menu_item--;
-						continue;
-					}
-					if (GetAsyncKeyState(VK_RETURN))
-					{
-						switch (item_menu_item)
+						if (item1Ptr != NULL)
 						{
-						case 0: //item 1
+							gotoXY(8, 12); std::cout << "1) " << item1Ptr->getName() << " heals for " << item1Ptr->getStat() << " hit points.        ";
+						}
+						else
 						{
-							gotoXY(6, 12); std::cout << "  ";
-							if (item1Ptr != NULL)
+							gotoXY(8, 12); std::cout << "1) Empty                                       ";
+						}
+						if (item2Ptr != NULL)
+						{
+							gotoXY(8, 13); std::cout << "2) " << item2Ptr->getName() << " heals for " << item2Ptr->getStat() << " hit points.        ";
+						}
+						else
+						{
+							gotoXY(8, 13); std::cout << "2) Empty                                       ";
+						}
+						if (item3Ptr != NULL)
+						{
+							gotoXY(8, 14); std::cout << "3) " << item3Ptr->getName() << " heals for " << item3Ptr->getStat() << " hit points.        ";
+						}
+						else
+						{
+							gotoXY(8, 14); std::cout << "3) Empty                                       ";
+						}
+						if (item4Ptr != NULL)
+						{
+							gotoXY(8, 15); std::cout << "4) " << item4Ptr->getName() << " heals for " << item4Ptr->getStat() << " hit points.        ";
+						}
+						else
+						{
+							gotoXY(8, 15); std::cout << "4) Empty                                       ";
+						}
+
+						system("pause>nul");
+
+						if (GetAsyncKeyState(VK_DOWN) && y != 15)
+						{
+							gotoXY(6, y); std::cout << "  ";
+							y++;
+							gotoXY(6, y); std::cout << "->";
+							item_menu_item++;
+							continue;
+						}
+						if (GetAsyncKeyState(VK_UP) && y != 12)
+						{
+							gotoXY(6, y); std::cout << "  ";
+							y--;
+							gotoXY(6, y); std::cout << "->";
+							item_menu_item--;
+							continue;
+						}
+						if (GetAsyncKeyState(VK_RETURN))
+						{
+							switch (item_menu_item)
 							{
-								//heal player
-								playerHP = playerHP + item1Ptr->getStat();
-								if (playerHP > playerMaxHP)
+							case 0: //item 1
+							{
+								gotoXY(6, 12); std::cout << "  ";
+								if (item1Ptr != NULL)
 								{
-									gotoXY(8, 17); std::cout << "You were healed for " << playerMaxHP + item1Ptr->getStat() - playerHP << " hit points.         ";
-									playerHP = playerMaxHP;
+									//heal player
+									playerHP = playerHP + item1Ptr->getStat();
+									if (playerHP > playerMaxHP)
+									{
+										gotoXY(8, 17); std::cout << "You were healed for " << playerMaxHP + item1Ptr->getStat() - playerHP << " hit points.         ";
+										playerHP = playerMaxHP;
+									}
+									else
+									{
+										gotoXY(8, 17); std::cout << "You were healed for " << item1Ptr->getStat() << " hit points.         ";
+									}
+									//remove item and shift other items
+									item1Ptr = item2Ptr;
+									item2Ptr = item3Ptr;
+									item3Ptr = item4Ptr;
+									item4Ptr = NULL;
 								}
 								else
 								{
-									gotoXY(8, 17); std::cout << "You were healed for " << item1Ptr->getStat() << " hit points.         ";
+									gotoXY(8, 17); std::cout << "No item in slot 1.  You lose your turn.        ";
 								}
-								//remove item and shift other items
-								item1Ptr = item2Ptr;
-								item2Ptr = item3Ptr;
-								item3Ptr = item4Ptr;
-								item4Ptr = NULL;
+								break;
 							}
-							else
+							case 1: //item 2
 							{
-								gotoXY(8, 17); std::cout << "No item in slot 1.  You lose your turn.        ";
-							}
-							break;
-						}
-						case 1: //item 2
-						{
-							gotoXY(6, 13); std::cout << "  ";
-							if (item2Ptr != NULL)
-							{
-								//heal player
-								playerHP = playerHP + item2Ptr->getStat();
-								if (playerHP > playerMaxHP)
+								gotoXY(6, 13); std::cout << "  ";
+								if (item2Ptr != NULL)
 								{
-									gotoXY(8, 17); std::cout << "You were healed for " << playerMaxHP + item2Ptr->getStat() - playerHP << " hit points.         ";
-									playerHP = playerMaxHP;
+									//heal player
+									playerHP = playerHP + item2Ptr->getStat();
+									if (playerHP > playerMaxHP)
+									{
+										gotoXY(8, 17); std::cout << "You were healed for " << playerMaxHP + item2Ptr->getStat() - playerHP << " hit points.         ";
+										playerHP = playerMaxHP;
+									}
+									else
+									{
+										gotoXY(8, 17); std::cout << "You were healed for " << item2Ptr->getStat() << " hit points.         ";
+									}
+									//remove item and shift other items
+									item2Ptr = item3Ptr;
+									item3Ptr = item4Ptr;
+									item4Ptr = NULL;
 								}
 								else
 								{
-									gotoXY(8, 17); std::cout << "You were healed for " << item2Ptr->getStat() << " hit points.         ";
+									gotoXY(8, 17); std::cout << "No item in slot 2.  You lose your turn.        ";
 								}
-								//remove item and shift other items
-								item2Ptr = item3Ptr;
-								item3Ptr = item4Ptr;
-								item4Ptr = NULL;
+								break;
 							}
-							else
+							case 2: //item 3
 							{
-								gotoXY(8, 17); std::cout << "No item in slot 2.  You lose your turn.        ";
-							}
-							break;
-						}
-						case 2: //item 3
-						{
-							gotoXY(6, 14); std::cout << "  ";
-							if (item3Ptr != NULL)
-							{
-								//heal player
-								playerHP = playerHP + item3Ptr->getStat();
-								if (playerHP > playerMaxHP)
+								gotoXY(6, 14); std::cout << "  ";
+								if (item3Ptr != NULL)
 								{
-									gotoXY(8, 17); std::cout << "You were healed for " << playerMaxHP + item3Ptr->getStat() - playerHP << " hit points.         ";
-									playerHP = playerMaxHP;
+									//heal player
+									playerHP = playerHP + item3Ptr->getStat();
+									if (playerHP > playerMaxHP)
+									{
+										gotoXY(8, 17); std::cout << "You were healed for " << playerMaxHP + item3Ptr->getStat() - playerHP << " hit points.         ";
+										playerHP = playerMaxHP;
+									}
+									else
+									{
+										gotoXY(8, 17); std::cout << "You were healed for " << item3Ptr->getStat() << " hit points.         ";
+									}
+									//remove item and shift other items
+									item3Ptr = item4Ptr;
+									item4Ptr = NULL;
 								}
 								else
 								{
-									gotoXY(8, 17); std::cout << "You were healed for " << item3Ptr->getStat() << " hit points.         ";
+									gotoXY(8, 17); std::cout << "No item in slot 3.  You lose your turn.        ";
 								}
-								//remove item and shift other items
-								item3Ptr = item4Ptr;
-								item4Ptr = NULL;
+								break;
 							}
-							else
+							case 3: //item 4
 							{
-								gotoXY(8, 17); std::cout << "No item in slot 3.  You lose your turn.        ";
-							}
-							break;
-						}
-						case 3: //item 4
-						{
-							gotoXY(6, 15); std::cout << "  ";
-							if (item4Ptr != NULL)
-							{
-								//heal player
-								playerHP = playerHP + item4Ptr->getStat();
-								if (playerHP > playerMaxHP)
+								gotoXY(6, 15); std::cout << "  ";
+								if (item4Ptr != NULL)
 								{
-									gotoXY(8, 17); std::cout << "You were healed for " << playerMaxHP + item4Ptr->getStat() - playerHP << " hit points.         ";
-									playerHP = playerMaxHP;
+									//heal player
+									playerHP = playerHP + item4Ptr->getStat();
+									if (playerHP > playerMaxHP)
+									{
+										gotoXY(8, 17); std::cout << "You were healed for " << playerMaxHP + item4Ptr->getStat() - playerHP << " hit points.         ";
+										playerHP = playerMaxHP;
+									}
+									else
+									{
+										gotoXY(8, 17); std::cout << "You were healed for " << item4Ptr->getStat() << " hit points.         ";
+									}
+									//remove item and shift other items
+									item4Ptr = NULL;
 								}
 								else
 								{
-									gotoXY(8, 17); std::cout << "You were healed for " << item4Ptr->getStat() << " hit points.         ";
+									gotoXY(8, 17); std::cout << "No item in slot 4.  You lose your turn.        ";
 								}
-								//remove item and shift other items
-								item4Ptr = NULL;
+								break;
 							}
-							else
+							} // close switch
+							  //enemy attacks
+							int enemyTrueDamage = ((enemyDamage * (rand() % 20 + 91)) / 100) - (playerDefense / 10); //deals 90-110% damage minus 10% player defense
+							playerHP = playerHP - enemyTrueDamage;
+							gotoXY(8, 19); std::cout << enemyName << " has " << enemyHP << " hit points remaining.         ";
+							gotoXY(8, 20); std::cout << enemyName << " hits you for " << enemyTrueDamage << " damage.        ";
+
+							gotoXY(8, 9); std::cout << "Your current HP: " << playerHP << "              ";
+
+							if (playerHP <= 0) //player is dead
 							{
-								gotoXY(8, 17); std::cout << "No item in slot 4.  You lose your turn.        ";
+								gotoXY(8, 22); std::cout << "You are dead!  Game over!                  ";
+								while (1); //game ends
 							}
-							break;
-						}
-						} // close switch
-						  //enemy attacks
+							item_menu = false;
+						} //close if
+					} while (item_menu);
+					y = 12;
+					gotoXY(6, 12); std::cout << "->";
+					item_menu_item = 0;
+					item_menu = true;
+					break;
+				}
+				case 2: //run
+				{
+					gotoXY(8, 15); std::cout << "                                               ";
+					gotoXY(8, 16); std::cout << "                                               ";
+					gotoXY(8, 17); std::cout << "                                               ";
+					gotoXY(8, 18); std::cout << "                                               ";
+					gotoXY(8, 19); std::cout << "                                               ";
+					gotoXY(8, 20); std::cout << "                                               ";
+					gotoXY(8, 21); std::cout << "                                               ";
+					gotoXY(8, 22); std::cout << "                                               ";
+					gotoXY(6, 14); std::cout << "  ";
+					int random = rand() % 5; //80% chance to run away successfully
+					if (random == 0)
+					{
+						gotoXY(8, 11); std::cout << "Run away attempt has failed.                   ";
+						//enemy attacks
 						int enemyTrueDamage = ((enemyDamage * (rand() % 20 + 91)) / 100) - (playerDefense / 10); //deals 90-110% damage minus 10% player defense
 						playerHP = playerHP - enemyTrueDamage;
-						gotoXY(8, 19); std::cout << "The " << enemyName << " has " << enemyHP << " hit points remaining.         ";
-						gotoXY(8, 20); std::cout << "The " << enemyName << " hits you for " << enemyTrueDamage << " damage.        ";
+						gotoXY(8, 13); std::cout << enemyName << " has " << enemyHP << " hit points remaining.         ";
+						gotoXY(8, 14); std::cout << enemyName << " hits you for " << enemyTrueDamage << " damage.        ";
 
 						gotoXY(8, 9); std::cout << "Your current HP: " << playerHP << "              ";
 
 						if (playerHP <= 0) //player is dead
 						{
-							gotoXY(8, 22); std::cout << "You are dead!  Game over!                  ";
+							gotoXY(8, 16); std::cout << "You are dead!  Game over!                  ";
 							while (1); //game ends
 						}
-						item_menu = false;
-					} //close if
-				} while (item_menu);
-				y = 12;
-				gotoXY(6, 12); std::cout << "->";
-				item_menu_item = 0;
-				item_menu = true;
-				break;
-			}
-			case 2: //run
-			{
-				gotoXY(8, 15); std::cout << "                                               ";
-				gotoXY(8, 16); std::cout << "                                               ";
-				gotoXY(8, 17); std::cout << "                                               ";
-				gotoXY(8, 18); std::cout << "                                               ";
-				gotoXY(8, 19); std::cout << "                                               ";
-				gotoXY(8, 20); std::cout << "                                               ";
-				gotoXY(8, 21); std::cout << "                                               ";
-				gotoXY(8, 22); std::cout << "                                               ";
-				gotoXY(6, 14); std::cout << "  ";
-				int random = rand() % 5; //80% chance to run away successfully
-				if (random == 0)
-				{
-					gotoXY(8, 11); std::cout << "Run away attempt has failed.                   ";
-					//enemy attacks
-					int enemyTrueDamage = ((enemyDamage * (rand() % 20 + 91)) / 100) - (playerDefense / 10); //deals 90-110% damage minus 10% player defense
-					playerHP = playerHP - enemyTrueDamage;
-					gotoXY(8, 13); std::cout << "The " << enemyName << " has " << enemyHP << " hit points remaining.         ";
-					gotoXY(8, 14); std::cout << "The " << enemyName << " hits you for " << enemyTrueDamage << " damage.        ";
-
-					gotoXY(8, 9); std::cout << "Your current HP: " << playerHP << "              ";
-
-					if (playerHP <= 0) //player is dead
-					{
-						gotoXY(8, 16); std::cout << "You are dead!  Game over!                  ";
-						while (1); //game ends
 					}
+					else
+					{
+						gotoXY(8, 11); std::cout << "RUN AWAY!!!!!                                      ";
+						gotoXY(8, 12); std::cout << "                                               ";
+						gotoXY(8, 13); std::cout << "                                               ";
+						gotoXY(8, 14); std::cout << "                                               ";
+						getchar();
+						return;
+					}
+					break;
 				}
-				else
-				{
-					gotoXY(8, 11); std::cout << "Run away attempt is successful.                " << random;
-					while (1); //figure out how to escape
-				}
-				break;
+				} //close switch
+				y = 12;
+				battle_menu_item = 0;
+				//battle_menu = false;
 			}
-			} //close switch
-			y = 12;
-			battle_menu_item = 0;
-			//battle_menu = false;
+		}
+		else //you won
+		{
+			return;
 		}
 	} while (battle_menu);
 	while (1);
@@ -2238,6 +2290,7 @@ void fightBoss2()
 
 void fightBoss3()
 {
+	srand(time(NULL)); //see the randomizer based on computer's time
 	int playerMaxHP;
 	int playerHP;
 	int playerDamage;
@@ -2255,9 +2308,8 @@ void fightBoss3()
 	bool battle_menu = true;
 	int item_menu_item = 0;
 	bool item_menu = true;
-	//bool win = false;
+	bool win = false;
 
-	//for testing purposes only
 	weaponPtr = (Probe *)&probe;			//damage = 10
 	armorPtr = (Helmet *)&helmet;			//defense = 10
 	item1Ptr = (Apple *)&apple;				//heal = 10
@@ -2266,10 +2318,10 @@ void fightBoss3()
 	item4Ptr = (MedKit *)&med_kit;			//heal = 100
 
 											//load player stats (with weapon stats)
-	playerHP = player.getHP();
-	playerDamage = player.getDamage() + weaponPtr->getStat();
-	playerDefense = player.getDefense() + armorPtr->getStat();
-	playerGold = player.getGold();
+	playerHP = playerPtr->getHP();
+	playerDamage = playerPtr->getDamage() + weaponPtr->getStat();
+	playerDefense = playerPtr->getDefense() + armorPtr->getStat();
+	playerGold = playerPtr->getGold();
 
 	print_battle();
 
@@ -2287,12 +2339,14 @@ void fightBoss3()
 	gotoXY(8, 7); std::cout << "Your Attack Power: " << playerDamage << "              ";
 	gotoXY(8, 8); std::cout << "Your Armor Class: " << playerDefense << "              ";
 	gotoXY(8, 9); std::cout << "Your current HP: " << playerHP << "              ";
-	gotoXY(8, 11); std::cout << "A " << enemyName << " approaches.  Prepare to fight!    ";
+	gotoXY(8, 11); std::cout << enemyName << " approaches.  Prepare to fight!";
 
 	gotoXY(6, 12); std::cout << "->";
 	//choice: attack (did you win?), use item (no attack, another choice in here), run (80%)
+
 	do //start battle menu
 	{
+
 		gotoXY(8, 9); std::cout << "Your current HP: " << playerHP << "              ";
 
 		gotoXY(8, 12); std::cout << "1) Attack                                      ";
@@ -2302,316 +2356,329 @@ void fightBoss3()
 
 		system("pause>nul");
 
-		if (GetAsyncKeyState(VK_DOWN) && y != 14) //down is pressed unless at bottom
+		//did they win yet?
+		if (win == false) //no winner yet
 		{
-			gotoXY(6, y); std::cout << "  ";
-			y++;
-			gotoXY(6, y); std::cout << "->";
-			battle_menu_item++;
-			continue;
-		}
-		if (GetAsyncKeyState(VK_UP) && y != 12) //up is pressed unless at top
-		{
-			gotoXY(6, y); std::cout << "  ";
-			y--;
-			gotoXY(6, y); std::cout << "->";
-			battle_menu_item--;
-			continue;
-		}
-		if (GetAsyncKeyState(VK_RETURN)) //enter key pressed
-		{
-			switch (battle_menu_item)
+			if (GetAsyncKeyState(VK_DOWN) && y != 14) //down is pressed unless at bottom
 			{
-			case 0: //attack
+				gotoXY(6, y); std::cout << "  ";
+				y++;
+				gotoXY(6, y); std::cout << "->";
+				battle_menu_item++;
+				continue;
+			}
+			if (GetAsyncKeyState(VK_UP) && y != 12) //up is pressed unless at top
 			{
-				gotoXY(8, 15); std::cout << "                                               ";
-				gotoXY(8, 16); std::cout << "                                               ";
-				gotoXY(8, 17); std::cout << "                                               ";
-				gotoXY(8, 18); std::cout << "                                               ";
-				gotoXY(8, 19); std::cout << "                                               ";
-				gotoXY(8, 20); std::cout << "                                               ";
-				gotoXY(8, 21); std::cout << "                                               ";
-				gotoXY(8, 22); std::cout << "                                               ";
-				int trueDamage = ((playerDamage * (rand() % 21 + 90)) / 100) - (enemyDefense / 10); //deals anywhere from 90-110% of damage minus 10% of enemy defense
-				enemyHP = enemyHP - trueDamage; //enemy health remaining
-				gotoXY(8, 16); std::cout << "You hit the " << enemyName << " for " << trueDamage << " damage.        ";
-
-				if (enemyHP <= 0) //enemy is dead
+				gotoXY(6, y); std::cout << "  ";
+				y--;
+				gotoXY(6, y); std::cout << "->";
+				battle_menu_item--;
+				continue;
+			}
+			if (GetAsyncKeyState(VK_RETURN)) //enter key pressed
+			{
+				switch (battle_menu_item)
 				{
-					gotoXY(8, 18); std::cout << "You have defeated the " << enemyName << ".              ";
-					playerGold = playerGold + reward;
-					gotoXY(8, 19); std::cout << "You picked up " << reward << " gold pieces.                  ";
-					//win = true;
-					//while (1); //you win
-					break;
-				}
-
-				else //enemy attacks
+				case 0: //attack
 				{
-					int enemyTrueDamage = ((enemyDamage * (rand() % 21 + 90)) / 100) - (playerDefense / 10); //deals 90-110% damage minus 10% player defense
-					playerHP = playerHP - enemyTrueDamage;
-					gotoXY(8, 18); std::cout << "The " << enemyName << " has " << enemyHP << " hit points remaining.         ";
-					gotoXY(8, 19); std::cout << "The " << enemyName << " hits you for " << enemyTrueDamage << " damage.        ";
+					gotoXY(8, 15); std::cout << "                                               ";
+					gotoXY(8, 16); std::cout << "                                               ";
+					gotoXY(8, 17); std::cout << "                                               ";
+					gotoXY(8, 18); std::cout << "                                               ";
+					gotoXY(8, 19); std::cout << "                                               ";
+					gotoXY(8, 20); std::cout << "                                               ";
+					gotoXY(8, 21); std::cout << "                                               ";
+					gotoXY(8, 22); std::cout << "                                               ";
+					int trueDamage = ((playerDamage * (rand() % 21 + 90)) / 100) - (enemyDefense / 10); //deals anywhere from 90-110% of damage minus 10% of enemy defense
+					enemyHP = enemyHP - trueDamage; //enemy health remaining
+					gotoXY(8, 16); std::cout << "You hit " << enemyName << " for " << trueDamage << " damage.    ";
 
-					gotoXY(8, 9); std::cout << "Your current HP: " << playerHP << "              ";
-
-
-					if (playerHP <= 0) //player is dead
+					if (enemyHP <= 0) //enemy is dead
 					{
-						gotoXY(8, 21); std::cout << "You are dead!  Game over!                  ";
-						while (1); //game ends
+						gotoXY(8, 18); std::cout << "You have defeated " << enemyName << ".              ";
+						playerGold = playerGold + reward;
+						gotoXY(8, 19); std::cout << "You picked up " << reward << " gold pieces.                  ";
+						playerPtr->setGold(playerGold);
+						win = true;
+						//while (1); //you win
 						break;
 					}
-				}break;
-			}
-			case 1: //use item
-			{
-				gotoXY(8, 15); std::cout << "                                               ";
-				gotoXY(8, 16); std::cout << "                                               ";
-				gotoXY(8, 17); std::cout << "                                               ";
-				gotoXY(8, 18); std::cout << "                                               ";
-				gotoXY(8, 19); std::cout << "                                               ";
-				gotoXY(8, 20); std::cout << "                                               ";
-				gotoXY(8, 21); std::cout << "                                               ";
-				gotoXY(8, 22); std::cout << "                                               ";
-				gotoXY(6, 13); std::cout << "  ";
-				y = 12;
-				item_menu_item = 0;
-				item_menu = true;
 
-				gotoXY(8, 11); std::cout << "Select an item to heal with.                    ";
-				gotoXY(6, 12); std::cout << "->";
+					else //enemy attacks
+					{
+						int enemyTrueDamage = ((enemyDamage * (rand() % 21 + 90)) / 100) - (playerDefense / 10); //deals 90-110% damage minus 10% player defense
+						playerHP = playerHP - enemyTrueDamage;
+						gotoXY(8, 18); std::cout << enemyName << " has " << enemyHP << " hit points remaining.     ";
+						gotoXY(8, 19); std::cout << enemyName << " hits you for " << enemyTrueDamage << " damage.        ";
 
-				do //start item menu
+						gotoXY(8, 9); std::cout << "Your current HP: " << playerHP << "              ";
+
+
+						if (playerHP <= 0) //player is dead
+						{
+							gotoXY(8, 21); std::cout << "You are dead!  Game over!                  ";
+							while (1); //game ends
+							break;
+						}
+					}break;
+				}
+				case 1: //use item
 				{
+					gotoXY(8, 15); std::cout << "                                               ";
+					gotoXY(8, 16); std::cout << "                                               ";
+					gotoXY(8, 17); std::cout << "                                               ";
+					gotoXY(8, 18); std::cout << "                                               ";
+					gotoXY(8, 19); std::cout << "                                               ";
+					gotoXY(8, 20); std::cout << "                                               ";
+					gotoXY(8, 21); std::cout << "                                               ";
+					gotoXY(8, 22); std::cout << "                                               ";
+					gotoXY(6, 13); std::cout << "  ";
+					y = 12;
+					item_menu_item = 0;
+					item_menu = true;
+
+					gotoXY(8, 11); std::cout << "Select an item to heal with.                    ";
+					gotoXY(6, 12); std::cout << "->";
+
+					do //start item menu
+					{
 
 
-					playerMaxHP = player.getMaxHP();
+						playerMaxHP = player.getMaxHP();
 
-					if (item1Ptr != NULL)
-					{
-						gotoXY(8, 12); std::cout << "1) " << item1Ptr->getName() << " heals for " << item1Ptr->getStat() << " hit points.        ";
-					}
-					else
-					{
-						gotoXY(8, 12); std::cout << "1) Empty                                       ";
-					}
-					if (item2Ptr != NULL)
-					{
-						gotoXY(8, 13); std::cout << "2) " << item2Ptr->getName() << " heals for " << item2Ptr->getStat() << " hit points.        ";
-					}
-					else
-					{
-						gotoXY(8, 13); std::cout << "2) Empty                                       ";
-					}
-					if (item3Ptr != NULL)
-					{
-						gotoXY(8, 14); std::cout << "3) " << item3Ptr->getName() << " heals for " << item3Ptr->getStat() << " hit points.        ";
-					}
-					else
-					{
-						gotoXY(8, 14); std::cout << "3) Empty                                       ";
-					}
-					if (item4Ptr != NULL)
-					{
-						gotoXY(8, 15); std::cout << "4) " << item4Ptr->getName() << " heals for " << item4Ptr->getStat() << " hit points.        ";
-					}
-					else
-					{
-						gotoXY(8, 15); std::cout << "4) Empty                                       ";
-					}
-
-					system("pause>nul");
-
-					if (GetAsyncKeyState(VK_DOWN) && y != 15)
-					{
-						gotoXY(6, y); std::cout << "  ";
-						y++;
-						gotoXY(6, y); std::cout << "->";
-						item_menu_item++;
-						continue;
-					}
-					if (GetAsyncKeyState(VK_UP) && y != 12)
-					{
-						gotoXY(6, y); std::cout << "  ";
-						y--;
-						gotoXY(6, y); std::cout << "->";
-						item_menu_item--;
-						continue;
-					}
-					if (GetAsyncKeyState(VK_RETURN))
-					{
-						switch (item_menu_item)
+						if (item1Ptr != NULL)
 						{
-						case 0: //item 1
+							gotoXY(8, 12); std::cout << "1) " << item1Ptr->getName() << " heals for " << item1Ptr->getStat() << " hit points.        ";
+						}
+						else
 						{
-							gotoXY(6, 12); std::cout << "  ";
-							if (item1Ptr != NULL)
+							gotoXY(8, 12); std::cout << "1) Empty                                       ";
+						}
+						if (item2Ptr != NULL)
+						{
+							gotoXY(8, 13); std::cout << "2) " << item2Ptr->getName() << " heals for " << item2Ptr->getStat() << " hit points.        ";
+						}
+						else
+						{
+							gotoXY(8, 13); std::cout << "2) Empty                                       ";
+						}
+						if (item3Ptr != NULL)
+						{
+							gotoXY(8, 14); std::cout << "3) " << item3Ptr->getName() << " heals for " << item3Ptr->getStat() << " hit points.        ";
+						}
+						else
+						{
+							gotoXY(8, 14); std::cout << "3) Empty                                       ";
+						}
+						if (item4Ptr != NULL)
+						{
+							gotoXY(8, 15); std::cout << "4) " << item4Ptr->getName() << " heals for " << item4Ptr->getStat() << " hit points.        ";
+						}
+						else
+						{
+							gotoXY(8, 15); std::cout << "4) Empty                                       ";
+						}
+
+						system("pause>nul");
+
+						if (GetAsyncKeyState(VK_DOWN) && y != 15)
+						{
+							gotoXY(6, y); std::cout << "  ";
+							y++;
+							gotoXY(6, y); std::cout << "->";
+							item_menu_item++;
+							continue;
+						}
+						if (GetAsyncKeyState(VK_UP) && y != 12)
+						{
+							gotoXY(6, y); std::cout << "  ";
+							y--;
+							gotoXY(6, y); std::cout << "->";
+							item_menu_item--;
+							continue;
+						}
+						if (GetAsyncKeyState(VK_RETURN))
+						{
+							switch (item_menu_item)
 							{
-								//heal player
-								playerHP = playerHP + item1Ptr->getStat();
-								if (playerHP > playerMaxHP)
+							case 0: //item 1
+							{
+								gotoXY(6, 12); std::cout << "  ";
+								if (item1Ptr != NULL)
 								{
-									gotoXY(8, 17); std::cout << "You were healed for " << playerMaxHP + item1Ptr->getStat() - playerHP << " hit points.         ";
-									playerHP = playerMaxHP;
+									//heal player
+									playerHP = playerHP + item1Ptr->getStat();
+									if (playerHP > playerMaxHP)
+									{
+										gotoXY(8, 17); std::cout << "You were healed for " << playerMaxHP + item1Ptr->getStat() - playerHP << " hit points.         ";
+										playerHP = playerMaxHP;
+									}
+									else
+									{
+										gotoXY(8, 17); std::cout << "You were healed for " << item1Ptr->getStat() << " hit points.         ";
+									}
+									//remove item and shift other items
+									item1Ptr = item2Ptr;
+									item2Ptr = item3Ptr;
+									item3Ptr = item4Ptr;
+									item4Ptr = NULL;
 								}
 								else
 								{
-									gotoXY(8, 17); std::cout << "You were healed for " << item1Ptr->getStat() << " hit points.         ";
+									gotoXY(8, 17); std::cout << "No item in slot 1.  You lose your turn.        ";
 								}
-								//remove item and shift other items
-								item1Ptr = item2Ptr;
-								item2Ptr = item3Ptr;
-								item3Ptr = item4Ptr;
-								item4Ptr = NULL;
+								break;
 							}
-							else
+							case 1: //item 2
 							{
-								gotoXY(8, 17); std::cout << "No item in slot 1.  You lose your turn.        ";
-							}
-							break;
-						}
-						case 1: //item 2
-						{
-							gotoXY(6, 13); std::cout << "  ";
-							if (item2Ptr != NULL)
-							{
-								//heal player
-								playerHP = playerHP + item2Ptr->getStat();
-								if (playerHP > playerMaxHP)
+								gotoXY(6, 13); std::cout << "  ";
+								if (item2Ptr != NULL)
 								{
-									gotoXY(8, 17); std::cout << "You were healed for " << playerMaxHP + item2Ptr->getStat() - playerHP << " hit points.         ";
-									playerHP = playerMaxHP;
+									//heal player
+									playerHP = playerHP + item2Ptr->getStat();
+									if (playerHP > playerMaxHP)
+									{
+										gotoXY(8, 17); std::cout << "You were healed for " << playerMaxHP + item2Ptr->getStat() - playerHP << " hit points.         ";
+										playerHP = playerMaxHP;
+									}
+									else
+									{
+										gotoXY(8, 17); std::cout << "You were healed for " << item2Ptr->getStat() << " hit points.         ";
+									}
+									//remove item and shift other items
+									item2Ptr = item3Ptr;
+									item3Ptr = item4Ptr;
+									item4Ptr = NULL;
 								}
 								else
 								{
-									gotoXY(8, 17); std::cout << "You were healed for " << item2Ptr->getStat() << " hit points.         ";
+									gotoXY(8, 17); std::cout << "No item in slot 2.  You lose your turn.        ";
 								}
-								//remove item and shift other items
-								item2Ptr = item3Ptr;
-								item3Ptr = item4Ptr;
-								item4Ptr = NULL;
+								break;
 							}
-							else
+							case 2: //item 3
 							{
-								gotoXY(8, 17); std::cout << "No item in slot 2.  You lose your turn.        ";
-							}
-							break;
-						}
-						case 2: //item 3
-						{
-							gotoXY(6, 14); std::cout << "  ";
-							if (item3Ptr != NULL)
-							{
-								//heal player
-								playerHP = playerHP + item3Ptr->getStat();
-								if (playerHP > playerMaxHP)
+								gotoXY(6, 14); std::cout << "  ";
+								if (item3Ptr != NULL)
 								{
-									gotoXY(8, 17); std::cout << "You were healed for " << playerMaxHP + item3Ptr->getStat() - playerHP << " hit points.         ";
-									playerHP = playerMaxHP;
+									//heal player
+									playerHP = playerHP + item3Ptr->getStat();
+									if (playerHP > playerMaxHP)
+									{
+										gotoXY(8, 17); std::cout << "You were healed for " << playerMaxHP + item3Ptr->getStat() - playerHP << " hit points.         ";
+										playerHP = playerMaxHP;
+									}
+									else
+									{
+										gotoXY(8, 17); std::cout << "You were healed for " << item3Ptr->getStat() << " hit points.         ";
+									}
+									//remove item and shift other items
+									item3Ptr = item4Ptr;
+									item4Ptr = NULL;
 								}
 								else
 								{
-									gotoXY(8, 17); std::cout << "You were healed for " << item3Ptr->getStat() << " hit points.         ";
+									gotoXY(8, 17); std::cout << "No item in slot 3.  You lose your turn.        ";
 								}
-								//remove item and shift other items
-								item3Ptr = item4Ptr;
-								item4Ptr = NULL;
+								break;
 							}
-							else
+							case 3: //item 4
 							{
-								gotoXY(8, 17); std::cout << "No item in slot 3.  You lose your turn.        ";
-							}
-							break;
-						}
-						case 3: //item 4
-						{
-							gotoXY(6, 15); std::cout << "  ";
-							if (item4Ptr != NULL)
-							{
-								//heal player
-								playerHP = playerHP + item4Ptr->getStat();
-								if (playerHP > playerMaxHP)
+								gotoXY(6, 15); std::cout << "  ";
+								if (item4Ptr != NULL)
 								{
-									gotoXY(8, 17); std::cout << "You were healed for " << playerMaxHP + item4Ptr->getStat() - playerHP << " hit points.         ";
-									playerHP = playerMaxHP;
+									//heal player
+									playerHP = playerHP + item4Ptr->getStat();
+									if (playerHP > playerMaxHP)
+									{
+										gotoXY(8, 17); std::cout << "You were healed for " << playerMaxHP + item4Ptr->getStat() - playerHP << " hit points.         ";
+										playerHP = playerMaxHP;
+									}
+									else
+									{
+										gotoXY(8, 17); std::cout << "You were healed for " << item4Ptr->getStat() << " hit points.         ";
+									}
+									//remove item and shift other items
+									item4Ptr = NULL;
 								}
 								else
 								{
-									gotoXY(8, 17); std::cout << "You were healed for " << item4Ptr->getStat() << " hit points.         ";
+									gotoXY(8, 17); std::cout << "No item in slot 4.  You lose your turn.        ";
 								}
-								//remove item and shift other items
-								item4Ptr = NULL;
+								break;
 							}
-							else
+							} // close switch
+							  //enemy attacks
+							int enemyTrueDamage = ((enemyDamage * (rand() % 20 + 91)) / 100) - (playerDefense / 10); //deals 90-110% damage minus 10% player defense
+							playerHP = playerHP - enemyTrueDamage;
+							gotoXY(8, 19); std::cout << enemyName << " has " << enemyHP << " hit points remaining.         ";
+							gotoXY(8, 20); std::cout << enemyName << " hits you for " << enemyTrueDamage << " damage.        ";
+
+							gotoXY(8, 9); std::cout << "Your current HP: " << playerHP << "              ";
+
+							if (playerHP <= 0) //player is dead
 							{
-								gotoXY(8, 17); std::cout << "No item in slot 4.  You lose your turn.        ";
+								gotoXY(8, 22); std::cout << "You are dead!  Game over!                  ";
+								while (1); //game ends
 							}
-							break;
-						}
-						} // close switch
-						  //enemy attacks
+							item_menu = false;
+						} //close if
+					} while (item_menu);
+					y = 12;
+					gotoXY(6, 12); std::cout << "->";
+					item_menu_item = 0;
+					item_menu = true;
+					break;
+				}
+				case 2: //run
+				{
+					gotoXY(8, 15); std::cout << "                                               ";
+					gotoXY(8, 16); std::cout << "                                               ";
+					gotoXY(8, 17); std::cout << "                                               ";
+					gotoXY(8, 18); std::cout << "                                               ";
+					gotoXY(8, 19); std::cout << "                                               ";
+					gotoXY(8, 20); std::cout << "                                               ";
+					gotoXY(8, 21); std::cout << "                                               ";
+					gotoXY(8, 22); std::cout << "                                               ";
+					gotoXY(6, 14); std::cout << "  ";
+					int random = rand() % 5; //80% chance to run away successfully
+					if (random == 0)
+					{
+						gotoXY(8, 11); std::cout << "Run away attempt has failed.                   ";
+						//enemy attacks
 						int enemyTrueDamage = ((enemyDamage * (rand() % 20 + 91)) / 100) - (playerDefense / 10); //deals 90-110% damage minus 10% player defense
 						playerHP = playerHP - enemyTrueDamage;
-						gotoXY(8, 19); std::cout << "The " << enemyName << " has " << enemyHP << " hit points remaining.         ";
-						gotoXY(8, 20); std::cout << "The " << enemyName << " hits you for " << enemyTrueDamage << " damage.        ";
+						gotoXY(8, 13); std::cout << enemyName << " has " << enemyHP << " hit points remaining.         ";
+						gotoXY(8, 14); std::cout << enemyName << " hits you for " << enemyTrueDamage << " damage.        ";
 
 						gotoXY(8, 9); std::cout << "Your current HP: " << playerHP << "              ";
 
 						if (playerHP <= 0) //player is dead
 						{
-							gotoXY(8, 22); std::cout << "You are dead!  Game over!                  ";
+							gotoXY(8, 16); std::cout << "You are dead!  Game over!                  ";
 							while (1); //game ends
 						}
-						item_menu = false;
-					} //close if
-				} while (item_menu);
-				y = 12;
-				gotoXY(6, 12); std::cout << "->";
-				item_menu_item = 0;
-				item_menu = true;
-				break;
-			}
-			case 2: //run
-			{
-				gotoXY(8, 15); std::cout << "                                               ";
-				gotoXY(8, 16); std::cout << "                                               ";
-				gotoXY(8, 17); std::cout << "                                               ";
-				gotoXY(8, 18); std::cout << "                                               ";
-				gotoXY(8, 19); std::cout << "                                               ";
-				gotoXY(8, 20); std::cout << "                                               ";
-				gotoXY(8, 21); std::cout << "                                               ";
-				gotoXY(8, 22); std::cout << "                                               ";
-				gotoXY(6, 14); std::cout << "  ";
-				int random = rand() % 5; //80% chance to run away successfully
-				if (random == 0)
-				{
-					gotoXY(8, 11); std::cout << "Run away attempt has failed.                   ";
-					//enemy attacks
-					int enemyTrueDamage = ((enemyDamage * (rand() % 20 + 91)) / 100) - (playerDefense / 10); //deals 90-110% damage minus 10% player defense
-					playerHP = playerHP - enemyTrueDamage;
-					gotoXY(8, 13); std::cout << "The " << enemyName << " has " << enemyHP << " hit points remaining.         ";
-					gotoXY(8, 14); std::cout << "The " << enemyName << " hits you for " << enemyTrueDamage << " damage.        ";
-
-					gotoXY(8, 9); std::cout << "Your current HP: " << playerHP << "              ";
-
-					if (playerHP <= 0) //player is dead
-					{
-						gotoXY(8, 16); std::cout << "You are dead!  Game over!                  ";
-						while (1); //game ends
 					}
+					else
+					{
+						gotoXY(8, 11); std::cout << "RUN AWAY!!!!!                                      ";
+						gotoXY(8, 12); std::cout << "                                               ";
+						gotoXY(8, 13); std::cout << "                                               ";
+						gotoXY(8, 14); std::cout << "                                               ";
+						getchar();
+						return;
+					}
+					break;
 				}
-				else
-				{
-					gotoXY(8, 11); std::cout << "Run away attempt is successful.                " << random;
-					while (1); //figure out how to escape
-				}
-				break;
+				} //close switch
+				y = 12;
+				battle_menu_item = 0;
+				//battle_menu = false;
 			}
-			} //close switch
-			y = 12;
-			battle_menu_item = 0;
-			//battle_menu = false;
+		}
+		else //you won
+		{
+			return;
 		}
 	} while (battle_menu);
 	while (1);
@@ -2685,7 +2752,7 @@ void printSquirrel()
 	gotoXY(60, 11); std::cout << "                 __        |    o    |                  ";
 	gotoXY(60, 12); std::cout << "               /    \\       \\  ---  /                   ";
 	gotoXY(60, 13); std::cout << "              |      \\     ,-      -.                   ";
-	gotoXY(60, 14); std::cout << "               \\ __/  \\   /   \\   /  \\                  ";
+	gotoXY(60, 14); std::cout << "               \\ __/  \\   /   \\\\ //  \\                  ";
 	gotoXY(60, 15); std::cout << "                   \\   | |     \"0\"    |                 ";
 	gotoXY(60, 16); std::cout << "                    \\   \\'            |                 ";
 	gotoXY(60, 17); std::cout << "                     \\      ____  ___/                  ";
@@ -2704,7 +2771,7 @@ void printBandit()
 {
 	gotoXY(60, 6);  std::cout << "                                                        ";
 	gotoXY(60, 7);  std::cout << "     \"Get ready for a beating!\"                         ";
-	gotoXY(60, 8);  std::cout << "                     .--""""--.                         ";
+	gotoXY(60, 8);  std::cout << "                     .--\"\"\"\"--.                         ";
 	gotoXY(60, 9);  std::cout << "                    /    \\/    \\                        ";
 	gotoXY(60, 10); std::cout << "                   }   o    o   {                       ";
 	gotoXY(60, 11); std::cout << "                    \\    <     /                        ";
@@ -2737,7 +2804,7 @@ void printHobgoblin()
 	gotoXY(60, 15); std::cout << "              |^^^^^^^^^^|^^^^^^^^     | |              ";
 	gotoXY(60, 16); std::cout << "              |^^^^^^^^^^|^^^^^^^^     | |              ";
 	gotoXY(60, 17); std::cout << "              |    /\\    |^^^^^^^^     | |              ";
-	gotoXY(60, 18); std::cout << "               \\   \/   /=========     | |              ";
+	gotoXY(60, 18); std::cout << "               \\   \\/   /=========     | |              ";
 	gotoXY(60, 19); std::cout << "                \\      /|        |     | |              ";
 	gotoXY(60, 20); std::cout << "                 \\    / |   /\\   |     | |              ";
 	gotoXY(60, 21); std::cout << "                  \\__/  |__|  |__|     | |              ";
@@ -2750,7 +2817,7 @@ void printPirate()
 {
 	gotoXY(60, 6);  std::cout << "                                                        ";
 	gotoXY(60, 7);  std::cout << "     \"Where's me booty?!\"                               ";
-	gotoXY(60, 8);  std::cout << "                     .--""""--.                         ";
+	gotoXY(60, 8);  std::cout << "                     .--\"\"\"\"--.                         ";
 	gotoXY(60, 9);  std::cout << "                    /    \\/    \\                        ";
 	gotoXY(60, 10); std::cout << "                   }   o    o   {                       ";
 	gotoXY(60, 11); std::cout << "                   o\\    <     /o                         ";
@@ -2818,7 +2885,7 @@ void printSpider()
 void printRobot()
 {
 	gotoXY(60, 6);  std::cout << "                    (\\. -- ./)                          ";
-	gotoXY(60, 7);  std::cout << "                O-0)))--|     \      \"ELIMINATE!\"       ";
+	gotoXY(60, 7);  std::cout << "                O-0)))--|     \\      \"ELIMINATE!\"       ";
 	gotoXY(60, 8);  std::cout << "                  |____________|                        ";
 	gotoXY(60, 9);  std::cout << "                   -|--|--|--|-                         ";
 	gotoXY(60, 10); std::cout << "                   _T~_T~_T~_T_                         ";
